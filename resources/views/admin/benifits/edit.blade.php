@@ -1,5 +1,6 @@
 @extends('admin.index')
 @section('main')
+<link href="/assetsAdmin/libs/dropify/dist/css/dropify.min.css" rel="stylesheet">
 
     <div class="main-content" id="result">
         <div class="page-content">
@@ -54,14 +55,7 @@
                                     <div class="mb-3 row">
                                         <div class="mt-3">
                                             <label for="formFile" class="form-label">{{__('messages.Image')}}</label>
-                                            <input class="form-control" type="file" name="image" id="formFile">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">Image Last</label>
-                                        <div class="col-md-10">
-                                            <img src="{{ asset('uploads/' . $benifits->image) }}" alt="" width="100px" height="100px">
+                                            <input class="dropify" data-default-file="{{ asset('uploads/' . $benifits->image) }}" type="file" name="image" >
                                         </div>
                                     </div>
 
@@ -79,5 +73,12 @@
             </div>
         </div>
     </div>
-
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+    <script src="/assetsAdmin/libs/dropify/dropify.min.js"></script>
+    <script>
+        $('.dropify').dropify();
+    </script>
 @endsection

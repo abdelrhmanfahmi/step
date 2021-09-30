@@ -1,6 +1,6 @@
 @extends('admin.index')
 @section('main')
-<link href="/assetsAdmin/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+<link href="/assetsAdmin/libs/dropify/dist/css/dropify.min.css" rel="stylesheet">
 
     <div class="main-content" id="result">
         <div class="page-content">
@@ -51,16 +51,10 @@
                                         </div>
                                     </div>
                                     
-                                    <div class="mb-3 row dropzone">
-                                        <div class="fallback">
-                                            <input name="image" type="file">
-                                        </div>
-                                        <div class="dz-message needsclick">
-                                            <div class="mb-3">
-                                                <i class="display-4 text-muted bx bxs-cloud-upload"></i>
-                                            </div>
-                                            
-                                            <h4>{{__('messages.Drop Image here')}} </h4>
+                                    <div class="mb-3 row">
+                                    <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Image')}}</label>
+                                        <div class="col-md-10">
+                                            <input name="image" class="dropify" type="file">
                                         </div>
                                     </div>
                                 
@@ -78,12 +72,12 @@
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="/assetsAdmin/libs/dropzone/min/dropzone.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="/assetsAdmin/libs/dropify/dropify.min.js"></script>
     <script>
-        Dropzone.autoDiscover = false;
-        $(document).ready(function () {
-            $(".dropzone").dropzone();
-        });
+        $('.dropify').dropify();
     </script>
 @endsection
