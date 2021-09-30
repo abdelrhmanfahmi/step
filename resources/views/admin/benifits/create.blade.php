@@ -38,14 +38,14 @@
                                 <form action="{{route('benifits.store' , app()->getLocale())}}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">Title(Arabic)</label>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Title_ar')}}</label>
                                         <div class="col-md-10">
                                             <input class="form-control" name="title_ar" placeholder="Enter Title" type="text">
                                         </div>
                                     </div>
 
                                     <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">Title(English)</label>
+                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Title_en')}}</label>
                                         <div class="col-md-10">
                                             <input class="form-control" name="title_en" placeholder="Enter Title" type="text">
                                         </div>
@@ -66,7 +66,7 @@
                                 
                                     <div class="mb-3 row">
                                         <div class="col-md-10">
-                                            <button class="btn btn-success" type="submit">Save</button>
+                                            <button class="btn btn-success" type="submit">{{__('messages.Save')}}</button>
                                         </div>
                                     </div>
                                    

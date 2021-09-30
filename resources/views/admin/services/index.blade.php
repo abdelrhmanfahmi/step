@@ -1,6 +1,11 @@
 @extends('admin.index')
 @section('main')
-
+<style>
+    .swal2-shown {
+        overflow: unset !important;
+        padding-right: 0px !important;
+    }
+</style>
     <div class="main-content" id="result">
         <div class="page-content">
 
@@ -53,19 +58,51 @@
                                                             <td>{{$service->service_en}}</td>
                                                             <td>{{@App\Package::find($service->package_id)->name_ar}}</td>
                                                             <td>
-                                                                <a href="edit/services/{{$service->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
-                                                                <a href="{{route('services.delete' , ['language' => app()->getLocale() , 'id' => $service->id])}}" onclick="return confirm('Are You Sure You Want To Delete !');" class="btn btn-danger">{{__('messages.Delete')}}</a>
+                                                                <a href="edit/services/{{$service->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>                                                              
+                                                                <a data-swal-template="#my-templateEn{{$service->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
                                                             </td>
                                                         </tr>
+                                                        <template id="my-templateEn{{$service->id}}">
+                                                            <swal-title>
+                                                                Do You Want To Delete This Service?
+                                                            </swal-title>
+                                                            <swal-icon type="warning" color="red"></swal-icon>
+                                                            <swal-button type="confirm">
+                                                                <a href="{{route('services.delete' , ['language' => app()->getLocale() , 'id' => $service->id])}}" style="color:white;">{{__('messages.Delete')}}</a>
+                                                            </swal-button>
+                                                            <swal-button type="cancel">
+                                                                cancel
+                                                            </swal-button>
+                                                            <swal-param name="allowEscapeKey" value="false" />
+                                                            <swal-param
+                                                                name="customClass"
+                                                                value='{ "popup": "my-popup" }' />
+                                                        </template>
                                                     @else
                                                         <tr>
                                                             <td>{{$service->service_ar}}</td>                                                         
                                                             <td>{{@App\Package::find($service->package_id)->name_ar}}</td>
                                                             <td>
-                                                                <a href="edit/services/{{$service->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
-                                                                <a href="{{route('services.delete' , ['language' => app()->getLocale() , 'id' => $service->id])}}" onclick="return confirm('Are You Sure You Want To Delete !');" class="btn btn-danger">{{__('messages.Delete')}}</a>
+                                                                <a href="edit/services/{{$service->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>                                                               
+                                                                <a data-swal-template="#my-templateAr{{$service->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
                                                             </td>
                                                         </tr>
+                                                        <template id="my-templateAr{{$service->id}}">
+                                                            <swal-title>
+                                                                هل تريد مسح  هذه الخدمة؟
+                                                            </swal-title>
+                                                            <swal-icon type="warning" color="red"></swal-icon>
+                                                            <swal-button type="confirm">
+                                                                <a href="{{route('services.delete' , ['language' => app()->getLocale() , 'id' => $service->id])}}" style="color:white;">{{__('messages.Delete')}}</a>
+                                                            </swal-button>
+                                                            <swal-button type="cancel">
+                                                                إلغاء
+                                                            </swal-button>
+                                                            <swal-param name="allowEscapeKey" value="false" />
+                                                            <swal-param
+                                                                name="customClass"
+                                                                value='{ "popup": "my-popup" }' />
+                                                        </template>
                                                     @endif
                                                 @endforeach
                                             @else
@@ -89,4 +126,12 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.bindClickHandler()
+    
+        Swal.mixin({
+        modal: true,
+        }).bindClickHandler('data-swal-template')
+    </script>
 @endsection

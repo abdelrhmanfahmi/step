@@ -18,7 +18,11 @@
     <link href="/assetsAdmin/css/bootstrap-rtl.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     @endif
     <!-- Icons Css -->
+    @if ( Config::get('app.locale') == 'en')
     <link href="/assetsAdmin/css/icons.min.css" rel="stylesheet" type="text/css" />
+    @else
+    <link href="/assetsAdmin/css/icons-rtl.min.css" rel="stylesheet" type="text/css" />
+    @endif
     <!-- App Css-->
     @if ( Config::get('app.locale') == 'en')
     <link href="/assetsAdmin/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
@@ -343,40 +347,76 @@
                                 @foreach(getNotifications() as $notification)
                                 @if($notification->subscripe_id != null)
                                     <a href="{{route('subscripes.edit' , ['language' => app()->getLocale() , 'id' => $notification->subscriptions->id])}}" class="text-reset notification-item">
-                                        <div class="d-flex">
-                                            <div class="avatar-xs me-3">
-                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                    <i class="bx bx-plus"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->subscriptions->email}}</h6>
-                                                <div class="font-size-12 text-muted">
-                                                    <p class="mb-1" key="t-grammer">This Member Subscriped Into Your System !!</p>
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                            key="t-min-ago">3 min ago</span></p>
+                                        @if($notification->viewed == 0)
+                                            <div class="d-flex" style="background-color:#eee;">
+                                                <div class="avatar-xs me-3">
+                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                        <i class="bx bx-plus"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->subscriptions->email}}</h6>
+                                                    <div class="font-size-12 text-muted">
+                                                        <p class="mb-1" key="t-grammer">This Member Subscriped Into Your System !!</p>
+                                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
+                                                                key="t-min-ago">3 min ago</span></p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @else
+                                            <div class="d-flex" style="background-color:#fff;">
+                                                <div class="avatar-xs me-3">
+                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                        <i class="bx bx-plus"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->subscriptions->email}}</h6>
+                                                    <div class="font-size-12 text-muted">
+                                                        <p class="mb-1" key="t-grammer">This Member Subscriped Into Your System !!</p>
+                                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
+                                                                key="t-min-ago">3 min ago</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </a>
                                     
                                 @elseif($notification->contact_id != null)
                                     <a href="{{route('contacts.edit' , ['language' => app()->getLocale() , 'id' => $notification->contacts->id])}}" class="text-reset notification-item">
-                                        <div class="d-flex">
-                                            <div class="avatar-xs me-3">
-                                                <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                    <i class="bx bx-plus"></i>
-                                                </span>
-                                            </div>
-                                            <div class="flex-grow-1">
-                                                <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->contacts->email}}</h6>
-                                                <div class="font-size-12 text-muted">
-                                                    <p class="mb-1" key="t-grammer">This Member Contacted Into Your System !!</p>
-                                                    <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                            key="t-min-ago">3 min ago</span></p>
+                                        @if($notification->viewed == 0)
+                                            <div class="d-flex" style="background-color:#eee;">
+                                                <div class="avatar-xs me-3">
+                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                        <i class="bx bx-plus"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->contacts->email}}</h6>
+                                                    <div class="font-size-12 text-muted">
+                                                        <p class="mb-1" key="t-grammer">This Member Contacted Into Your System !!</p>
+                                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
+                                                                key="t-min-ago">3 min ago</span></p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @else
+                                            <div class="d-flex" style="background-color:#fff;">
+                                                <div class="avatar-xs me-3">
+                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                                        <i class="bx bx-plus"></i>
+                                                    </span>
+                                                </div>
+                                                <div class="flex-grow-1">
+                                                    <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->contacts->email}}</h6>
+                                                    <div class="font-size-12 text-muted">
+                                                        <p class="mb-1" key="t-grammer">This Member Contacted Into Your System !!</p>
+                                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
+                                                                key="t-min-ago">3 min ago</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
                                     </a>
                                 @else
 

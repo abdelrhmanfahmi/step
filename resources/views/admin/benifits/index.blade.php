@@ -1,6 +1,11 @@
 @extends('admin.index')
 @section('main')
-
+<style>
+    .swal2-shown {
+        overflow: unset !important;
+        padding-right: 0px !important;
+    }
+</style>
     <div class="main-content" id="result">
         <div class="page-content">
 
@@ -54,18 +59,50 @@
                                                         <td><img src="{{ asset('uploads/' . $benifit->image) }}" alt="" width="50px" height="50px"></td>
                                                         <td>
                                                             <a href="edit/benifits/{{$benifit->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
-                                                            <a href="{{route('benifits.delete' , ['language' => app()->getLocale() , 'id' => $benifit->id])}}" onclick="return confirm('Are You Sure You Want To Delete !');" class="btn btn-danger">{{__('messages.Delete')}}</a>
+                                                            <a data-swal-template="#my-templateEn{{$benifit->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
                                                         </td>
                                                     </tr>
+                                                    <template id="my-templateEn{{$benifit->id}}">
+                                                        <swal-title>
+                                                            Do You Want To Delete This Benifit?
+                                                        </swal-title>
+                                                        <swal-icon type="warning" color="red"></swal-icon>
+                                                        <swal-button type="confirm">
+                                                            <a href="{{route('benifits.delete' , ['language' => app()->getLocale() , 'id' => $benifit->id])}}" style="color:white;">{{__('messages.Delete')}}</a>
+                                                        </swal-button>
+                                                        <swal-button type="cancel">
+                                                            cancel
+                                                        </swal-button>
+                                                        <swal-param name="allowEscapeKey" value="false" />
+                                                        <swal-param
+                                                            name="customClass"
+                                                            value='{ "popup": "my-popup" }' />
+                                                    </template>
                                                 @else
                                                     <tr>
                                                         <td>{{$benifit->title_ar}}</td>
                                                         <td><img src="{{ asset('uploads/' . $benifit->image) }}" alt="" width="50px" height="50px"></td>
                                                         <td>
                                                             <a href="edit/benifits/{{$benifit->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
-                                                            <a href="{{route('benifits.delete' , ['language' => app()->getLocale() , 'id' => $benifit->id])}}" onclick="return confirm('Are You Sure You Want To Delete !');" class="btn btn-danger">{{__('messages.Delete')}}</a>
+                                                            <a data-swal-template="#my-templateAr{{$benifit->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
                                                         </td>
                                                     </tr>
+                                                    <template id="my-templateAr{{$benifit->id}}">
+                                                        <swal-title>
+                                                            هل تريد مسح هذه الفائدة؟
+                                                        </swal-title>
+                                                        <swal-icon type="warning" color="red"></swal-icon>
+                                                        <swal-button type="confirm">
+                                                            <a href="{{route('benifits.delete' , ['language' => app()->getLocale() , 'id' => $benifit->id])}}" style="color:white;">{{__('messages.Delete')}}</a>
+                                                        </swal-button>
+                                                        <swal-button type="cancel">
+                                                            إلغاء
+                                                        </swal-button>
+                                                        <swal-param name="allowEscapeKey" value="false" />
+                                                        <swal-param
+                                                            name="customClass"
+                                                            value='{ "popup": "my-popup" }' />
+                                                    </template>
                                                 @endif    
                                                 @endforeach
                                             @else
@@ -82,4 +119,12 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.bindClickHandler()
+    
+        Swal.mixin({
+        modal: true,
+        }).bindClickHandler('data-swal-template')
+    </script>
 @endsection

@@ -30,6 +30,7 @@
         "@fortawesome/vue-fontawesome": "^2.0.2",
         "@smartweb/vue-flash-message": "^0.6.10",
         "bootstrap-vue": "^2.21.2",
+        "sweetalert2": "^11.1.7",
         "vue-anchor-router-link": "^0.8.5",
         "vue-i18n": "^8.25.0",
         "vue-router": "^3.5.2",

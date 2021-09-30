@@ -1,6 +1,11 @@
 @extends('admin.index')
 @section('main')
-
+<style>
+    .swal2-shown {
+        overflow: unset !important;
+        padding-right: 0px !important;
+    }
+</style>
     <div class="main-content" id="result">
         <div class="page-content">
 
@@ -49,9 +54,25 @@
                                                         <td>{{@App\Package::find($subscripe->package_id)->name_ar}}</td>
                                                         <td>
                                                             <a href="edit/subscripes/{{$subscripe->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
-                                                            <a href="{{route('subscripes.delete' , ['language' => app()->getLocale() , 'id' => $subscripe->id])}}" onclick="return confirm('Are You Sure You Want To Delete !');" class="btn btn-danger">{{__('messages.Delete')}}</a>
+                                                            <a data-swal-template="#my-template{{$subscripe->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
                                                         </td>
                                                     </tr>
+                                                    <template id="my-template{{$subscripe->id}}">
+                                                        <swal-title>
+                                                            هل تريد حذف هذا الاشتراك؟
+                                                        </swal-title>
+                                                        <swal-icon type="warning" color="red"></swal-icon>
+                                                        <swal-button type="confirm">
+                                                            <a href="{{route('subscripes.delete' , ['language' => app()->getLocale() , 'id' => $subscripe->id])}}" style="color:white;">{{__('messages.Delete')}}</a>
+                                                        </swal-button>
+                                                        <swal-button type="cancel">
+                                                                إلغاء
+                                                            </swal-button>
+                                                        <swal-param name="allowEscapeKey" value="false" />
+                                                        <swal-param
+                                                            name="customClass"
+                                                            value='{ "popup": "my-popup" }' />
+                                                    </template>
                                                 @endforeach
                                             @else
                                                     <tr><td colspan="5" class="text-center">{{__('messages.No Data Yet')}}</td></tr>
@@ -67,4 +88,12 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.bindClickHandler()
+    
+        Swal.mixin({
+        modal: true,
+        }).bindClickHandler('data-swal-template')
+    </script>
 @endsection

@@ -1,6 +1,11 @@
 @extends('admin.index')
 @section('main')
-
+<style>
+    .swal2-shown {
+        overflow: unset !important;
+        padding-right: 0px !important;
+    }
+</style>
     <div class="main-content" id="result">
         <div class="page-content">
 
@@ -54,18 +59,50 @@
                                                             <td>{{$extra_package->price}}</td>
                                                             <td>
                                                                 <a href="edit/extra_packages/{{$extra_package->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
-                                                                <a href="{{route('extra_packages.delete' , ['language' => app()->getLocale() , 'id' => $extra_package->id])}}" onclick="return confirm('Are You Sure You Want To Delete !');" class="btn btn-danger">{{__('messages.Delete')}}</a>
+                                                                <a data-swal-template="#my-templateEn{{$extra_package->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
                                                             </td>
                                                         </tr>
+                                                        <template id="my-templateEn{{$extra_package->id}}">
+                                                            <swal-title>
+                                                                Do You Want To Delete This Extra Package?
+                                                            </swal-title>
+                                                            <swal-icon type="warning" color="red"></swal-icon>
+                                                            <swal-button type="confirm">
+                                                                <a href="{{route('extra_packages.delete' , ['language' => app()->getLocale() , 'id' => $extra_package->id])}}" style="color:white;">{{__('messages.Delete')}}</a>
+                                                            </swal-button>
+                                                            <swal-button type="cancel">
+                                                                cancel
+                                                            </swal-button>
+                                                            <swal-param name="allowEscapeKey" value="false" />
+                                                            <swal-param
+                                                                name="customClass"
+                                                                value='{ "popup": "my-popup" }' />
+                                                        </template>
                                                     @else
                                                         <tr>
                                                             <td>{{$extra_package->name_ar}}</td>                                                           
                                                             <td>{{$extra_package->price}}</td>
                                                             <td>
                                                                 <a href="edit/extra_packages/{{$extra_package->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
-                                                                <a href="{{route('extra_packages.delete' , ['language' => app()->getLocale() , 'id' => $extra_package->id])}}" onclick="return confirm('Are You Sure You Want To Delete !');" class="btn btn-danger">{{__('messages.Delete')}}</a>
+                                                                <a data-swal-template="#my-templateAr{{$extra_package->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
                                                             </td>
                                                         </tr>
+                                                        <template id="my-templateAr{{$extra_package->id}}">
+                                                            <swal-title>
+                                                                هل تريد مسح  هذه الباقة الإضافية؟
+                                                            </swal-title>
+                                                            <swal-icon type="warning" color="red"></swal-icon>
+                                                            <swal-button type="confirm">
+                                                                <a href="{{route('extra_packages.delete' , ['language' => app()->getLocale() , 'id' => $extra_package->id])}}" style="color:white;">{{__('messages.Delete')}}</a>                                                              
+                                                            </swal-button>
+                                                            <swal-button type="cancel">
+                                                                إلغاء
+                                                            </swal-button>
+                                                            <swal-param name="allowEscapeKey" value="false" />
+                                                            <swal-param
+                                                                name="customClass"
+                                                                value='{ "popup": "my-popup" }' />
+                                                        </template>
                                                     @endif
                                                 @endforeach
                                             @else
@@ -82,4 +119,12 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Swal.bindClickHandler()
+    
+        Swal.mixin({
+        modal: true,
+        }).bindClickHandler('data-swal-template')
+    </script>
 @endsection
