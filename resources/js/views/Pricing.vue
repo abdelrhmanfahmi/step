@@ -1,0 +1,882 @@
+<template>
+    <div class="pricing">
+        <link rel="stylesheet" 
+        href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
+        crossorigin="anonymous">
+
+        <section class="pt-5" style="padding-bottom:20px;">
+            <div class="container">
+                <div class="mt-5" id="pricing" style="direction:rtl;" v-if="this.$route.params.lang == 'ar'">
+                    <div class="pricing-table-section text-center text-lg-left">
+                        <div class="row no-gutters border rounded fahmy-top justify-content-end bg-white">
+                            <div class="col">
+                                <h5 class="mb-4 premCssAr">مزايا {{ packagess.name_ar }}</h5>
+                            </div>
+                            <div class="col text-center">
+                                <h4 class="mb-4 dataCss">
+                                    <span class="h5 mb-0 mr-1 mr-sm-2" style="color:#6653ff;font-family:ap;">SAR</span>
+                                    <span class="display-4 mb-0 text-dark">{{ packagess.price }}</span>
+                                    <span class="text-small mb-3 mb-md-4" style="color:#6653ff;font-family:ap;">{{ packagess.user_ar }}</span>
+                                </h4>
+                            </div>
+                            <div class="col text-center">
+                                <a @click="scrollMeTo('subscribe')" class="btn mb-4 hrefCssAr">
+                                    <span style="color:#fff;">{{ $t('Pricing.Go Premium') }}</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="border rounded">
+                            <div class="row no-gutters align-items-center" v-for="serv in services" :key="serv.id">
+                                <div class="col-12 col-lg-3  py-3 py-md-4">
+                                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+                                        <h6 class="mb-0 ml-lg-4 dataAr">{{ serv.service_ar }}</h6>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    <div class="rounded-circle" style="background-color:#6653ff;width:32px;height:32px;">
+                                        <i class="fas fa-check" style="color:#fff;margin:8px;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5" id="pricing" style="direction:ltr" v-else>
+                    <div class="pricing-table-section text-center text-lg-left">
+                        <div class="row no-gutters border rounded fahmy-top justify-content-end bg-white">
+                            <div class="col">
+                                <h5 class="mb-4 premCss" style="color:#6653ff;font-family:abo;">{{ packagess.name_en }} Features</h5>
+                            </div>
+                            <div class="col text-center">
+                                <h4 class="mb-4 dataCss">
+                                    <span class="h5 mb-0 mr-1 mr-sm-2" style="color:#6653ff;font-family:ap;">SAR</span>
+                                    <span class="display-4 mb-0 text-dark">{{ packagess.price }}</span>
+                                    <span class="text-small mb-3 mb-md-4" style="color:#6653ff;font-family:ap;">{{ packagess.user_en }}</span>
+                                </h4>
+                            </div>
+                            <div class="col text-center">
+                                <a @click="scrollMeTo('subscribe')" class="btn mb-4 hrefCss">
+                                    <span style="color:#fff;">{{ $t('Pricing.Go Premium') }}</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="border rounded">
+                            <div class="row no-gutters align-items-center" v-for="serv in services" :key="serv.id">
+                                <div class="col-12 col-lg-3  py-3 py-md-4">
+                                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+                                        <h6 class="mb-0 ml-lg-4" style="color:#6653ff;font-family:ap;">{{ serv.service_en }}</h6>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    <div class="rounded-circle" style="background-color:#6653ff;width:32px;height:32px;">
+                                        <i class="fas fa-check" style="color:#fff;margin:8px;"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pt-5">
+            <div class="container">
+                <div class="mt-5" id="pricing" style="direction:rtl;" v-if="this.$route.params.lang == 'ar'">
+                    <div class="pricing-table-section text-center text-lg-left">
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <h5 class="mb-4 text-right" style="font-family:abo;color:#6653ff;direction:rtl;">باقات إضافية</h5>
+                            </div>
+                        </div>
+                        <div class="border rounded">
+                            <div class="row no-gutters align-items-center" v-for="extraPackage in extraPackages" :key="extraPackage.id">
+                                <div class="col-12 col-lg-3  py-3 py-md-4">
+                                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+                                        <h6 class="mb-0 ml-lg-4" style="color:#6653ff;font-family:ap;position:relative;right:20px;">{{ extraPackage.name_ar }}</h6>
+                                    </div>
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                <span style="font-size:20px;"><span style="color:#6653ff;font-family:ap;font-size:12px;">SAR</span> {{ extraPackage.price }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-5" id="pricing" style="direction:ltr;" v-else>
+                    <div class="pricing-table-section text-center text-lg-left">
+                        <div class="row no-gutters">
+                            <div class="col">
+                                <h5 class="mb-4" style="font-family:abo;color:#6653ff;direction:ltr;">Extra Packages</h5>
+                            </div>
+                        </div>
+                        <div class="border rounded">
+                            <div class="row no-gutters align-items-center" v-for="extraPackage in extraPackages" :key="extraPackage.id">
+                                <div class="col-12 col-lg-3  py-3 py-md-4">
+                                <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
+                                    <h6 class="mb-0 ml-lg-4" style="color:#6653ff;font-family:ap;position:relative;right:20px;">{{ extraPackage.name_en }}</h6>
+                                </div>
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                    
+                                </div>
+                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
+                                <span style="font-size:20px;"><span style="color:#6653ff;font-family:ap;font-size:12px;">SAR</span> {{ extraPackage.price }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section ref="subscribe" id="subscribe" class="pt-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="display-4 text-center" style="color:#6653ff;font-family:ap;">{{ $t('Pricing.Subscribe Now!') }}</h3>
+                    </div>
+                </div>
+
+                <div class="row" v-if="this.$route.params.lang == 'ar'">
+                    <div class="col-md-10" data-aos-delay="250">
+                        <div class="card card-body subscribesPricing">
+                            <form class="formSubscribe" @submit.prevent="formSubmitAr">
+                                <div class="form-group text-right">
+                                    <label>{{ $t('Pricing.Your Name') }}</label>
+                                    <input v-model="name" type="text" class="form-control text-right" placeholder="اكتب هنا">
+                                    <div class="invalid-feedback" v-if="errors.name" style="display:block;">{{ errors.name[0] }}</div>
+                                </div>
+
+                                <div class="form-group text-right">
+                                    <label>{{ $t('Pricing.Email Address') }}</label>
+                                    <input v-model="email" type="email" class="form-control text-right" placeholder="you@yoursite.com">
+                                    <div class="invalid-feedback" v-if="errors.email" style="display:block;">{{ errors.email[0] }}</div>
+                                </div>
+
+                                <div class="form-group text-right">
+                                    <label>{{ $t('Pricing.Company Size') }}</label>
+                                    <div class="position-relative">
+                                        <select v-model="company_size" class="custom-select" dir="rtl">
+                                            <option selected value="">{{ $t('Pricing.Select an option') }}</option>
+                                            <option value="1-50">1-50</option>
+                                            <option value="50-500">50-500</option>
+                                            <option value="500+">500+</option>
+                                        </select>
+                                        <div class="invalid-feedback" v-if="errors.company_size" style="display:block;">{{ errors.company_size[0] }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-right">
+                                    <label>{{ $t('Pricing.Packages') }}</label>
+                                    <div class="position-relative">
+                                        <select v-model="package_id" class="custom-select" dir="rtl">
+                                            <option disabled value="">{{ $t('Pricing.Select an option') }}</option>
+                                            <option selected :value="packagess.id">{{ packagess.name_ar }}</option>
+                                        </select>
+                                        <div class="invalid-feedback" v-if="errors.package_id" style="display:block;">{{ errors.package_id[0] }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group text-right">
+                                    <label>{{ $t('Pricing.Extra Packages') }}</label>
+                                    <div class="position-relative">
+                                        <label class="mainAr" v-for="extraPackage in extraPackages" :key="extraPackage.id">
+                                            {{ extraPackage.name_ar }} <input v-model="extra_package_id" name="extra_package_id" :value="extraPackage.id" type="checkbox">
+                                            <span class="geekmarkAr"></span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-block btn-loading buttonSubscribe" type="submit">
+                                    <span style="color:#fff">{{ $t('Pricing.Subscribe') }}</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row" v-else>
+                    <div class="col-md-10" data-aos-delay="250">
+                        <div class="card card-body subscribesPricingLtr">
+                            <form class="formSubscribeLtr" @submit.prevent="formSubmitEn">
+                                <div class="form-group">
+                                    <label>{{ $t('Pricing.Your Name') }}</label>
+                                    <input type="text" v-model="name" class="form-control" placeholder="Type Here">
+                                    <div class="invalid-feedback" v-if="errors.name" style="display:block;">{{ errors.name[0] }}</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>{{ $t('Pricing.Email Address') }}</label>
+                                    <input v-model="email" type="email" class="form-control" placeholder="you@yoursite.com">
+                                    <div class="invalid-feedback" v-if="errors.email" style="display:block;">{{ errors.email[0] }}</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>{{ $t('Pricing.Company Size') }}</label>
+                                    <div class="position-relative">
+                                        <select class="custom-select" v-model="company_size">
+                                            <option selected value="">{{ $t('Pricing.Select an option') }}</option>
+                                            <option value="1-50">1-50</option>
+                                            <option value="50-500">50-500</option>
+                                            <option value="500+">500+</option>
+                                        </select>
+                                        <div class="invalid-feedback" v-if="errors.company_size" style="display:block;">{{ errors.company_size[0] }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="demo-packages">Packages</label>
+                                    <div class="position-relative">
+                                        <select class="custom-select" v-model="package_id">
+                                            <option disabled value="">{{ $t('Pricing.Select an option') }}</option>
+                                            <option selected :value="packagess.id">{{ packagess.name_en }}</option>
+                                        </select>
+                                        <div class="invalid-feedback" v-if="errors.package_id" style="display:block;">{{ errors.package_id[0] }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="extra-packages">{{ $t('Pricing.Extra Packages') }}</label>
+                                    <div class="position-relative">
+                                        <label class="main" v-for="extraPackage in extraPackages" :key="extraPackage.id">
+                                            <input v-model="extra_package_id" name="extra_package_id" :value="extraPackage.id" type="checkbox"> {{ extraPackage.name_en }}
+                                            <span class="geekmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <button class="btn btn-block btn-loading buttonSubscribeLtr" type="submit" data-loading-text="Requesting Demo">
+                                    <span style="color:#fff">{{ $t('Pricing.Subscribe') }}</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        
+    </div>
+</template>
+
+<script>
+import $ from 'jquery';
+import axios from 'axios';
+import * as price_service from "../services/price_service";
+export default {
+    name:"Pricing",
+    data: function(){
+        return {
+            packagess:{},
+            services:[],
+            extraPackages:[],
+            name:'',
+            email:'',
+            company_size:'',
+            package_id:'',
+            extra_package_id:[],
+            errors:{},
+        }
+    },
+    mounted(){
+        this.getPackage();
+        this.getServicesFromPackage();
+        this.getExtraPackages();
+    },
+    methods:{
+        scrollMeTo(refName) {
+            var element = this.$refs[refName];
+            var top = element.offsetTop;
+
+            window.scrollTo(0, top);
+        },
+        getPackage:async function(){
+            try{
+                const response = await price_service.getPackage(this.$route.params.id);
+                this.packagess = response.data;
+            }catch(error){
+                console.log(error);
+            }
+        },
+        getServicesFromPackage:async function(){
+            try{
+                const response = await price_service.getServicesFromPackage(this.$route.params.id);
+                this.services = response.data;
+            }catch(error){
+                console.log(error);
+            }
+        },
+        getExtraPackages:async function(){
+            try{
+                const response = await price_service.getExtraPackages();
+                this.extraPackages = response.data;
+            }catch(error){
+                console.log(error);
+            }
+        },
+        formSubmitAr:async function(){
+            let formData = new FormData();
+            if(this.extra_package_id.length === 0){
+                formData.append('name' , this.name);
+                formData.append('email' , this.email);
+                formData.append('company_size' , this.company_size);
+                formData.append('package_id' , this.package_id);
+                // formData.append('extra_package_id' , this.extra_package_id);
+            }else{
+                formData.append('name' , this.name);
+                formData.append('email' , this.email);
+                formData.append('company_size' , this.company_size);
+                formData.append('package_id' , this.package_id);
+                formData.append('extra_package_id' , this.extra_package_id);
+            }
+            try{
+                const response = await price_service.StoreSubscriptions(formData);
+                this.name = "";
+                this.email = "";
+                this.company_size = "";
+                this.package_id = "";
+                this.extra_package_id = [];
+                this.errors = "";
+                this.flashMessage.success({
+                    message:"لقد تم اشتراكك بنجاح في الباقة الاحترافية",
+                    time:5000
+                });
+            }catch(error){
+                console.log(error);
+                switch (error.response.status) {
+                    case 422:
+                        this.errors = error.response.data.errors;
+                        break;
+                
+                    default:
+                        this.flashMessage.error({
+                            message:"Some Error Occured",
+                            time:5000
+                        });
+                        break;
+                }
+            }
+        },
+        formSubmitEn:async function(){
+            let formData = new FormData();
+            formData.append('name' , this.name);
+            formData.append('email' , this.email);
+            formData.append('company_size' , this.company_size);
+            formData.append('package_id' , this.package_id);
+            formData.append('extra_package_id' , this.extra_package_id);
+            try{
+                const response = await price_service.StoreSubscriptions(formData);
+                this.name = "";
+                this.email = "";
+                this.company_size = "";
+                this.package_id = "";
+                this.extra_package_id = [];
+                this.errors = "";
+                this.flashMessage.success({
+                    message:"You Have been subscriped Successfully",
+                    time:5000
+                });
+            }catch(error){
+                // console.log(error);
+                switch (error.response.status) {
+                    case 422:
+                        this.errors = error.response.data.errors;
+                        break;
+                
+                    default:
+                        this.flashMessage.error({
+                            message:"Some Error Occured",
+                            time:5000
+                        });
+                        break;
+                }
+            }
+        }
+    },
+}
+</script>
+
+<style scoped>
+.subscribesPricing{
+    position:relative;
+    right:-90px;
+    -webkit-box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 15%);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 15%);
+}
+.formSubscribe{
+    padding:40px;
+}
+.buttonSubscribe{
+    background-color:#6653ff;
+    font-family:ap;
+    height:60px;
+    border-radius:26px;
+    height:45px;
+    width:500px;
+    position:relative;
+    right:-130px;
+}
+.subscribesPricingLtr{
+    position:relative;
+    right:-90px;
+    -webkit-box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 15%);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.15);
+    box-shadow: 0px 0px 5px 1px rgb(0 0 0 / 15%);
+}
+.formSubscribeLtr{
+    padding:40px;
+}
+.buttonSubscribeLtr{
+    background-color:#6653ff;
+    font-family:ap;
+    height:60px;
+    border-radius:26px;
+    height:45px;
+    width:500px;
+    position:relative;
+    right:-150px;
+}
+.dataAr{
+    color: rgb(102, 83, 255);
+    font-family: ap;
+    position: relative;
+    right: 80px;
+}
+.premCss{
+    position:relative;
+    top:50px;
+    right:-25px;
+}
+
+.premCssAr{
+    color: #6653ff;
+    font-family: abo;
+    position: relative;
+    right: -120px;
+    top: 50px;
+}
+
+.hrefCss{
+    position:relative;
+    top:40px;
+    right:0px;
+    background-color:#6653ff;
+    color:#fff;
+    font-family:ap;
+    border-radius:20px;
+    height:40px;
+}
+.hrefCssAr{
+    position:relative;
+    top:40px;
+    right:0px;
+    background-color:#6653ff;
+    color:#fff;
+    font-family:ap;
+    border-radius:20px;
+    height:40px;
+}
+
+.dataCss{
+    position:relative;
+    top:25px;
+    right:0px;
+}
+.fahmy-top{
+    position: sticky;
+    top: 71px;
+    z-index: 1020;
+}
+
+.main {
+    display: block;
+    position: relative;
+    padding-left: 45px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    /* font-size: 20px; */
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.geekmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.main:hover input ~ .geekmark {
+    background-color: #eee;
+}
+    
+.main input:active ~ .geekmark {
+    background-color: #6653ff;
+}
+    
+.main input:checked ~ .geekmark {
+    background-color: #6653ff;
+}
+    
+.geekmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.main input:checked ~ .geekmark:after {
+    display: block;
+}
+    
+.main .geekmark:after {
+    left: 8px;
+    bottom: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 4px 4px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+/* arabic */
+
+.mainAr {
+    display: block;
+    position: relative;
+    padding-right: 45px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    /* font-size: 20px; */
+}
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.geekmarkAr {
+    position: absolute;
+    top: 0;
+    left: 770px;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+.mainAr:hover input ~ .geekmarkAr {
+    background-color: #eee;
+}
+    
+.mainAr input:active ~ .geekmarkAr {
+    background-color: #6653ff;
+}
+    
+.mainAr input:checked ~ .geekmarkAr {
+    background-color: #6653ff;
+}
+    
+.geekmarkAr:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.mainAr input:checked ~ .geekmarkAr:after {
+    display: block;
+}
+    
+.mainAr .geekmarkAr:after {
+    left: 8px;
+    bottom: 7px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1340px){
+    .premCssAr{
+        position:relative;
+        right:-40px;
+    }
+    .dataAr{
+        position: relative;
+        right:165px;
+    }
+    .subscribesPricing{
+        position:relative;
+        right:-90px;
+    }
+    .buttonSubscribe{
+        position:relative;
+        right:-130px;
+    }
+    .subscribesPricingLtr{
+        position:relative;
+        right:-90px;
+    }
+    .buttonSubscribeLtr{
+        position:relative;
+        right:-150px;
+    }
+    .geekmarkAr{
+        left:770px;
+    }
+}
+
+@media only screen and (width : 1024px){
+    .premCssAr{
+        position:relative;
+        right:-45px;
+    }
+    .dataAr{
+        position:relative;
+        right:100px;
+    }
+    .subscribesPricing{
+        position:relative;
+        right:-70px;
+    }
+    .buttonSubscribe{
+        position:relative;
+        right:-70px;
+    }
+    .subscribesPricingLtr{
+        position:relative;
+        right:-70px;
+    }
+    .buttonSubscribeLtr{
+        position:relative;
+        right:-70px;
+    }
+    .geekmarkAr{
+        left:620px;
+    }
+}
+
+@media screen and (min-width:768px) and (max-width:1000px) {
+    .premCssAr{
+        position:relative;
+        right:0px;
+    }
+    .dataAr{
+        position:relative;
+        right:0px;
+    }
+    .subscribesPricing{
+        position:relative;
+        right:-60px;
+    }
+    .buttonSubscribe{
+        position:relative;
+        right:-30px;
+        width:400px;
+    }
+    .subscribesPricingLtr{
+        position:relative;
+        right:-60px;
+    }
+    .buttonSubscribeLtr{
+        position:relative;
+        right:-30px;
+        width:400px;
+    }
+    .geekmarkAr{
+        left:420px;
+    }
+}
+
+@media (max-width: 500px){
+.premCss{
+    position:relative;
+    right:0px;
+}
+
+.premCssAr{
+    color: #6653ff;
+    font-family: abo;
+    position: relative;
+    right: 0px;
+    top: 50px;
+}
+
+.hrefCss{
+    position:relative;
+    right:10px;
+    top:55px;
+}
+
+.hrefCssAr{
+    position: relative;
+    right: -7px;
+    height: 80px;
+    top: 40px;
+    width: 110px;
+}
+
+.dataCss{
+    position:relative;
+    right:0px;
+}
+
+.dataAr{
+    position:relative;
+    right:0px;
+}
+.subscribesPricing{
+    position:relative;
+    right:0px;
+}
+.buttonSubscribe{
+    position:relative;
+    width:250px;
+    right:15px;
+}
+.subscribesPricingLtr{
+    position:relative;
+    right:0px;
+}
+.buttonSubscribeLtr{
+    position:relative;
+    width:250px;
+    right:15px;
+}
+.main{
+    font-size: 12px;
+}
+.mainAr{
+    font-size: 12px;
+}
+.geekmarkAr{
+    left:200px;
+}
+.fahmy-top{
+    top:62px;
+}
+}
+
+@media only screen and (width: 414px){
+    .buttonSubscribe{
+        position:relative;
+        width:300px;
+        right:20px;
+    }
+    .buttonSubscribeLtr{
+        position:relative;
+        width:300px;
+        right:20px;
+    }
+    .main{
+        font-size: 15px;
+    }
+    .mainAr{
+        font-size: 15px;
+    }
+    .geekmarkAr{
+        left:240px;
+    }
+    .hrefCss{
+        right: 3px;
+        top: 50px;
+    }
+    .hrefCssAr{
+        position: relative;
+        right: 0px;
+        height: 80px;
+        top: 30px;
+        width: 110px;
+    }
+}
+@media only screen and (width: 411px){
+    .geekmarkAr{
+        left:230px;
+    }
+    .hrefCssAr{
+        position: relative;
+        right: 0px;
+        height: 80px;
+        top: 30px;
+        width: 110px;
+    }
+}
+@media only screen and (width: 360px){
+    .main{
+        font-size: 12px;
+    }
+    .mainAr{
+        font-size: 12px;
+    }
+    .geekmarkAr{
+        left:180px;
+    }
+    .hrefCss{
+        right: 8px;
+        top: 48px;
+        height: 60px;
+    }
+}
+
+@media only screen and (width: 320px){
+    .buttonSubscribe{
+        position:relative;
+        width:220px;
+        right:25px;
+    }
+    .buttonSubscribeLtr{
+        position:relative;
+        width:220px;
+        right:25px;
+    }
+    .main{
+        font-size: 8px;
+    }
+    .mainAr{
+        font-size: 8px;
+    }
+    .geekmarkAr{
+        left:140px;
+    }
+    .hrefCss{
+        right: 6px;
+        top: 47px;
+        height: 60px;
+    }
+    .hrefCssAr{
+        width:100px;
+    }
+}
+
+</style>
