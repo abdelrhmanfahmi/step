@@ -44,6 +44,7 @@ class AdminController extends Controller
 
         $admins->save();
 
-        return redirect()->route('admin.getAdmins' , app()->getLocale());
+        // return redirect()->route('admin.getAdmins' , app()->getLocale());
+        return response()->json($admins);
     }
 }

@@ -30,7 +30,7 @@ class ContactController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|max:255|email',
             'address' => 'required|max:255',
-            'help' => 'required',
+            'help' => 'required'
         ]);
 
         $contacts = Contact::find($request->id);
@@ -42,7 +42,8 @@ class ContactController extends Controller
 
         $contacts->save();
 
-        return redirect()->route('contacts.index' , app()->getLocale());
+        // return redirect()->route('contacts.index' , app()->getLocale());
+        return response()->json($contacts);
     }
 
     public function delete($language , $id){

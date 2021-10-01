@@ -38,7 +38,8 @@ class ServiceController extends Controller
 
         $services->save();
 
-        return redirect()->route('services.index' , app()->getLocale());
+        // return redirect()->route('services.index' , app()->getLocale());
+        return response()->json($services);
     }
 
     public function edit($language , $id){
@@ -61,7 +62,8 @@ class ServiceController extends Controller
 
         $services->save();
 
-        return redirect()->route('services.index' , app()->getLocale());
+        // return redirect()->route('services.index' , app()->getLocale());
+        return response()->json($services);
     }
 
     public function delete($language , $id){

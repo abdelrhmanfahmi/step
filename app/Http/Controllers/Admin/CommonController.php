@@ -38,7 +38,8 @@ class CommonController extends Controller
 
         $common->save();
 
-        return redirect()->route('common.index' , app()->getLocale());
+        // return redirect()->route('common.index' , app()->getLocale());
+        return response()->json($common);
     }
 
     public function edit($language , $id){
@@ -62,7 +63,8 @@ class CommonController extends Controller
 
         $common->save();
 
-        return redirect()->route('common.index' , app()->getLocale());
+        // return redirect()->route('common.index' , app()->getLocale());
+        return response()->json($common);
     }
 
     public function delete($language , $id){

@@ -56,6 +56,7 @@ class SettingController extends Controller
 
         $settings->save();
 
-        return redirect()->route('settings.index' , app()->getLocale());
+        // return redirect()->route('settings.index' , app()->getLocale());
+        return response()->json($settings);
     }
 }

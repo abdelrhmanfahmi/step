@@ -1,6 +1,13 @@
 @extends('admin.index')
 @section('main')
-
+<link href="/assetsAdmin/libs/dropify/dist/css/dropify.min.css" rel="stylesheet">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+<style>
+    .swal2-shown {
+        overflow: unset !important;
+        padding-right: 0px !important;
+    }
+</style>
     <div class="main-content" id="result">
         <div class="page-content">
 
@@ -34,27 +41,27 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('services.store' , app()->getLocale()) }}" method="POST" enctype="multipart/form-data">
+                                <form id="submitForm" method="POST" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Service_ar')}}</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="service_ar" placeholder="Enter Service" type="text">
+                                            <input class="form-control" name="service_ar" id="service_ar" placeholder="Enter Service" type="text">
                                         </div>
                                     </div>
 
                                     <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Service_en')}}</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="service_en" placeholder="Enter Service" type="text">
+                                            <input class="form-control" name="service_en" id="service_en" placeholder="Enter Service" type="text">
                                         </div>
                                     </div>
 
                                     <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Package')}}</label>
                                         <div class="col-md-10">
-                                            <select name="package_id" class="form-control">
+                                            <select name="package_id" id="package_id" class="form-control">
                                             <option disabled selected>-- Choose --</option>
                                                 @foreach($packages as $package)
                                                     <option value="{{$package->id}}">{{$package->name_ar}}</option>
@@ -77,4 +84,61 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="/assetsAdmin/libs/dropify/dropify.min.js"></script>
+    <script>
+        $('.dropify').dropify();
+        $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('#submitForm').submit(function(e){
+                e.preventDefault();
+                var service_ar = $('#service_ar').val();
+                var service_en = $('#service_en').val();
+                var package_id = $('#package_id').val();
+                // console.log(package_id);
+                
+                var formData = new FormData();
+                formData.append('service_ar' , service_ar);
+                formData.append('service_en' , service_en);
+                formData.append('package_id' , package_id);
+
+                $.ajax({
+                    url:"{{route('services.store' , app()->getLocale())}}",
+                    type:"POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success:function(data){
+                        Swal.fire(
+                            'لقد تم حفظ  الخدمة بنجاح !',
+                            'اضغط علي الزر للمتابعة !',
+                            'success'
+                        )
+                        $('#service_ar').val("");
+                        $('#service_en').val("");
+                        $('#package_id').val("");
+                        
+                        
+                    },error:function(error){
+                        console.log(error.responseText);
+                        $.each(error.responseJSON.errors, function(key,value) {
+                            Swal.fire(
+                                'هناك خطأ ما عند التسجيل !',
+                                '<div style="color:red;">'+value+'</div>',
+                                'error'
+                            )
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

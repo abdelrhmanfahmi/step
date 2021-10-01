@@ -92,7 +92,8 @@ return [
     "Edit NewsLetters" => "Edit NewsLetters",
     "User_ar" => "User(Arabic)",
     "User_en" => "User(English)",
-    "Drop Image here" => "Drop Image here"
+    "Drop Image here" => "Drop Image here",
+    "Edit Benifits" => "Edit Benifits"
 ]
 
 ?>

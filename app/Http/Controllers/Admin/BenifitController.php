@@ -44,7 +44,8 @@ class BenifitController extends Controller
 
         $benifits->save();
 
-        return redirect()->route('benifits.index' , app()->getLocale());
+        // return redirect()->route('benifits.index' , app()->getLocale());
+        return response()->json($benifits);
     }
 
     public function edit($language , $id){
@@ -54,7 +55,6 @@ class BenifitController extends Controller
 
     public function update(Request $request , $id){
         $request->validate([
-            'image' => 'image|mimes:png,jpg,jpeg,svg',
             'title_ar' => 'required|max:255',
             'title_en' => 'required|max:255'
         ]);
@@ -64,9 +64,7 @@ class BenifitController extends Controller
         $benifits->title_en = $request->input('title_en');
 
         if($request->has('image')){
-            // $path = $request->file('image')->store('admin_images', 'public');
-            // $benifits->image = $path;
-
+            unlink(public_path() . '/uploads/' . $benifits->image);
             $file = $request->file('image');
             $destinationPath = public_path(). '/uploads/';
             $filename = uniqid() . '.' .  $file->extension();
@@ -76,7 +74,8 @@ class BenifitController extends Controller
 
         $benifits->save();
 
-        return redirect()->route('benifits.index' , app()->getLocale());
+        // return redirect()->route('benifits.index' , app()->getLocale());
+        return response()->json($benifits);
     }
 
     public function delete($language , $id){

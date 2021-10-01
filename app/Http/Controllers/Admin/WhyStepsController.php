@@ -39,7 +39,8 @@ class WhyStepsController extends Controller
 
         $why->save();
 
-        return redirect()->route('why.index' , app()->getLocale());
+        // return redirect()->route('why.index' , app()->getLocale());
+        return response()->json($why);
     }
 
     public function edit($language , $id){
@@ -63,7 +64,8 @@ class WhyStepsController extends Controller
 
         $why->save();
 
-        return redirect()->route('why.index' , app()->getLocale());
+        // return redirect()->route('why.index' , app()->getLocale());
+        return response()->json($why);
     }
 
     public function delete($language , $id){

@@ -1,6 +1,13 @@
 @extends('admin.index')
 @section('main')
-
+<link href="/assetsAdmin/libs/dropify/dist/css/dropify.min.css" rel="stylesheet">
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+<style>
+    .swal2-shown {
+        overflow: unset !important;
+        padding-right: 0px !important;
+    }
+</style>
     <div class="main-content" id="result">
         <div class="page-content">
 
@@ -35,27 +42,26 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form action="{{ route('admin.update' , ['language'=> app()->getLocale(), 'id'=> $admins->id ]) }}" method="POST" enctype="multipart/form-data">
+                                <form id="submitForm" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    @method('PUT')
                                     <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Name')}}</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="name" placeholder="Enter Name" value="{{$admins->name}}" type="text">
+                                            <input class="form-control" name="name" id="name" placeholder="Enter Name" value="{{$admins->name}}" type="text">
                                         </div>
                                     </div>
 
                                     <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.E-mail')}}</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="email" placeholder="Enter E-mail" value="{{$admins->email}}" type="email">
+                                            <input class="form-control" name="email" id="email" placeholder="Enter E-mail" value="{{$admins->email}}" type="email">
                                         </div>
                                     </div>
 
                                     <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Password')}}</label>
                                         <div class="col-md-10">
-                                            <input class="form-control" name="password" placeholder="Enter Password" value="{{$admins->password}}" type="password">
+                                            <input class="form-control" name="password" id="password" placeholder="Enter Password" type="password">
                                         </div>
                                     </div>
 
@@ -73,5 +79,59 @@
             </div>
         </div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="/assetsAdmin/libs/dropify/dropify.min.js"></script>
+    <script>
+        $('.dropify').dropify();
+        $(document).ready(function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $('#submitForm').submit(function(e){
+                e.preventDefault();
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var password = $('#password').val();
 
+                var formData = new FormData();
+                formData.append('name' , name);
+                formData.append('email' , email);
+                formData.append('password' , password);
+
+                $.ajax({
+                    url:"{{route('admin.update' , ['language' => app()->getLocale() , 'id' => request()->id])}}",
+                    type:"POST",
+                    data:formData,
+                    processData: false,
+                    contentType: false,
+                    success:function(data){
+                        Swal.fire(
+                            'لقد تم تعديل بيانات مدير العمليات بنجاح !',
+                            'أضغط علي الزر للمتابعة !',
+                            'success'
+                        ).then(function() {
+                            window.location = "{{route('admin.getAdmins' , app()->getLocale())}}";
+                        });
+                        
+                        
+                    },error:function(error){
+                        console.log(error.responseText);
+                        $.each(error.responseJSON.errors, function(key,value) {
+                            Swal.fire(
+                                'هناك خطأ ما عند التسجيل !',
+                                '<div style="color:red;">'+value+'</div>',
+                                'error'
+                            )
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

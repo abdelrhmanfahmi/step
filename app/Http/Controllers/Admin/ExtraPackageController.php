@@ -36,7 +36,8 @@ class ExtraPackageController extends Controller
 
         $extra_packages->save();
 
-        return redirect()->route('extra_packages.index' , app()->getLocale());
+        // return redirect()->route('extra_packages.index' , app()->getLocale());
+        return response()->json($extra_packages);
     }
 
     public function edit($language , $id){
@@ -58,7 +59,8 @@ class ExtraPackageController extends Controller
 
         $extra_packages->save();
 
-        return redirect()->route('extra_packages.index' , app()->getLocale());
+        // return redirect()->route('extra_packages.index' , app()->getLocale());
+        return response()->json($extra_packages);
     }
 
     public function delete($language , $id){

@@ -33,7 +33,8 @@ class NewsLetterController extends Controller
 
         $newsletters->save();
 
-        return redirect()->route('newsletters.index' , app()->getLocale());
+        // return redirect()->route('newsletters.index' , app()->getLocale());
+        return response()->json($newsletters);
     }
 
     public function delete($language , $id){

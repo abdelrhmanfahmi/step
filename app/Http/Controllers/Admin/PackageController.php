@@ -40,7 +40,8 @@ class PackageController extends Controller
 
         $packages->save();
 
-        return redirect()->route('packages.index' , app()->getLocale());
+        // return redirect()->route('packages.index' , app()->getLocale());
+        return response()->json($packages);
     }
 
     public function edit($language , $id){
@@ -66,7 +67,8 @@ class PackageController extends Controller
 
         $packages->save();
 
-        return redirect()->route('packages.index' , app()->getLocale());
+        // return redirect()->route('packages.index' , app()->getLocale());
+        return response()->json($packages);
     }
 
     public function delete($language , $id){
