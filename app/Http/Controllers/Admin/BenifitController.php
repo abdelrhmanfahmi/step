@@ -55,6 +55,7 @@ class BenifitController extends Controller
 
     public function update(Request $request , $id){
         $request->validate([
+            'image' => 'image|mimes:png,jpg,jpeg,svg',
             'title_ar' => 'required|max:255',
             'title_en' => 'required|max:255'
         ]);
