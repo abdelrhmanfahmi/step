@@ -62,7 +62,7 @@ return [
     "Answer_ar" => "Answer(Arabic)",
     "Answer_en" => "Answer(English)",
     "NewsLetters" => "NewsLetters",
-    "Basic" => "Basic",
+    "Basic" => "Basic Departements",
     "Pages" => "Pages",
     "Twitter" => "Twitter",
     "Facebook" => "Facebook",
@@ -93,7 +93,16 @@ return [
     "User_ar" => "User(Arabic)",
     "User_en" => "User(English)",
     "Drop Image here" => "Drop Image here",
-    "Edit Benifits" => "Edit Benifits"
+    "Edit Benifits" => "Edit Benifits",
+    "Show" => "Show",
+    "Back" => "Back",
+    "Visit" => "Visit Site",
+    "This Member Subscriped" => "This Member Subscriped Into Your System Click To Show Details !!",
+    "This Member Contacted" => "This Member Contacted Into Your System Click To Show Details !!",
+    "Email Sent" => "Email Sent",
+    "Week" => "Week",
+    "Month" => "Month",
+    "Year" => "Year"
 ]
 
 ?>

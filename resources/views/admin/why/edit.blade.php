@@ -119,11 +119,11 @@
                     processData: false,
                     contentType: false,
                     success:function(data){
-                        Swal.fire(
-                            'لقد تم تعديل لماذا ستيبس بنجاح !',
-                            'أضغط علي الزر للمتابعة !',
-                            'success'
-                        ).then(function() {
+                        Swal.fire({
+                            title: 'لقد تم تعديل لماذا ستيبس بنجاح !',
+                            confirmButtonText: 'تم',
+                            icon: 'success'
+                        }).then(function() {
                             window.location = "{{route('why.index' , app()->getLocale())}}";
                         });
                         

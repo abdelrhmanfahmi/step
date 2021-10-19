@@ -194,8 +194,8 @@
                                     <label>{{ $t('Pricing.Packages') }}</label>
                                     <div class="position-relative">
                                         <select v-model="package_id" class="custom-select" dir="rtl">
-                                            <option disabled value="">{{ $t('Pricing.Select an option') }}</option>
-                                            <option selected :value="packagess.id">{{ packagess.name_ar }}</option>
+                                            <option value="">{{ $t('Pricing.Select an option') }}</option>
+                                            <option :selected="package_id == packagess.id" :value="packagess.id">{{ packagess.name_ar }}</option>
                                         </select>
                                         <div class="invalid-feedback" v-if="errors.package_id" style="display:block;">{{ errors.package_id[0] }}</div>
                                     </div>
@@ -317,6 +317,7 @@ export default {
             try{
                 const response = await price_service.getPackage(this.$route.params.id);
                 this.packagess = response.data;
+                this.package_id = this.packagess.id
             }catch(error){
                 console.log(error);
             }
@@ -362,7 +363,7 @@ export default {
                 this.errors = "";
                 this.flashMessage.success({
                     message:"لقد تم اشتراكك بنجاح في الباقة الاحترافية",
-                    time:5000
+                    time:5000,
                 });
             }catch(error){
                 console.log(error);

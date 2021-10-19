@@ -110,11 +110,11 @@
                     processData: false,
                     contentType: false,
                     success:function(data){
-                        Swal.fire(
-                            'لقد تم تعديل هذه الباقة الإضافية بنجاح !',
-                            'أضغط علي الزر للمتابعة !',
-                            'success'
-                        ).then(function() {
+                        Swal.fire({
+                            title: 'لقد تم تعديل هذه الباقة الإضافية بنجاح !',
+                            confirmButtonText: 'تم',
+                            icon: 'success'
+                        }).then(function() {
                             window.location = "{{route('extra_packages.index' , app()->getLocale())}}";
                         });
                         
@@ -122,11 +122,11 @@
                     },error:function(error){
                         console.log(error.responseText);
                         $.each(error.responseJSON.errors, function(key,value) {
-                            Swal.fire(
-                                'هناك خطأ ما عند التسجيل !',
-                                '<div style="color:red;">'+value+'</div>',
-                                'error'
-                            )
+                            Swal.fire({
+                                title: 'هناك خطأ ما عند التعديل ! <br><br> <div style="color:red;">'+value+'</div>',
+                                confirmButtonText: 'تم',
+                                icon: 'error'
+                            })
                         });
                     }
                 });

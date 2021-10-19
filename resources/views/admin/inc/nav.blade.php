@@ -9,7 +9,14 @@
                 <li class="menu-title" key="t-menu">{{__('messages.Basic')}}</li>
 
                 <li>
-                    <a href="/admin" class="waves-effect">
+                    <a href="https://demo.steps.eightyythree.com" class="waves-effect">
+                        <i class="fa fa-eye"></i>
+                        <span key="t-dashboards">{{__('messages.Visit')}}</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/{{app()->getLocale()}}/admin" class="waves-effect">
                         <i class="bx bx-home-circle"></i>
                         <span key="t-dashboards">{{__('messages.Home')}}</span>
                     </a>

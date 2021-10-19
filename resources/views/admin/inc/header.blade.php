@@ -55,7 +55,7 @@
 
                         <a href="/{{app()->getLocale()}}/admin" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="/assets/img/logos/stepIcon.png" alt="" height="40">
+                                <img src="/assets/img/logos/stepIconShortSvg.svg" alt="" height="40">
                             </span>
                             <span class="logo-lg">
                                 <img src="/assets/img/logos/stepsWhiteCopy.png" alt="" height="40">
@@ -357,7 +357,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->subscriptions->email}}</h6>
                                                     <div class="font-size-12 text-muted">
-                                                        <p class="mb-1" key="t-grammer">This Member Subscriped Into Your System !!</p>
+                                                        <p class="mb-1" key="t-grammer">{{__('messages.This Member Subscriped')}}</p>
                                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
                                                                 key="t-min-ago">3 min ago</span></p>
                                                     </div>
@@ -373,7 +373,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->subscriptions->email}}</h6>
                                                     <div class="font-size-12 text-muted">
-                                                        <p class="mb-1" key="t-grammer">This Member Subscriped Into Your System !!</p>
+                                                        <p class="mb-1" key="t-grammer">{{__('messages.This Member Subscriped')}}</p>
                                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
                                                                 key="t-min-ago">3 min ago</span></p>
                                                     </div>
@@ -394,7 +394,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->contacts->email}}</h6>
                                                     <div class="font-size-12 text-muted">
-                                                        <p class="mb-1" key="t-grammer">This Member Contacted Into Your System !!</p>
+                                                        <p class="mb-1" key="t-grammer">{{__('messages.This Member Contacted')}}</p>
                                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
                                                                 key="t-min-ago">3 min ago</span></p>
                                                     </div>
@@ -410,7 +410,7 @@
                                                 <div class="flex-grow-1">
                                                     <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->contacts->email}}</h6>
                                                     <div class="font-size-12 text-muted">
-                                                        <p class="mb-1" key="t-grammer">This Member Contacted Into Your System !!</p>
+                                                        <p class="mb-1" key="t-grammer">{{__('messages.This Member Contacted')}}</p>
                                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
                                                                 key="t-min-ago">3 min ago</span></p>
                                                     </div>

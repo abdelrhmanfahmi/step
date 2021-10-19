@@ -53,7 +53,7 @@
                                                         <td>{{$contact->address}}</td>
                                                         <td>{{ Str::limit($contact->help , 50) }}</td>
                                                         <td>
-                                                            <a href="edit/contacts/{{$contact->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
+                                                            <a href="edit/contacts/{{$contact->id}}" class="btn btn-primary">{{__('messages.Show')}}</a>
                                                             <a data-swal-template="#my-template{{$contact->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
                                                         </td>
                                                     </tr>

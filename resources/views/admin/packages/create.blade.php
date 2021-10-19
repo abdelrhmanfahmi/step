@@ -128,11 +128,11 @@
                     processData: false,
                     contentType: false,
                     success:function(data){
-                        Swal.fire(
-                            'لقد تم حفظ  الباقة بنجاح !',
-                            'اضغط علي الزر للمتابعة !',
-                            'success'
-                        )
+                        Swal.fire({
+                            title: 'لقد تم حفظ  الباقة بنجاح !',
+                            confirmButtonText: 'تم',
+                            icon: 'success'
+                        })
                         $('#name_ar').val("");
                         $('#name_en').val("");
                         $('#price').val("");
@@ -143,11 +143,11 @@
                     },error:function(error){
                         console.log(error.responseText);
                         $.each(error.responseJSON.errors, function(key,value) {
-                            Swal.fire(
-                                'هناك خطأ ما عند التسجيل !',
-                                '<div style="color:red;">'+value+'</div>',
-                                'error'
-                            )
+                            Swal.fire({
+                                title: 'هناك خطأ ما عند التسجيل ! <br><br> <div style="color:red;">'+value+'</div>',
+                                confirmButtonText: 'تم',
+                                icon: 'error'
+                            })
                         });
                     }
                 });

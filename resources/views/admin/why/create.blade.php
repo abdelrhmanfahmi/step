@@ -118,11 +118,11 @@
                     processData: false,
                     contentType: false,
                     success:function(data){
-                        Swal.fire(
-                            'لقد تم حفظ لماذا ستيبس بنجاح !',
-                            'اضغط علي الزر للمتابعة !',
-                            'success'
-                        )
+                        Swal.fire({
+                            title: 'لقد تم حفظ لماذا ستيبس بنجاح !',
+                            confirmButtonText: 'تم',
+                            icon: 'success'
+                        })
                         $('#title_ar').val("");
                         $('#title_en').val("");
                         $('#desc_ar').val("");
@@ -132,11 +132,11 @@
                     },error:function(error){
                         console.log(error.responseText);
                         $.each(error.responseJSON.errors, function(key,value) {
-                            Swal.fire(
-                                'هناك خطأ ما عند التسجيل !',
-                                '<div style="color:red;">'+value+'</div>',
-                                'error'
-                            )
+                            Swal.fire({
+                                title: 'هناك خطأ ما عند التسجيل ! <br><br> <div style="color:red;">'+value+'</div>',
+                                confirmButtonText: 'تم',
+                                icon: 'error'
+                            })
                         });
                     }
                 });

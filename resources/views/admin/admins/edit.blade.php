@@ -111,11 +111,11 @@
                     processData: false,
                     contentType: false,
                     success:function(data){
-                        Swal.fire(
-                            'لقد تم تعديل بيانات مدير العمليات بنجاح !',
-                            'أضغط علي الزر للمتابعة !',
-                            'success'
-                        ).then(function() {
+                        Swal.fire({
+                            titlr: 'لقد تم تعديل بيانات مدير العمليات بنجاح !',
+                            confirmButtonText: 'تم',
+                            icon: 'success'
+                        }).then(function() {
                             window.location = "{{route('admin.getAdmins' , app()->getLocale())}}";
                         });
                         
@@ -123,11 +123,11 @@
                     },error:function(error){
                         console.log(error.responseText);
                         $.each(error.responseJSON.errors, function(key,value) {
-                            Swal.fire(
-                                'هناك خطأ ما عند التسجيل !',
-                                '<div style="color:red;">'+value+'</div>',
-                                'error'
-                            )
+                            Swal.fire({
+                                title: 'هناك خطأ ما عند التعديل ! <br><br> <div style="color:red;">'+value+'</div>',
+                                confirmButtonText: 'تم',
+                                icon: 'error'
+                            })
                         });
                     }
                 });

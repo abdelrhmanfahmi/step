@@ -120,11 +120,11 @@
                     processData: false,
                     contentType: false,
                     success:function(data){
-                        Swal.fire(
-                            'لقد تم حفظ السؤال بنجاح !',
-                            'اضغط علي الزر للمتابعة !',
-                            'success'
-                        )
+                        Swal.fire({
+                            title: 'لقد تم حفظ السؤال بنجاح !',
+                            confirmButtonText: 'تم',
+                            icon: 'success'
+                        })
                         $('#question_ar').val("");
                         $('#question_en').val("");
                         $('#answer_ar').val("");
@@ -134,11 +134,11 @@
                     },error:function(error){
                         console.log(error.responseText);
                         $.each(error.responseJSON.errors, function(key,value) {
-                            Swal.fire(
-                                'هناك خطأ ما عند التسجيل !',
-                                '<div style="color:red;">'+value+'</div>',
-                                'error'
-                            )
+                            Swal.fire({
+                                title: 'هناك خطأ ما عند التسجيل ! <br><br> <div style="color:red;">'+value+'</div>',
+                                confirmButtonText: 'تم',
+                                icon: 'error'
+                            })
                         });
                     }
                 });

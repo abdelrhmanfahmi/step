@@ -117,11 +117,11 @@
                     processData: false,
                     contentType: false,
                     success:function(data){
-                        Swal.fire(
-                            'لقد تم حفظ  الخدمة بنجاح !',
-                            'اضغط علي الزر للمتابعة !',
-                            'success'
-                        )
+                        Swal.fire({
+                            title: 'لقد تم حفظ  الخدمة بنجاح !',
+                            confirmButtonText: 'تم',
+                            icon: 'success'
+                        })
                         $('#service_ar').val("");
                         $('#service_en').val("");
                         $('#package_id').val("");
@@ -130,11 +130,11 @@
                     },error:function(error){
                         console.log(error.responseText);
                         $.each(error.responseJSON.errors, function(key,value) {
-                            Swal.fire(
-                                'هناك خطأ ما عند التسجيل !',
-                                '<div style="color:red;">'+value+'</div>',
-                                'error'
-                            )
+                            Swal.fire({
+                                title: 'هناك خطأ ما عند التسجيل ! <br><br> <div style="color:red;">'+value+'</div>',
+                                confirmButtonText: 'تم',
+                                icon: 'error'
+                            })
                         });
                     }
                 });

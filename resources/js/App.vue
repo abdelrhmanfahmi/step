@@ -504,7 +504,7 @@ $(document).scroll(function () {
 });
 </script>
 
-<style scoped>
+<style >
     .pagesLinksRtl{
         position:relative;
         right:-35px;
@@ -669,5 +669,11 @@ $(document).scroll(function () {
             right:-25px;
             top:0px;
         }
+    }
+    ._vue-flash-msg-body._vue-flash-msg-body_success{
+        z-index:9999;
+    }
+    ._vue-flash-msg-body._vue-flash-msg-_left-bottom, ._vue-flash-msg-body._vue-flash-msg-_left-top{
+        z-index:9999;
     }
 </style>

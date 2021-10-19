@@ -41,8 +41,8 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <form id="submitForm" method="POST" enctype="multipart/form-data">
-                                    @csrf
+                                <!-- <form id="submitForm" method="POST" enctype="multipart/form-data">
+                                    @csrf -->
 
                                     <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Name')}}</label>
@@ -81,11 +81,17 @@
 
                                     <div class="mb-3 row">
                                         <div class="col-md-10">
-                                            <button class="btn btn-success" type="submit">{{__('messages.Update')}}</button>
+                                            <a href="{{route('contacts.index' , app()->getLocale())}}" class="btn btn-primary">{{__('Back')}}</a>
                                         </div>
                                     </div>
+
+                                    <!-- <div class="mb-3 row">
+                                        <div class="col-md-10">
+                                            <button class="btn btn-success" type="submit">{{__('messages.Update')}}</button>
+                                        </div>
+                                    </div> -->
                                    
-                                </form>
+                                <!-- </form> -->
                             </div>
                         </div>
                     </div> 
@@ -129,11 +135,11 @@
                     processData: false,
                     contentType: false,
                     success:function(data){
-                        Swal.fire(
-                            'لقد تم تعديل بيانات التواصل بنجاح !',
-                            'أضغط علي الزر للمتابعة !',
-                            'success'
-                        ).then(function() {
+                        Swal.fire({
+                            title: 'لقد تم تعديل بيانات التواصل بنجاح !',
+                            confirmButtonText: 'تم',
+                            icon: 'success'
+                        }).then(function() {
                             window.location = "{{route('contacts.index' , app()->getLocale())}}";
                         });
                         
@@ -141,11 +147,11 @@
                     },error:function(error){
                         console.log(error.responseText);
                         $.each(error.responseJSON.errors, function(key,value) {
-                            Swal.fire(
-                                'هناك خطأ ما عند التسجيل !',
-                                '<div style="color:red;">'+value+'</div>',
-                                'error'
-                            )
+                            Swal.fire({
+                                title: 'هناك خطأ ما عند التعديل ! <br><br> <div style="color:red;">'+value+'</div>',
+                                confirmButtonText: 'تم',
+                                icon: 'error'
+                            })
                         });
                     }
                 });
