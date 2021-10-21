@@ -101,7 +101,17 @@ return [
     "Email Sent" => "رسم توضيحي للإيميلات",
     "Week" => "أسبوع",
     "Month" => "شهر",
-    "Year" => "سنة"
+    "Year" => "سنة",
+    "Sub_Services" => "الخدمة",
+    "Add Sub_Services" => "إضافة خدمة",
+    "Create Sub_Services" => "إضافة خدمة",
+    "Edit Sub_Services" => "تعديل خدمة",
+    "Sections" => "أجزاء",
+    "Add Sections" => "إضافة أجزاء",
+    "Create Sections" => "إضافة أجزاء",
+    "Edit Sections" => "تعديل أجزاء",
+    "Edit Image About_Us" => "تعديل صورة من نحن",
+    "Edit Image WhySteps" => "تعديل صورة ليش ستيبس"
 ]
 
 ?>

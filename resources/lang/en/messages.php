@@ -102,7 +102,17 @@ return [
     "Email Sent" => "Email Sent",
     "Week" => "Week",
     "Month" => "Month",
-    "Year" => "Year"
+    "Year" => "Year",
+    "Sub_Services" => "Sub_services",
+    "Add Sub_Services" => "Add Sub_Services",
+    "Create Sub_Services" => "Create Sub_Services",
+    "Edit Sub_Services" => "Edit Sub_Services",
+    "Sections" => "Sections",
+    "Add Sections" => "Add Sections",
+    "Create Sections" => "Create Sections",
+    "Edit Sections" => "Edit Sections",
+    "Edit Image About_Us" => "Edit Image About_Us",
+    "Edit Image WhySteps" => "Edit Image WhySteps"
 ]
 
 ?>

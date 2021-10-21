@@ -17,9 +17,6 @@ class CreatePackagesServicesTable extends Migration
             $table->increments('id');
             $table->string('service_ar');
             $table->string('service_en');
-            $table->unsignedInteger('package_id');
-            $table->foreign('package_id')->references('id')->on('packages')->onUpdate('cascade')
-            ->onDelete('cascade');
             $table->timestamps();
         });
     }

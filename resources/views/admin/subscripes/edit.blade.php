@@ -70,18 +70,6 @@
                                     </div>
 
                                     <div class="mb-3 row">
-                                        <label class="col-md-2 col-form-label">{{__('messages.Packages')}}</label>
-                                        <div class="col-md-10">
-                                            <select name="package_id" id="package_id" class="form-control">
-                                                <option disabled>-- Choose --</option>
-                                                @foreach($packages as $package)
-                                                    <option @if($subscripes->package_id == $package->id) selected  @endif value="{{$package->id}}">{{$package->name_ar}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3 row">
                                         <label class="col-md-2 col-form-label">{{__('messages.Extra Packages')}}</label>
                                         <div class="col-md-10">
                                             @foreach($extraPackages as $e)
@@ -130,7 +118,6 @@
                 var name = $('#name').val();
                 var email = $('#email').val();
                 var company_size = $('#company_size').val();
-                var package_id = $('#package_id').val();
                 
                 var ids = [];
                 $('.extra_package_id:checked').each(function(i, e) {
@@ -141,7 +128,6 @@
                 formData.append('name' , name);
                 formData.append('email' , email);
                 formData.append('company_size' , company_size);
-                formData.append('package_id' , package_id);
                 for(var i = 0 ; i<ids.length ; i++){
                     formData.append('extra_package_id[]' , ids[i]);
                 }

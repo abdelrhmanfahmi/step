@@ -40,7 +40,6 @@
                                                     <th data-priority="2">{{__('messages.Name')}}</th>
                                                     <th data-priority="2">{{__('messages.E-mail')}}</th>
                                                     <th data-priority="2">{{__('messages.Company_Size')}}</th>
-                                                    <th data-priority="2">{{__('messages.Package')}}</th>
                                                     <th data-priority="2">{{__('messages.Actions')}}</th>
                                                 </tr>
                                             </thead>
@@ -51,7 +50,6 @@
                                                         <td>{{$subscripe->name}}</td>
                                                         <td>{{$subscripe->email}}</td>
                                                         <td>{{$subscripe->company_size}}</td>
-                                                        <td>{{@App\Package::find($subscripe->package_id)->name_ar}}</td>
                                                         <td>
                                                             <a href="edit/subscripes/{{$subscripe->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
                                                             <a data-swal-template="#my-template{{$subscripe->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>

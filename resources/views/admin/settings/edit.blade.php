@@ -60,7 +60,7 @@
                                     <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Breif_ar')}}</label>
                                         <div class="col-md-10">
-                                            <textarea name="breif_ar" id="breif_ar"  dir="rtl" class="form-control" cols="30" rows="10" style="resize: none;">{{$settings->breif_ar}}</textarea>
+                                            <textarea name="breif_ar" id="breif_ar" dir="rtl" class="form-control" cols="30" rows="10" style="resize: none;">{!! $settings->breif_ar !!}</textarea>
                                         </div>
                                     </div>
 
@@ -82,6 +82,20 @@
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.About-Us-en')}}</label>
                                         <div class="col-md-10">
                                             <textarea name="about_us_en" id="about_us_en" dir="ltr" class="form-control" cols="30" rows="10" style="resize: none;">{{$settings->about_us_en}}</textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <div class="mt-3">
+                                            <label for="formFile" class="form-label">{{__('messages.Edit Image About_Us')}}</label>
+                                            <input class="dropify" accept="image/png, image/jpeg, image/jpg, image/svg" id="imageAppended1" value="{{$settings->about_us_image}}" data-default-file="{{ asset('uploads/' . $settings->about_us_image) }}" type="file" name="about_us_image" >
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <div class="mt-3">
+                                            <label for="formFile" class="form-label">{{__('messages.Edit Image WhySteps')}}</label>
+                                            <input class="dropify" accept="image/png, image/jpeg, image/jpg, image/svg" id="imageAppended2" value="{{$settings->why_steps_image}}" data-default-file="{{ asset('uploads/' . $settings->why_steps_image) }}" type="file" name="why_steps_image" >
                                         </div>
                                     </div>
 
@@ -148,6 +162,7 @@
         </div>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -177,18 +192,48 @@
                 var instagram = $('#instagram').val();
 
                 var formData = new FormData();
-                formData.append('title_ar' , title_ar);
-                formData.append('title_en' , title_en);
-                formData.append('breif_ar' , breif_ar);
-                formData.append('breif_en' , breif_en);
-                formData.append('about_us_ar' , about_us_ar);
-                formData.append('about_us_en' , about_us_en);
-                formData.append('email' , email);
-                formData.append('phone' , phone);
-                formData.append('address' , address);
-                formData.append('twitter' , twitter);
-                formData.append('facebook' , facebook);
-                formData.append('instagram' , instagram);
+                if($('#imageAppended1')[0].files[0] != null){
+                    formData.append('title_ar' , title_ar);
+                    formData.append('title_en' , title_en);
+                    formData.append('breif_ar' , breif_ar);
+                    formData.append('breif_en' , breif_en);
+                    formData.append('about_us_ar' , about_us_ar);
+                    formData.append('about_us_en' , about_us_en);
+                    formData.append('about_us_image' , $('#imageAppended1')[0].files[0]);
+                    formData.append('email' , email);
+                    formData.append('phone' , phone);
+                    formData.append('address' , address);
+                    formData.append('twitter' , twitter);
+                    formData.append('facebook' , facebook);
+                    formData.append('instagram' , instagram);
+                }else if($('#imageAppended2')[0].files[0] != null){
+                    formData.append('title_ar' , title_ar);
+                    formData.append('title_en' , title_en);
+                    formData.append('breif_ar' , breif_ar);
+                    formData.append('breif_en' , breif_en);
+                    formData.append('about_us_ar' , about_us_ar);
+                    formData.append('about_us_en' , about_us_en);
+                    formData.append('why_steps_image' , $('#imageAppended2')[0].files[0]);
+                    formData.append('email' , email);
+                    formData.append('phone' , phone);
+                    formData.append('address' , address);
+                    formData.append('twitter' , twitter);
+                    formData.append('facebook' , facebook);
+                    formData.append('instagram' , instagram);
+                }else{
+                    formData.append('title_ar' , title_ar);
+                    formData.append('title_en' , title_en);
+                    formData.append('breif_ar' , breif_ar);
+                    formData.append('breif_en' , breif_en);
+                    formData.append('about_us_ar' , about_us_ar);
+                    formData.append('about_us_en' , about_us_en);
+                    formData.append('email' , email);
+                    formData.append('phone' , phone);
+                    formData.append('address' , address);
+                    formData.append('twitter' , twitter);
+                    formData.append('facebook' , facebook);
+                    formData.append('instagram' , instagram);
+                }
 
                 $.ajax({
                     url:"{{route('settings.update' , ['language' => app()->getLocale() , 'id' => request()->id])}}",

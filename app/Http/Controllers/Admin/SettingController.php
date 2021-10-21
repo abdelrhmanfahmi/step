@@ -31,6 +31,8 @@ class SettingController extends Controller
             'breif_en' => 'required',
             'about_us_ar' => 'required',
             'about_us_en' => 'required',
+            'about_us_image' => 'image|mimes:png,jpg,jpeg,svg',
+            'why_steps_image' => 'image|mimes:png,jpg,jpeg,svg',
             'email' => 'required|email|max:255',
             'phone' => 'required',
             'address' => 'required|max:255',
@@ -47,6 +49,25 @@ class SettingController extends Controller
         $settings->breif_en = $request->input('breif_en');
         $settings->about_us_ar = $request->input('about_us_ar');
         $settings->about_us_en = $request->input('about_us_en');
+
+        if($request->has('about_us_image')){
+            unlink(public_path() . '/uploads/' . $settings->about_us_image);
+            $file = $request->file('about_us_image');
+            $destinationPath = public_path(). '/uploads/';
+            $filename = uniqid() . '.' .  $file->extension();
+            $file->move($destinationPath, $filename);
+            $settings->about_us_image = $filename;
+        }
+
+        if($request->has('why_steps_image')){
+            unlink(public_path() . '/uploads/' . $settings->why_steps_image);
+            $file = $request->file('why_steps_image');
+            $destinationPath = public_path(). '/uploads/';
+            $filename = uniqid() . '.' .  $file->extension();
+            $file->move($destinationPath, $filename);
+            $settings->why_steps_image = $filename;
+        }
+
         $settings->email = $request->input('email');
         $settings->phone = $request->input('phone');
         $settings->address = $request->input('address');

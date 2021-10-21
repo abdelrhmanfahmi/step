@@ -58,18 +58,6 @@
                                     </div>
 
                                     <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Package')}}</label>
-                                        <div class="col-md-10">
-                                            <select name="package_id" id="package_id" class="form-control">
-                                                <option disabled>-- Choose --</option>
-                                                @foreach($packages as $package)
-                                                    <option @if($services->package_id == $package->id) selected  @endif value="{{$package->id}}">{{$package->name_ar}}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3 row">
                                         <div class="col-md-10">
                                             <button class="btn btn-success" type="submit">{{__('messages.Update')}}</button>
                                         </div>
@@ -101,12 +89,10 @@
                 e.preventDefault();
                 var service_ar = $('#service_ar').val();
                 var service_en = $('#service_en').val();
-                var package_id = $('#package_id').val();
 
                 var formData = new FormData();
                 formData.append('service_ar' , service_ar);
                 formData.append('service_en' , service_en);
-                formData.append('package_id' , package_id);
 
                 $.ajax({
                     url:"{{route('services.update' , ['language' => app()->getLocale() , 'id' => request()->id])}}",

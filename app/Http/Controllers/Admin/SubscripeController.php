@@ -24,12 +24,11 @@ class SubscripeController extends Controller
     }
 
     public function edit($language , $id){
-        $packages = Package::all();
         $subscripes = Subscripe::find($id);
         $extraPackages = ExtraPackage::all();
         $extra = SubscripeExtraPackage::where('subscripe_id' , '=' , $id)->get();
         Notification::where('subscripe_id' , '=' , $id)->update(['viewed' => 1]);
-        return view('admin.subscripes.edit' , ['language' => $language , 'subscripes' => $subscripes , 'packages' => $packages , 'extra' => $extra ,  'extraPackages' => $extraPackages]);
+        return view('admin.subscripes.edit' , ['language' => $language , 'subscripes' => $subscripes , 'extra' => $extra ,  'extraPackages' => $extraPackages]);
     }
 
     public function update(Request $request , $id){
@@ -38,14 +37,12 @@ class SubscripeController extends Controller
                 'name' => 'required|max:255',
                 'email' => 'required|max:255|email',
                 'company_size' => 'required',
-                'package_id' => 'required'
             ]);
 
             $subscripes = Subscripe::find($request->id);
             $subscripes->name = $request->input('name');
             $subscripes->email = $request->input('email');
             $subscripes->company_size = $request->input('company_size');
-            $subscripes->package_id = $request->input('package_id');
 
             $subscripes->save();
             if($request->has('extra_package_id')){

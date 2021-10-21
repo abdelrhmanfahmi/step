@@ -40,7 +40,7 @@ const routes = [
             },
             {
                 name:"Pricing",
-                path:"pricing/:id",
+                path:"pricing",
                 component:Pricing
             },
             {

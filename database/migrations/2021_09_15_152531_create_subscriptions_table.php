@@ -18,9 +18,6 @@ class CreateSubscriptionsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('company_size');
-            $table->unsignedInteger('package_id');
-            $table->foreign('package_id')->references('id')->on('packages')->onUpdate('cascade')
-            ->onDelete('cascade');
             $table->timestamps();
         });
     }

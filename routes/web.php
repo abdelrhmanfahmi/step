@@ -74,14 +74,6 @@ Route::group(['prefix' => '{language}/admin'] , function (){
     Route::post('/update/contacts/{id}' , 'Admin\ContactController@update')->name('contacts.update');
     Route::get('/delete/contacts/{id}' , 'Admin\ContactController@delete')->name('contacts.delete');
 
-    //Packages
-    Route::get('/packages' , 'Admin\PackageController@index')->name('packages.index');
-    Route::get('/create/packages' , 'Admin\PackageController@create')->name('packages.create');
-    Route::post('/store/packages' , 'Admin\PackageController@store')->name('packages.store');
-    Route::get('/edit/packages/{id}' , 'Admin\PackageController@edit')->name('packages.edit');
-    Route::post('/update/packages/{id}' , 'Admin\PackageController@update')->name('packages.update');
-    Route::get('/delete/packages/{id}' , 'Admin\PackageController@delete')->name('packages.delete');
-
     //Services
     Route::get('/services' , 'Admin\ServiceController@index')->name('services.index');
     Route::get('/create/services' , 'Admin\ServiceController@create')->name('services.create');
@@ -105,4 +97,20 @@ Route::group(['prefix' => '{language}/admin'] , function (){
     Route::get('/edit/subscripes/{id}' , 'Admin\SubscripeController@edit')->name('subscripes.edit');
     Route::post('/update/subscripes/{id}' , 'Admin\SubscripeController@update')->name('subscripes.update');
     Route::get('/delete/subscripes/{id}' , 'Admin\SubscripeController@delete')->name('subscripes.delete');
+
+    //Sub_Services
+    Route::get('/sub_services' , 'Admin\SubServicController@index')->name('sub_services.index');
+    Route::get('/create/sub_services' , 'Admin\SubServicController@create')->name('sub_services.create');
+    Route::post('/store/sub_services' , 'Admin\SubServicController@store')->name('sub_services.store');
+    Route::get('/edit/sub_services/{id}' , 'Admin\SubServicController@edit')->name('sub_services.edit');
+    Route::post('/update/sub_services/{id}' , 'Admin\SubServicController@update')->name('sub_services.update');
+    Route::get('/delete/sub_services/{id}' , 'Admin\SubServicController@delete')->name('sub_services.delete');
+
+    //Section
+    Route::get('/sections' , 'Admin\SectionController@index')->name('sections.index');
+    Route::get('/create/sections' , 'Admin\SectionController@create')->name('sections.create');
+    Route::post('/store/sections' , 'Admin\SectionController@store')->name('sections.store');
+    Route::get('/edit/sections/{id}' , 'Admin\SectionController@edit')->name('sections.edit');
+    Route::post('/update/sections/{id}' , 'Admin\SectionController@update')->name('sections.update');
+    Route::get('/delete/sections/{id}' , 'Admin\SectionController@delete')->name('sections.delete');
 });

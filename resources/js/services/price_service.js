@@ -1,11 +1,7 @@
 import {http , httpFile} from "./http_service";
 
-export function getPackage(id){
-    return http().get('/package/'+id);
-}
-
-export function getServicesFromPackage(id){
-    return http().get('/servicesWithPackages/'+id);
+export function getServicesFromPackage(){
+    return http().get('/servicesWithPackages');
 }
 
 export function getExtraPackages(){

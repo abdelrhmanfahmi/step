@@ -10,10 +10,11 @@ use App\Contact;
 use App\ExtraPackage;
 use App\NewsLetter;
 use App\Notification;
-use App\Package;
 use App\PackagesServices;
+use App\Section;
 use App\Subscripe;
 use App\SubscripeExtraPackage;
+use App\SubService;
 use App\WhySteps;
 use DB;
 
@@ -32,11 +33,6 @@ class SettingController extends Controller
     public function getWhySteps(){
         $why = WhySteps::all();
         return response()->json($why);
-    }
-
-    public function getPackages(){
-        $packages = Package::with('services')->get();
-        return response()->json($packages);
     }
 
     // public function getPackageServices($id){
@@ -103,13 +99,8 @@ class SettingController extends Controller
         return response()->json($newsLetters);
     }
 
-    public function getPackage($id){
-        $package = Package::where('id' , '=' , $id)->first();
-        return response()->json($package);
-    }
-
-    public function getServicesFromPackage($id){
-        $package_service = PackagesServices::where('package_id' , '=' , $id)->get();
+    public function getServicesFromPackage(){
+        $package_service = PackagesServices::all();
         return response()->json($package_service);
     }
 
@@ -125,14 +116,12 @@ class SettingController extends Controller
                 'name' => 'required|max:255',
                 'email' => 'required|email|unique:subscriptions',
                 'company_size' => 'required',
-                'package_id' => 'required'
             ]);
 
             $subscripe = new Subscripe();
             $subscripe->name = $request->input('name');
             $subscripe->email = $request->input('email');
             $subscripe->company_size = $request->input('company_size');
-            $subscripe->package_id = $request->input('package_id');
 
             $subscripe->save();
 
@@ -152,5 +141,15 @@ class SettingController extends Controller
             
             $notifications->save();
         });
+    }
+
+    public function getSubServices(){
+        $sub_services = SubService::all();
+        return response()->json($sub_services);
+    }
+
+    public function getSections(){
+        $sections = Section::all();
+        return response()->json($sections);
     }
 }

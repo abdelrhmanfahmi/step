@@ -11,13 +11,11 @@
                     <div class="pricing-table-section text-center text-lg-left">
                         <div class="row no-gutters border rounded fahmy-top justify-content-end bg-white">
                             <div class="col">
-                                <h5 class="mb-4 premCssAr">مزايا {{ packagess.name_ar }}</h5>
+                                <h5 class="mb-4 premCssAr">{{ $t('Pricing.Steps System Features') }}</h5>
                             </div>
                             <div class="col text-center">
                                 <h4 class="mb-4 dataCss">
-                                    <span class="h5 mb-0 mr-1 mr-sm-2" style="color:#6653ff;font-family:ap;">SAR</span>
-                                    <span class="display-4 mb-0 text-dark">{{ packagess.price }}</span>
-                                    <span class="text-small mb-3 mb-md-4" style="color:#6653ff;font-family:ap;">{{ packagess.user_ar }}</span>
+                                    
                                 </h4>
                             </div>
                             <div class="col text-center">
@@ -53,13 +51,11 @@
                     <div class="pricing-table-section text-center text-lg-left">
                         <div class="row no-gutters border rounded fahmy-top justify-content-end bg-white">
                             <div class="col">
-                                <h5 class="mb-4 premCss" style="color:#6653ff;font-family:abo;">{{ packagess.name_en }} Features</h5>
+                                <h5 class="mb-4 premCss" style="color:#6653ff;font-family:abo;">{{ $t('Pricing.Steps System Features') }}</h5>
                             </div>
                             <div class="col text-center">
                                 <h4 class="mb-4 dataCss">
-                                    <span class="h5 mb-0 mr-1 mr-sm-2" style="color:#6653ff;font-family:ap;">SAR</span>
-                                    <span class="display-4 mb-0 text-dark">{{ packagess.price }}</span>
-                                    <span class="text-small mb-3 mb-md-4" style="color:#6653ff;font-family:ap;">{{ packagess.user_en }}</span>
+                                    
                                 </h4>
                             </div>
                             <div class="col text-center">
@@ -191,17 +187,6 @@
                                 </div>
 
                                 <div class="form-group text-right">
-                                    <label>{{ $t('Pricing.Packages') }}</label>
-                                    <div class="position-relative">
-                                        <select v-model="package_id" class="custom-select" dir="rtl">
-                                            <option value="">{{ $t('Pricing.Select an option') }}</option>
-                                            <option :selected="package_id == packagess.id" :value="packagess.id">{{ packagess.name_ar }}</option>
-                                        </select>
-                                        <div class="invalid-feedback" v-if="errors.package_id" style="display:block;">{{ errors.package_id[0] }}</div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group text-right">
                                     <label>{{ $t('Pricing.Extra Packages') }}</label>
                                     <div class="position-relative">
                                         <label class="mainAr" v-for="extraPackage in extraPackages" :key="extraPackage.id">
@@ -249,17 +234,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="demo-packages">Packages</label>
-                                    <div class="position-relative">
-                                        <select class="custom-select" v-model="package_id">
-                                            <option disabled value="">{{ $t('Pricing.Select an option') }}</option>
-                                            <option selected :value="packagess.id">{{ packagess.name_en }}</option>
-                                        </select>
-                                        <div class="invalid-feedback" v-if="errors.package_id" style="display:block;">{{ errors.package_id[0] }}</div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="extra-packages">{{ $t('Pricing.Extra Packages') }}</label>
                                     <div class="position-relative">
                                         <label class="main" v-for="extraPackage in extraPackages" :key="extraPackage.id">
@@ -290,19 +264,16 @@ export default {
     name:"Pricing",
     data: function(){
         return {
-            packagess:{},
             services:[],
             extraPackages:[],
             name:'',
             email:'',
             company_size:'',
-            package_id:'',
             extra_package_id:[],
             errors:{},
         }
     },
     mounted(){
-        this.getPackage();
         this.getServicesFromPackage();
         this.getExtraPackages();
     },
@@ -313,18 +284,9 @@ export default {
 
             window.scrollTo(0, top);
         },
-        getPackage:async function(){
-            try{
-                const response = await price_service.getPackage(this.$route.params.id);
-                this.packagess = response.data;
-                this.package_id = this.packagess.id
-            }catch(error){
-                console.log(error);
-            }
-        },
         getServicesFromPackage:async function(){
             try{
-                const response = await price_service.getServicesFromPackage(this.$route.params.id);
+                const response = await price_service.getServicesFromPackage();
                 this.services = response.data;
             }catch(error){
                 console.log(error);
@@ -344,13 +306,11 @@ export default {
                 formData.append('name' , this.name);
                 formData.append('email' , this.email);
                 formData.append('company_size' , this.company_size);
-                formData.append('package_id' , this.package_id);
                 // formData.append('extra_package_id' , this.extra_package_id);
             }else{
                 formData.append('name' , this.name);
                 formData.append('email' , this.email);
                 formData.append('company_size' , this.company_size);
-                formData.append('package_id' , this.package_id);
                 formData.append('extra_package_id' , this.extra_package_id);
             }
             try{
@@ -358,7 +318,6 @@ export default {
                 this.name = "";
                 this.email = "";
                 this.company_size = "";
-                this.package_id = "";
                 this.extra_package_id = [];
                 this.errors = "";
                 this.flashMessage.success({
@@ -383,17 +342,22 @@ export default {
         },
         formSubmitEn:async function(){
             let formData = new FormData();
-            formData.append('name' , this.name);
-            formData.append('email' , this.email);
-            formData.append('company_size' , this.company_size);
-            formData.append('package_id' , this.package_id);
-            formData.append('extra_package_id' , this.extra_package_id);
+            if(this.extra_package_id.length === 0){
+                formData.append('name' , this.name);
+                formData.append('email' , this.email);
+                formData.append('company_size' , this.company_size);
+                // formData.append('extra_package_id' , this.extra_package_id);
+            }else{
+                formData.append('name' , this.name);
+                formData.append('email' , this.email);
+                formData.append('company_size' , this.company_size);
+                formData.append('extra_package_id' , this.extra_package_id);
+            }
             try{
                 const response = await price_service.StoreSubscriptions(formData);
                 this.name = "";
                 this.email = "";
                 this.company_size = "";
-                this.package_id = "";
                 this.extra_package_id = [];
                 this.errors = "";
                 this.flashMessage.success({
@@ -469,7 +433,7 @@ export default {
 }
 .premCss{
     position:relative;
-    top:50px;
+    top:20px;
     right:-25px;
 }
 
@@ -478,12 +442,12 @@ export default {
     font-family: abo;
     position: relative;
     right: -120px;
-    top: 50px;
+    top: 20px;
 }
 
 .hrefCss{
     position:relative;
-    top:40px;
+    top:10px;
     right:0px;
     background-color:#6653ff;
     color:#fff;
@@ -493,7 +457,7 @@ export default {
 }
 .hrefCssAr{
     position:relative;
-    top:40px;
+    top:10px;
     right:0px;
     background-color:#6653ff;
     color:#fff;
@@ -731,20 +695,20 @@ input[type=checkbox] {
     font-family: abo;
     position: relative;
     right: 0px;
-    top: 50px;
+    top: 20px;
 }
 
 .hrefCss{
     position:relative;
     right:10px;
-    top:55px;
+    top:25px;
 }
 
 .hrefCssAr{
     position: relative;
     right: -7px;
-    height: 80px;
-    top: 40px;
+    height: 40px;
+    top: 20px;
     width: 110px;
 }
 
@@ -811,13 +775,13 @@ input[type=checkbox] {
     }
     .hrefCss{
         right: 3px;
-        top: 50px;
+        top: 20px;
     }
     .hrefCssAr{
         position: relative;
         right: 0px;
-        height: 80px;
-        top: 30px;
+        height: 40px;
+        top: 20px;
         width: 110px;
     }
 }
@@ -828,8 +792,8 @@ input[type=checkbox] {
     .hrefCssAr{
         position: relative;
         right: 0px;
-        height: 80px;
-        top: 30px;
+        height: 40px;
+        top: 20px;
         width: 110px;
     }
 }
@@ -845,7 +809,7 @@ input[type=checkbox] {
     }
     .hrefCss{
         right: 8px;
-        top: 48px;
+        top: 28px;
         height: 60px;
     }
 }
@@ -872,11 +836,12 @@ input[type=checkbox] {
     }
     .hrefCss{
         right: 6px;
-        top: 47px;
+        top: 27px;
         height: 60px;
     }
     .hrefCssAr{
         width:100px;
+        top:40px;
     }
 }
 

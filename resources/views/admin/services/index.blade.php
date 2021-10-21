@@ -39,13 +39,11 @@
                                                 @if( Config::get('app.locale') == 'en' )
                                                     <tr>                                        
                                                         <th data-priority="2">{{__('messages.Service_en')}}</th>
-                                                        <th data-priority="2">{{__('messages.Package')}}</th>
                                                         <th data-priority="2">{{__('messages.Actions')}}</th>
                                                     </tr>
                                                 @else
                                                     <tr>
                                                         <th data-priority="2">{{__('messages.Service_ar')}}</th>                                                      
-                                                        <th data-priority="2">{{__('messages.Package')}}</th>
                                                         <th data-priority="2">{{__('messages.Actions')}}</th>
                                                     </tr>
                                                 @endif
@@ -56,7 +54,6 @@
                                                     @if( Config::get('app.locale') == 'en' )
                                                         <tr>                                                           
                                                             <td>{{$service->service_en}}</td>
-                                                            <td>{{@App\Package::find($service->package_id)->name_ar}}</td>
                                                             <td>
                                                                 <a href="edit/services/{{$service->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>                                                              
                                                                 <a data-swal-template="#my-templateEn{{$service->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
@@ -81,7 +78,6 @@
                                                     @else
                                                         <tr>
                                                             <td>{{$service->service_ar}}</td>                                                         
-                                                            <td>{{@App\Package::find($service->package_id)->name_ar}}</td>
                                                             <td>
                                                                 <a href="edit/services/{{$service->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>                                                               
                                                                 <a data-swal-template="#my-templateAr{{$service->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>

@@ -27,8 +27,10 @@ Route::get('/faq' , 'SettingController@getFAQs');
 Route::post('/storeContactUs' , 'SettingController@storeContactUs');
 Route::post('/storeNewsLetters' , 'SettingController@storNewsLetters');
 Route::get('/package/{id}' , 'SettingController@getPackage');
-Route::get('/servicesWithPackages/{id}' , 'SettingController@getServicesFromPackage');
+Route::get('/servicesWithPackages' , 'SettingController@getServicesFromPackage');
 Route::get('/extraPackages' , 'SettingController@getExtraPackages');
 Route::post('/storeSubscripes' , 'SettingController@storeSubscriptions');
+Route::get('/sub_services' , 'SettingController@getSubServices');
+Route::get('/sections' , 'SettingController@getSections');
 
 Route::get('/getServices' , 'SettingController@getPackageWithServices');

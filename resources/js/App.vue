@@ -9,7 +9,7 @@
                 <div class="container">
                     <router-link :to="`/${i18n.locale}`">
                         <a class="navbar-brand navbar-brand-dynamic-color">
-                            <img alt="Steps" class="stepsLogo" width="127px" height="36px" :src="isDefaultImage ? 'assets/img/logos/stepsWhiteCopy.png' : 'assets/img/logos/step.png'">
+                            <img alt="Steps" class="stepsLogo" width="127px" height="36px" :src="'assets/img/logos/stepsWhiteCopy.png'">
                         </a>
                     </router-link>
                     
@@ -46,8 +46,8 @@
                         </li>
 
                         <li class="nav-item">
-                        <router-link :to="`/${i18n.locale}/#pricing`" class="nav-item" exact>
-                                <a class="nav-link nav-item">{{ $t('nav.Packages') }}</a>
+                        <router-link :to="`/${i18n.locale}/pricing`" class="nav-item" exact>
+                                <a class="nav-link nav-item">{{ $t('nav.Advantages') }}</a>
                             </router-link>
                         </li>
 
@@ -86,7 +86,7 @@
                 <div class="container">
                     <router-link :to="`/${i18n.locale}`">
                         <a class="navbar-brand navbar-brand-dynamic-color">
-                            <img alt="Steps" class="stepsLogo" width="127px" height="36px" :src="isDefaultImage ? 'assets/img/logos/stepsWhiteCopy.png' : 'assets/img/logos/step.png'">
+                            <img alt="Steps" class="stepsLogo" width="127px" height="36px" :src="'assets/img/logos/stepsWhiteCopy.png'">
                         </a>
                     </router-link>
                     
@@ -123,8 +123,8 @@
                         </li>
 
                         <li class="nav-item">
-                        <router-link :to="`/${i18n.locale}/#pricing`" class="nav-item" exact>
-                                <a class="nav-link nav-item">{{ $t('nav.Packages') }}</a>
+                        <router-link :to="`/${i18n.locale}/pricing`" class="nav-item" exact>
+                                <a class="nav-link nav-item">{{ $t('nav.Advantages') }}</a>
                             </router-link>
                         </li>
 
@@ -389,14 +389,10 @@ export default {
         return {
             i18n,
             langs: ['ar', 'en'],
-            isDefaultImage:true,
             settings:[],
             errors:{},
             email:'',
         }
-    },
-    created(){
-        window.addEventListener("scroll", this.whenPageLoaded);
     },
     mounted(){
         axios
@@ -420,14 +416,6 @@ export default {
                 $('#navigation-menu').slideToggle('slow');
             }else{
                 $('#navigation-menu').slideToggle('slow');
-            }
-        },
-        whenPageLoaded(){
-            var value = window.scrollY;
-            if(value > 100){
-                this.isDefaultImage = false;
-            }else{
-                this.isDefaultImage = true;
             }
         },
         formSubmitAr:async function(){
@@ -485,16 +473,16 @@ export default {
     },
 }
 
-$(window).on('scroll' , function(){
-    var value = $(this).scrollTop();
-    if(value > 100){
-        $('.barsIconFahmy').css('color' , '#000');
-        $('.dropdown-item').css('color' , '#a09999');
-    }else{
-        $('.barsIconFahmy').css('color' , '#fff');
-        $('.dropdown-item').css('color' , '#a09999');
-    }
-});
+// $(window).on('scroll' , function(){
+//     var value = $(this).scrollTop();
+//     if(value > 100){
+//         $('.barsIconFahmy').css('color' , '#000');
+//         $('.dropdown-item').css('color' , '#a09999');
+//     }else{
+//         $('.barsIconFahmy').css('color' , '#fff');
+//         $('.dropdown-item').css('color' , '#a09999');
+//     }
+// });
 
   
 
@@ -503,8 +491,15 @@ $(document).scroll(function () {
     $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
 });
 </script>
-
 <style >
+    ._vue-flash-msg-body._vue-flash-msg-body_success{
+        z-index:9999;
+    }
+    ._vue-flash-msg-body._vue-flash-msg-_left-bottom, ._vue-flash-msg-body._vue-flash-msg-_left-top{
+        z-index:9999;
+    }
+</style>
+<style scoped>
     .pagesLinksRtl{
         position:relative;
         right:-35px;
@@ -531,14 +526,14 @@ $(document).scroll(function () {
         color:#6653ff;
     }
     .navbar-expand-lg.scrolled {
-        background-color: #fff !important;
+        background-color: #301b72 !important;
         transition: background-color 200ms linear;
     }
     .navbar.scrolled.navbar-dark .navbar-nav .nav-link:hover, .navbar.navbar-toggled-show.navbar-dark .navbar-nav .nav-link:focus{
         color:#6653ff;
     }
     .navbar.scrolled.navbar-dark .navbar-nav .nav-link, .navbar.navbar-toggled-show.navbar-dark .navbar-nav .nav-link{
-        color:black;
+        color:#fff;
     }
     .navbar.scrolled.navbar-dark .navbar-nav .show > .nav-link, .navbar.scrolled.navbar-dark .navbar-nav .active > .nav-link, .navbar.scrolled.navbar-dark .navbar-nav .nav-link.show, .navbar.scrolled.navbar-dark .navbar-nav .nav-link.active{
         color:#6653ff;
@@ -669,11 +664,5 @@ $(document).scroll(function () {
             right:-25px;
             top:0px;
         }
-    }
-    ._vue-flash-msg-body._vue-flash-msg-body_success{
-        z-index:9999;
-    }
-    ._vue-flash-msg-body._vue-flash-msg-_left-bottom, ._vue-flash-msg-body._vue-flash-msg-_left-top{
-        z-index:9999;
     }
 </style>

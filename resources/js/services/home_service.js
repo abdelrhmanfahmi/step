@@ -12,12 +12,12 @@ export function getWhySteps(){
     return http().get('/whySteps');
 }
 
-export function getPackages(){
-    return http().get('/packages');
+export function getSubServices(){
+    return http().get('/sub_services');
 }
 
-export function getPackageServices(id){
-    return http().get('/services/'+id);
+export function getSections(){
+    return http().get('/sections');
 }
 
 // export function getPackageServices(){
