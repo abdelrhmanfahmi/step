@@ -7,13 +7,11 @@ use App\Setting;
 use App\Benifit;
 use App\Common;
 use App\Contact;
-use App\ExtraPackage;
 use App\NewsLetter;
 use App\Notification;
 use App\PackagesServices;
 use App\Section;
 use App\Subscripe;
-use App\SubscripeExtraPackage;
 use App\SubService;
 use App\WhySteps;
 use DB;
@@ -34,25 +32,6 @@ class SettingController extends Controller
         $why = WhySteps::all();
         return response()->json($why);
     }
-
-    // public function getPackageServices($id){
-    //     $services = PackagesServices::where('package_id' , '=' , $id)->take(5)->get();
-    //     return response()->json($services);
-    // }
-
-    // public function getPackageWithServices(){
-    //     $services = array();
-    //     $packages = Package::all();
-    //     for($i = 0 ; $i<count($packages) ; $i++){
-    //         $getServices = DB::table('packages_services')
-    //         ->select('*')
-    //         ->where('package_id' , '=' , $packages[$i]->id)
-    //         ->take(5)
-    //         ->get();
-    //         array_push($services , $getServices);
-    //     }
-    //     return response()->json($services);
-    // }
 
     public function getFAQs(){
         $faqs = Common::all();
@@ -104,13 +83,7 @@ class SettingController extends Controller
         return response()->json($package_service);
     }
 
-    public function getExtraPackages(){
-        $extra_packages = ExtraPackage::all();
-        return response()->json($extra_packages);
-    }
-
     public function storeSubscriptions(Request $request){
-        // dd($request->all());
         DB::transaction(function () use ($request) {
             $request->validate([
                 'name' => 'required|max:255',
@@ -125,15 +98,6 @@ class SettingController extends Controller
 
             $subscripe->save();
 
-            if($request->has('extra_package_id')){
-                $data = explode("," , $request->input('extra_package_id'));
-                foreach($data as $d){
-                    SubscripeExtraPackage::create([
-                        'subscripe_id' => $subscripe->id,
-                        'extra_package_id' => $d
-                    ]);
-                }
-            }
 
             $notifications = new Notification();
             $notifications->subscripe_id = $subscripe->id;

@@ -70,22 +70,6 @@
                                     </div>
 
                                     <div class="mb-3 row">
-                                        <label class="col-md-2 col-form-label">{{__('messages.Extra Packages')}}</label>
-                                        <div class="col-md-10">
-                                            @foreach($extraPackages as $e)
-                                                <input type="checkbox" name="extra_package_id[]" class="extra_package_id" value="{{ $e->id }}" 
-                                                @foreach($extra as $ext)
-                                                    @if($ext->extra_package_id == $e->id)
-                                                        checked
-                                                    @endif
-                                                @endforeach
-                                                /> {{$e->name_ar}}
-                                                <br>
-                                            @endforeach
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3 row">
                                         <div class="col-md-10">
                                             <button class="btn btn-success" type="submit">{{__('messages.Update')}}</button>
                                         </div>
@@ -119,18 +103,11 @@
                 var email = $('#email').val();
                 var company_size = $('#company_size').val();
                 
-                var ids = [];
-                $('.extra_package_id:checked').each(function(i, e) {
-                    ids.push($(this).val());
-                });
 
                 var formData = new FormData();
                 formData.append('name' , name);
                 formData.append('email' , email);
                 formData.append('company_size' , company_size);
-                for(var i = 0 ; i<ids.length ; i++){
-                    formData.append('extra_package_id[]' , ids[i]);
-                }
 
                 $.ajax({
                     url:"{{route('subscripes.update' , ['language' => app()->getLocale() , 'id' => request()->id])}}",

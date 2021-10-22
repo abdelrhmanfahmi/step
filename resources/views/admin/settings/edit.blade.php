@@ -44,20 +44,6 @@
                                 <form id="submitForm" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Title_ar')}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="title_ar" id="title_ar" placeholder="Enter Title" value="{{$settings->title_ar}}" type="text">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Title_en')}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="title_en" id="title_en" placeholder="Enter Title" value="{{$settings->title_en}}" type="text">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Breif_ar')}}</label>
                                         <div class="col-md-10">
                                             <textarea name="breif_ar" id="breif_ar" dir="rtl" class="form-control" cols="30" rows="10" style="resize: none;">{!! $settings->breif_ar !!}</textarea>
@@ -162,7 +148,17 @@
         </div>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script type="text/javascript">
+    tinymce.init({
+        selector: '#breif_ar'
+    });
+    </script>
+    <script type="text/javascript">
+    tinymce.init({
+        selector: '#breif_en'
+    });
+    </script>
     <script
   src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
@@ -178,8 +174,6 @@
             });
             $('#submitForm').submit(function(e){
                 e.preventDefault();
-                var title_ar = $('#title_ar').val();
-                var title_en = $('#title_en').val();
                 var breif_ar = $('#breif_ar').val();
                 var breif_en = $('#breif_en').val();
                 var about_us_ar = $('#about_us_ar').val();
@@ -193,8 +187,6 @@
 
                 var formData = new FormData();
                 if($('#imageAppended1')[0].files[0] != null){
-                    formData.append('title_ar' , title_ar);
-                    formData.append('title_en' , title_en);
                     formData.append('breif_ar' , breif_ar);
                     formData.append('breif_en' , breif_en);
                     formData.append('about_us_ar' , about_us_ar);
@@ -207,8 +199,6 @@
                     formData.append('facebook' , facebook);
                     formData.append('instagram' , instagram);
                 }else if($('#imageAppended2')[0].files[0] != null){
-                    formData.append('title_ar' , title_ar);
-                    formData.append('title_en' , title_en);
                     formData.append('breif_ar' , breif_ar);
                     formData.append('breif_en' , breif_en);
                     formData.append('about_us_ar' , about_us_ar);
@@ -221,8 +211,6 @@
                     formData.append('facebook' , facebook);
                     formData.append('instagram' , instagram);
                 }else{
-                    formData.append('title_ar' , title_ar);
-                    formData.append('title_en' , title_en);
                     formData.append('breif_ar' , breif_ar);
                     formData.append('breif_en' , breif_en);
                     formData.append('about_us_ar' , about_us_ar);

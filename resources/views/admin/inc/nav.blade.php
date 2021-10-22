@@ -110,23 +110,23 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
+                        <i class="fas fa-puzzle-piece"></i>
+                        <span key="t-question">{{__('messages.Sections')}}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('sections.index' , app()->getLocale())}}" key="t-question">{{__('messages.Sections')}}</a></li>
+                        <li><a href="{{route('sections.create' , app()->getLocale())}}" key="t-question">{{__('messages.Add Sections')}}</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-file"></i>
                         <span key="t-packages">{{__('messages.Services')}}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('services.index' , app()->getLocale())}}" key="t-packages">{{__('messages.Services')}}</a></li>
                         <li><a href="{{route('services.create' , app()->getLocale())}}" key="t-packages">{{__('messages.Add Services')}}</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-plus"></i>
-                        <span key="t-packages">{{__('messages.Extra Packages')}}</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('extra_packages.index' , app()->getLocale())}}" key="t-extra-packages">{{__('messages.Extra Packages')}}</a></li>
-                        <li><a href="{{route('extra_packages.create' , app()->getLocale())}}" key="t-packages">{{__('messages.Add Extra Packages')}}</a></li>
                     </ul>
                 </li>
 
@@ -142,32 +142,21 @@
                 </li>
 
                 <li>
+                    <a href="javascript: void(0);" class="waves-effect">
+                        <i class="bx bx-briefcase"></i>
+                        <span key="t-question">{{__('messages.Sub Services')}}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('sub_services.index' , app()->getLocale())}}" key="t-question">{{__('messages.Sub Services')}}</a></li>
+                        <li><a href="{{route('sub_services.create' , app()->getLocale())}}" key="t-question">{{__('messages.Add Sub Services')}}</a></li>
+                    </ul>
+                </li>
+
+                <li>
                     <a href="{{route('newsletters.index' , app()->getLocale())}}" class="waves-effect">
                         <i class="bx bx-detail"></i>
                         <span key="t-newsletter">{{__('messages.NewsLetter')}}</span>
                     </a>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-question-mark"></i>
-                        <span key="t-question">{{__('messages.Sub_Services')}}</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('sub_services.index' , app()->getLocale())}}" key="t-question">{{__('messages.Sub_Services')}}</a></li>
-                        <li><a href="{{route('sub_services.create' , app()->getLocale())}}" key="t-question">{{__('messages.Add Sub_Services')}}</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-question-mark"></i>
-                        <span key="t-question">{{__('messages.Sections')}}</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('sections.index' , app()->getLocale())}}" key="t-question">{{__('messages.Sections')}}</a></li>
-                        <li><a href="{{route('sections.create' , app()->getLocale())}}" key="t-question">{{__('messages.Add Sections')}}</a></li>
-                    </ul>
                 </li>
 
                 <!-- <li>

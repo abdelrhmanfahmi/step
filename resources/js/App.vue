@@ -34,20 +34,14 @@
                         </li>
 
                         <li class="nav-item">
-                        <router-link :to="`/${i18n.locale}/#benefit-steps`" class="nav-item" exact>
-                                <a class="nav-link nav-item">{{ $t('nav.Benefits') }}</a>
-                            </router-link>
-                        </li>
-
-                        <li class="nav-item">
                         <router-link :to="`/${i18n.locale}/#why-steps`" class="nav-item" exact>
                                 <a class="nav-link nav-item">{{ $t('nav.Why Steps') }}</a>
                             </router-link>
                         </li>
 
                         <li class="nav-item">
-                        <router-link :to="`/${i18n.locale}/pricing`" class="nav-item" exact>
-                                <a class="nav-link nav-item">{{ $t('nav.Advantages') }}</a>
+                        <router-link :to="`/${i18n.locale}/#benefit-steps`" class="nav-item" exact>
+                                <a class="nav-link nav-item">{{ $t('nav.Benefits') }}</a>
                             </router-link>
                         </li>
 
@@ -111,20 +105,14 @@
                         </li>
 
                         <li class="nav-item">
-                        <router-link :to="`/${i18n.locale}/#benefit-steps`" class="nav-item" exact>
-                                <a class="nav-link nav-item">{{ $t('nav.Benefits') }}</a>
-                            </router-link>
-                        </li>
-
-                        <li class="nav-item">
                         <router-link :to="`/${i18n.locale}/#why-steps`" class="nav-item" exact>
                                 <a class="nav-link nav-item">{{ $t('nav.Why Steps') }}</a>
                             </router-link>
                         </li>
 
                         <li class="nav-item">
-                        <router-link :to="`/${i18n.locale}/pricing`" class="nav-item" exact>
-                                <a class="nav-link nav-item">{{ $t('nav.Advantages') }}</a>
+                        <router-link :to="`/${i18n.locale}/#benefit-steps`" class="nav-item" exact>
+                                <a class="nav-link nav-item">{{ $t('nav.Benefits') }}</a>
                             </router-link>
                         </li>
 

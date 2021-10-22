@@ -10,9 +10,8 @@
             <div class="container" v-if="this.$route.params.lang == 'ar'" style="direction:rtl;">
                 <div class="row justify-content-between align-items-center" v-for="setting in settings" :key="setting.id">
                   <div class="col-xl-5 col-lg-6 text-center text-lg mb-4 mb-md-5 mb-lg-0" data-aos="fade-right">
-                      <h1 class="display-3 stepsTagRtl">{{ setting.title_ar }}</h1>
-                      <p class="lead" style="direction:rtl;">{{ setting.breif_ar }}</p>
-                      <router-link :to="`/${i18n.locale}/#pricing`" class="nav-item" exact>
+                      <p class="lead" style="direction:rtl;" v-html="setting.breif_ar"></p>
+                      <router-link :to="`/${i18n.locale}/pricing`" class="nav-item" exact>
                           <a class="btn btn-lg" style="background-color:#6653ff;border-color:#301b72;color:#fff;height:55px;width:200px;border-radius:26px;"><span style="position:relative;top:3px;">{{ $t('header.Subscribe Now') }}</span></a>
                       </router-link>
                   </div>
@@ -25,9 +24,8 @@
             <div class="container" v-else style="direction:ltr;">
                 <div class="row justify-content-between align-items-center" v-for="setting in settings" :key="setting.id">
                 <div class="col-xl-5 col-lg-6 text-center text-lg mb-4 mb-md-5 mb-lg-0" data-aos="fade-right">
-                    <h1 class="display-3 stepsTagLtr">{{ setting.title_en }}</h1>
-                    <p class="lead" style="direction:ltr;">{{ setting.breif_en }}</p>
-                    <router-link :to="`/${i18n.locale}/#pricing`" class="nav-item" exact>
+                    <p class="lead" style="direction:ltr;" v-html="setting.breif_en"></p>
+                    <router-link :to="`/${i18n.locale}/pricing`" class="nav-item" exact>
                         <a class="btn btn-lg" style="background-color:#6653ff;border-color:#301b72;color:#fff;height:55px;width:200px;border-radius:26px;"><span style="position:relative;top:3px;">{{ $t('header.Subscribe Now') }}</span></a>
                     </router-link>
                 </div>
@@ -47,246 +45,233 @@
             <!-- <div class="w-50 h-50 bottom right position-absolute" data-jarallax-element="75">
                 <div class="blob blob-4 bg-white opacity-10 w-100 h-100"></div>
             </div> -->
-            <div id="about-us"></div>
+            
             <div class="divider divider-bottom bg-white" style="height:80px;"></div>
         </section>
 
-        <br>
-
         <!-- sub_services -->
 
-        <section class="pt-0" style="background-color:#fff;padding-bottom:60px;">
+        <section style="background-color:#fff;padding-top:130px;padding-bottom:0px;">
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h4 class="display-3 text-center" style="color:#6653ff;font-size:60px;">{{ $t('Ease, Safe, Fast') }}</h4>
+                <h4 class="display-3 text-center" style="color:#6653ff;font-family:abo;font-size:40px;">{{ $t('Ease, Safe, Fast') }}</h4>
               </div>
             </div>
             <div class="row">
               <div class="col-md-12">
-                <h5 style="color:#948f8f;" class="text-center">{{ $t('With the Steps system') }}</h5>
+                <h5 style="color:#948f8f;font-family:al;" class="text-center">{{ $t('With the Steps system') }}</h5>
               </div>
             </div>
+            <br>
             <br>
             <br>
             <div class="row" v-if="this.$route.params.lang == 'ar'">
-              <div class="col-md-2 text-center" v-for="sub_service in sub_services" :key="sub_service.id">
+              <div class="col-md-2 text-center imageSubService" v-for="sub_service in sub_services" :key="sub_service.id">
                 <img :src="'/uploads/'+sub_service.image" width="50px" height="50px" alt="experiement" />
-                <p style="color:#948f8f;">{{ sub_service.title_ar }}</p>
+                <p id="subServiceTitle" style="color:#948f8f;font-family:al;font-size:19px;padding-top:10px;">{{ sub_service.title_ar }}</p>
               </div>
             </div>
             <div class="row" v-else>
-              <div class="col-md-2 text-center" v-for="sub_service in sub_services" :key="sub_service.id">
+              <div class="col-md-2 text-center imageSubService" v-for="sub_service in sub_services" :key="sub_service.id">
                 <img :src="'/uploads/'+sub_service.image" width="50px" height="50px" alt="experiement" />
-                <p style="color:#948f8f;">{{ sub_service.title_en }}</p>
+                <p style="color:#948f8f;font-family:al;font-size:18px;padding-top:10px;">{{ sub_service.title_en }}</p>
               </div>
             </div>
           </div>
+          <div id="about-us"></div>
         </section>
 
         <!-- about_us -->
 
-        <section class="pt-0" style="background-color:#fff;padding-bottom:60px;">
+        <section style="background-color:#fff;padding-bottom:20px;direction:rtl;" v-if="this.$route.params.lang == 'ar'">
           <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-                <h3 class="display-4 text-center" style="padding-top:30px;font-family:ap;color:#6653ff;direction:rtl;" v-if="this.$route.params.lang == 'ar'">{{ $t('about.What') }}</h3>
-                <h3 class="display-4 text-center" style="padding-top:30px;font-family:ap;color:#6653ff;direction:ltr;" v-else>{{ $t('about.What') }}</h3>
+            <div class="row" v-for="setting in settings" :key="setting.id">
+              <div class="col-md-6">
+                <img :src="'/uploads/'+setting.about_us_image" class="imageAboutUs object" width="500px" height="350px" alt="">
               </div>
-            </div>
-            <div class="row" style="padding-top:10px;" v-if="this.$route.params.lang == 'ar'">
-              <div class="d-flex" v-for="setting in settings" :key="setting.id">
-                <div class="col-md-6">
-                  <img :src="'/uploads/'+setting.about_us_image" class="imageAboutUs" width="500px" height="350px" alt="">
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                  <p class="paragraphAboutUs">
-                    {{ setting.about_us_ar }}
-                  </p>
+              <div class="col-md-6 d-flex align-items-center">
+                <div class="paragraphAboutUsAr">
+                  <h4 style="font-family:abo;color:#6653ff;direction:rtl;text-align:start;font-size:30px;">{{ $t('about.What') }}</h4>
+                  {{ setting.about_us_ar }}
                 </div>
               </div>
             </div>
-            <div class="row" v-else>
-              <div class="d-flex" v-for="setting in settings" :key="setting.id">
-                <div class="col-md-6">
-                  <img :src="'/uploads/'+setting.about_us_image" class="imageAboutUs" width="500px" height="350px" alt="">
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                  <p class="paragraphAboutUs">
-                    {{ setting.about_us_en }}
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div id="benefit-steps"></div>
+            <div id="why-steps"></div>
           </div>
         </section>
 
-
-
-      <!-- benifits -->
-
-      <section class="text-white pb-0" style="direction:rtl;padding-top:60px !important" v-if="this.$route.params.lang == 'ar'">
-        <div class="container">
-          <div class="row section-title justify-content-center text-center">
-            <div class="col-md-9 col-lg-8 col-xl-7">
-              <h3 class="display-4" style="color:#6653ff;">{{ $t('beneifit.Benifits') }}</h3>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4 mb-3 mb-md-0" v-for="benifit in benifits" :key="benifit.id">
-              <div class="card card-body" style="height:193px;box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);">
-                <img :src="'/uploads/'+benifit.image" alt="Utosia logo" class="icon icon-lg ml-3">
-                <h5 class="mt-4 text-center" style="color:#6653ff;font-family:ap;">{{ benifit.title_ar }}</h5>
+        <section style="background-color:#fff;padding-bottom:20px;direction:ltr;" v-else>
+          <div class="container">
+            <div class="row" v-for="setting in settings" :key="setting.id">
+              <div class="col-md-6">
+                <img :src="'/uploads/'+setting.about_us_image" class="imageAboutUs object" width="500px" height="350px" alt="">
               </div>
-              <br>
-            </div>
-          </div>
-        </div>
-        <div id="why-steps"></div>
-        <div class="divider divider-bottom"></div>
-      </section>
-
-      <section class="text-white pb-0" style="direction:ltr;padding-top:60px !important" v-else>
-        <div class="container">
-          <div class="row section-title justify-content-center text-center">
-            <div class="col-md-9 col-lg-8 col-xl-7">
-              <h3 class="display-4" style="color:#6653ff;">{{ $t('beneifit.Benifits') }}</h3>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-4 mb-3 mb-md-0" v-for="benifit in benifits" :key="benifit.id">
-              <div class="card card-body" style="height:193px;box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);">
-                <img :src="'/uploads/'+benifit.image" alt="Utosia logo" class="icon icon-lg ml-3">
-                <h5 class="mt-4 text-center" style="color:#6653ff;font-family:ap;">{{ benifit.title_en }}</h5>
+              <div class="col-md-6 d-flex align-items-center">
+                <div class="paragraphAboutUsEn">
+                  <h4 style="font-family:abo;color:#6653ff;direction:ltr;text-align:start;font-size:30px;">{{ $t('about.What') }}</h4>
+                  {{ setting.about_us_en }}
+                </div>
               </div>
-              <br>
             </div>
+            <div id="why-steps"></div>
           </div>
-        </div>
-        <div id="why-steps"></div>
-        <div class="divider divider-bottom"></div>
-      </section>
-
-      <br>
-      <br>
-      <br>
+        </section>
 
         <!-- why steps -->
 
-        <section class="pt-0" style="direction:rtl;padding-bottom:30px;" v-if="this.$route.params.lang == 'ar'">
+        <section style="direction:rtl;padding-top:30px;" v-if="this.$route.params.lang == 'ar'">
             <div class="container">
                 <div class="row">
-                  <div class="col-md-12">
-                    <h3 class="display-4 text-center" style="color:#6653ff;font-family:ap;padding-bottom:50px;">{{ $t('Why.WhySteps') }}</h3>
+                  <div class="col-md-8 mb-3 mb-md-0">
+                    <h4 class="whyStepHeading">{{ $t('Why.WhySteps') }}</h4>
+                      <ul class="fahmyUl">
+                        <li class="d-flex align-items-start" style="margin-bottom:25px;" v-for="(whyStep,index) in whySteps" :key="whyStep.id">
+                          <div class="borderNumberWhySteps">
+                            <span style="color:#fff;font-size:18px;">{{index+1}}</span>
+                          </div>
+                          <p class="fahmyLi">{{whyStep.title_ar}}</p>
+                        </li>
+                      </ul>
+                  </div>
+                  <div class="col-md-4" v-for="setting in settings" :key="setting.id">
+                    <img :src="'/uploads/'+setting.why_steps_image" class="imageWhySteps object" width="500px" height="350px" alt="">
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="col-md-6 mb-3 mb-md-0">
-                      <div class="d-flex" v-for="(whyStep,index) in whySteps" :key="whyStep.id">
-                        <div class="borderNumberWhySteps">
-                          <span style="color:#fff;font-size:18px;">{{index+1}}</span>
-                        </div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <p style="font-size:18px;">{{whyStep.title_ar}}</p>
-                      </div>
-                  </div>
-                  <div class="col-md-6" v-for="setting in settings" :key="setting.id">
-                    <img :src="'/uploads/'+setting.why_steps_image" class="imageWhySteps" width="500px" height="350px" alt="">
-                  </div>
-                </div>
+                <div id="benefit-steps"></div>
             </div>
         </section>
 
-        <section class="pt-0" style="direction:ltr;padding-bottom:30px;" v-else>
+        <section style="direction:ltr;padding-top:30px;" v-else>
             <div class="container">
                 <div class="row">
-                  <div class="col-md-12">
-                    <h3 class="display-4 text-center" style="color:#6653ff;font-family:ap;padding-bottom:50px;">{{ $t('Why.WhySteps') }}</h3>
-                  </div>
-                </div>
-
-                <div class="row">
                   <div class="col-md-6 mb-3 mb-md-0">
-                      <div class="d-flex" v-for="(whyStep,index) in whySteps" :key="whyStep.id">
-                        <div class="borderNumberWhySteps">
-                          <span style="color:#fff;font-size:18px;">{{index+1}}</span>
-                        </div>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                        <p style="font-size:18px;">{{whyStep.title_en}}</p>
-                      </div>
+                    <h4 class="whyStepHeadingEn">{{ $t('Why.WhySteps') }}</h4>
+                      <ul class="fahmyUl">
+                        <li class="d-flex align-items-start" style="margin-bottom:25px;" v-for="(whyStep,index) in whySteps" :key="whyStep.id">
+                          <div class="borderNumberWhySteps">
+                            <span style="color:#fff;font-size:18px;">{{index+1}}</span>
+                          </div>
+                          <p class="fahmyLiEn">{{whyStep.title_en}}</p>
+                        </li>
+                      </ul>
                   </div>
                   <div class="col-md-6">
-                    <img :src="'assets/img/5913-Less.png'" class="imageWhySteps" width="500px" height="350px" alt="">
+                    <img :src="'assets/img/5913-Less.png'" class="imageWhyStepsEn object" width="500px" height="350px" alt="">
                   </div>
                 </div>
+                <div id="benefit-steps"></div>
             </div>
         </section>
+
+
+        <!-- benifits -->
+
+      <section class="text-white" style="direction:rtl;padding-top:40px !important;padding-bottom:50px;" v-if="this.$route.params.lang == 'ar'">
+        <div class="container">
+          <div class="row section-title justify-content-center text-center mb-4">
+            <div class="col-md-9 col-lg-8 col-xl-7">
+              <h3 class="display-4" style="color:#6653ff;font-family:abo;font-size:40px;">{{ $t('beneifit.Benifits') }}</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mb-3 mb-md-0" v-for="benifit in benifits" :key="benifit.id">
+              <div class="card card-body cardBenifit onHoverCard">
+                <img :src="'/uploads/'+benifit.image" alt="Utosia logo" class="icon icon-lg ml-3">
+                <h5 class="mt-4 text-center cardBenifitTitle">{{ benifit.title_ar }}</h5>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+        
+        <div class="divider divider-bottom"></div>
+      </section>
+
+      <section class="text-white" style="direction:ltr;padding-top:40px !important;padding-bottom:50px;" v-else>
+        <div class="container">
+          <div class="row section-title justify-content-center text-center">
+            <div class="col-md-9 col-lg-8 col-xl-7">
+              <h3 class="display-4" style="color:#6653ff;font-family:abo;font-size:40px;">{{ $t('beneifit.Benifits') }}</h3>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4 mb-3 mb-md-0" v-for="benifit in benifits" :key="benifit.id">
+              <div class="card card-body cardBenifit onHoverCard">
+                <img :src="'/uploads/'+benifit.image" alt="Utosia logo" class="icon icon-lg ml-3">
+                <h5 class="mt-4 text-center cardBenifitTitle">{{ benifit.title_en }}</h5>
+              </div>
+              <br>
+            </div>
+          </div>
+        </div>
+        <div id="why-steps"></div>
+        <div class="divider divider-bottom"></div>
+      </section>
 
 
         <!-- sections -->
 
-        <section class="pt-0" v-if="this.$route.params.lang == 'ar'">
+        <section style="padding-top:0px !important" v-if="this.$route.params.lang == 'ar'">
           <div class="container" v-for="(section,index) in sections" :key="section.id">
-            <div class="row">
-              <div class="col-md-12">
-                <h3 class="display-4 text-center" style="color:#6653ff;font-family:ap;">{{ section.title_ar }}</h3>
-              </div>
-            </div>
-
             <div class="row" v-if="(index+1)%2 == 0">
-              <div class="col-md-6 d-flex align-items-center">
-                <p style="font-size:23px;direction:rtl;text-align:justify;color:#948f8f;">{{ section.desc_ar }}</p>
+              <div class="col-md-6 sectionsCssAr">
+                <h4 style="text-align:start;font-family:abo;direction:rtl;color:#6653ff;">{{ section.title_ar }}</h4>
+                <br>
+                <p style="font-size:23px;direction:rtl;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_ar }}</p>
               </div>
               <div class="col-md-6">
-                <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="">
+                <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
             </div>
 
             <div class="row" v-else>
               <div class="col-md-6">
-                <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="">
+                <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
-              <div class="col-md-6 d-flex align-items-center">
-                <p style="font-size:23px;direction:rtl;text-align:justify;color:#948f8f;">{{ section.desc_ar }}</p>
+              <div class="col-md-6 sectionsCssAr">
+                <h4 style="text-align:start;font-family:abo;direction:rtl;color:#6653ff;">{{ section.title_ar }}</h4>
+                <br>
+                <p style="font-size:23px;direction:rtl;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_ar }}</p>
               </div>
             </div>
-            <br>
-            <br>
-            <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
           </div>
         </section>
 
-        <section class="pt-0" v-else>
+        <section style="padding-top:0px !important" v-else>
           <div class="container" v-for="(section,index) in sections" :key="section.id">
-            <div class="row">
-              <div class="col-md-12">
-                <h3 class="display-4 text-center" style="color:#6653ff;font-family:ap;">{{ section.title_en }}</h3>
-              </div>
-            </div>
-
             <div class="row" v-if="(index+1)%2 == 0">
-              <div class="col-md-6 d-flex align-items-center">
-                <p style="font-size:23px;direction:ltr;text-align:justify;color:#948f8f;">{{ section.desc_en }}</p>
+              <div class="col-md-6 sectionsCssAr">
+                <h4 style="text-align:start;font-family:abo;direction:ltr;color:#6653ff;">{{ section.title_en }}</h4>
+                <br>
+                <p style="font-size:23px;direction:ltr;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_en }}</p>
               </div>
               <div class="col-md-6">
-                <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="">
+                <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
             </div>
             <div class="row" v-else>
               <div class="col-md-6">
-                <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="">
+                <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
-              <div class="col-md-6 d-flex align-items-center">
-                <p style="font-size:23px;direction:ltr;text-align:justify;color:#948f8f;">{{ section.desc_en }}</p>
+              <div class="col-md-6 sectionsCssAr">
+                <h4 style="text-align:start;font-family:abo;direction:ltr;color:#6653ff;">{{ section.title_en }}</h4>
+                <br>
+                <p style="font-size:23px;direction:ltr;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_en }}</p>
               </div>
             </div>
-            <br>
-            <br>
-            <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
           </div>
         </section>
 
@@ -365,10 +350,96 @@ export default {
 </script>
 
 <style scoped>
-.paragraphAboutUs{
+.onHoverCard:hover{
+  position:relative;
+   -webkit-animation:glide 0.7s ease-in-out alternate infinite;
+   -webkit-box-shadow: 6px 9px 70px -4px rgba(102,83,255,1);
+-moz-box-shadow: 6px 9px 70px -4px rgba(102,83,255,1);
+box-shadow: 6px 9px 70px -4px rgba(102,83,255,1);
+transition: box-shadow 0.3s ease-in-out;
+}
+.imageSubService{
+  transition: transform .7s ease-in-out;
+}
+.imageSubService:hover{
+  transform: rotate(360deg);
+}
+.object{
+    position:relative;
+   -webkit-animation:glide 0.7s ease-in-out alternate infinite;
+}
+@-webkit-keyframes glide  {
+   from {
+      left:0px;
+      top:0px;
+   }
+   
+   to {
+      left:0px;
+      top:20px;
+   }
+
+}
+.cardBenifitTitle{
+  color:#6653ff;
+  font-family:ap;
+}
+.cardBenifit{
+  height:193px;
+  box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);
+}
+.imageWhyStepsEn{
+  position:relative;
+  top:30px;
+}
+.whyStepHeadingEn{
+  color:#6653ff;
+  font-family:abo;
+  text-align:start;
+  direction:ltr;
+  position:relative;
+  top:70px;
+  right:-37px;
+}
+.whyStepHeading{
+  color:#6653ff;
+  font-family:abo;
+  text-align:start;
+  direction:rtl;
+  position:relative;
+  top:70px;
+  right:37px;
+}
+.fahmyUl{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    list-style:none;
+    column-gap:90px;
+    padding-top:110px;
+}
+.fahmyLi{
+  position:relative;
+  right:20px;
+}
+.fahmyLiEn{
+  position:relative;
+  right:-20px;
+  font-size:13.2px;
+}
+.sectionsCssAr{
+  position:relative;
+  top:90px;
+}
+.paragraphAboutUsAr{
   text-align:justify;
   line-height:2;
   direction:rtl;
+}
+.paragraphAboutUsEn{
+  text-align:justify;
+  line-height:2;
+  direction:ltr;
 }
 .stepsTagRtl{
   font-size: 45px;
@@ -404,10 +475,58 @@ export default {
   text-align:center;
 }
 
+@media screen and (min-width: 1025px) and (max-width: 1340px){
+  .imageWhySteps{
+    width: 400px;
+    height: 300px;
+  }
+  .imageWhyStepsEn{
+    width: 400px;
+    height: 300px;
+  }
+  .fahmyLi{
+    position:relative;
+    right:20px;
+    font-size:13px;
+  }
+  .fahmyLiEn{
+    position:relative;
+    right:-20px;
+    font-size:13px;
+  }
+}
+
 @media only screen and (width : 1024px){
   .newImageOrders{
-    width:480px;
+    width:450px;
     height:350px;
+  }
+  .imageWhySteps{
+    width: 400px;
+    height: 300px;
+    position: relative;
+    top: 15px;
+    right: -50px;
+  }
+  .imageWhyStepsEn{
+    width: 400px;
+    height: 300px;
+    position: relative;
+    top: 90px;
+    right: 0px;
+  }
+  .fahmyLi{
+    position:relative;
+    right:15px;
+    font-size:14px;
+  }
+  .fahmyLiEn{
+    position:relative;
+    right:-15px;
+    font-size:12px;
+  }
+  .fahmyUl{
+    column-gap:50px;
   }
 }
 
@@ -417,12 +536,35 @@ export default {
     height:330px;
   }
   .imageWhySteps{
-    width:350px;
-    height:300px;
+    width: 290px;
+    height: 250px;
+    position: relative;
+    top: 110px;
+    right: -27px;
+  }
+  .imageWhyStepsEn{
+    width: 350px;
+    height: 300px;
+    position: relative;
+    top: 110px;
+    right: 0px;
   }
   .newImageOrders{
     width:350px;
     height:350px;
+  }
+  .fahmyLi{
+    position:relative;
+    right:15px;
+    font-size:14px;
+  }
+  .fahmyLiEn{
+    position:relative;
+    right:-15px;
+    font-size:10px;
+  }
+  .cardBenifitTitle{
+    font-size:16px;
   }
 }
 
@@ -431,19 +573,48 @@ export default {
     width:250px;
   }
   .imageAboutUs{
-    width:200px;
-    height:150px;
+    width:350px;
+    height:250px;
   }
-  .paragraphAboutUs{
+  .paragraphAboutUsAr{
+    text-align:justify;
+  }
+  .paragraphAboutUsEn{
     text-align:justify;
   }
   .imageWhySteps{
-    width:300px;
+    width:350px;
+    height:250px;
+  }
+  .imageWhyStepsEn{
+    width:350px;
     height:250px;
   }
   .newImageOrders{
     width:350px;
     height:200px;
+  }
+  .sectionsCssAr{
+    position:relative;
+    top:10px;
+  }
+  .fahmyLi{
+    position:relative;
+    right:0px;
+    font-size:11px;
+  }
+  .fahmyLiEn{
+    position:relative;
+    right:-20px;
+    font-size:11px;
+  }
+  .fahmyUl{
+    column-gap:40px;
+  }
+  .whyStepHeadingEn{
+    position: relative;
+    right: -37px;
+    width: 130px;
   }
 }
 
@@ -452,12 +623,32 @@ export default {
     width:380px;
     height:200px;
   }
+  .fahmyLi{
+    position:relative;
+    right:5px;
+    font-size:15px;
+  }
+  .fahmyLiEn{
+    position:relative;
+    right:-10px;
+    font-size:12px;
+  }
 }
 
 @media only screen and (width: 411px){
   .newImageOrders{
     width:380px;
     height:200px;
+  }
+  .fahmyLi{
+    position:relative;
+    right:0px;
+    font-size:14px;
+  }
+  .fahmyLiEn{
+    position:relative;
+    right:-10px;
+    font-size:12px;
   }
 }
 
@@ -466,6 +657,20 @@ export default {
     width:365px;
     height:200px;
   }
+  .fahmyLi{
+    position:relative;
+    right:2px;
+    font-size:12px;
+  }
+  .fahmyLiEn{
+    position:relative;
+    right:-2px;
+    font-size:12px;
+  }
+  .imageAboutUs{
+    width:350px;
+    height:250px;
+  }
 }
 
 @media only screen and (width: 360px){
@@ -473,10 +678,39 @@ export default {
     width:330px;
     height:200px;
   }
+  .imageAboutUs{
+    width:300px;
+    height:200px;
+  }
+  .fahmyLiEn{
+    font-size:10px;
+  }
+  .imageWhyStepsEn{
+    width:300px;
+    height:200px;
+  }
 }
 
 @media only screen and (width: 320px){
   .newImageOrders{
+    width:300px;
+    height:200px;
+  }
+  .fahmyLi{
+    position:relative;
+    right:3px;
+    font-size:9px;
+  }
+  .fahmyLiEn{
+    position:relative;
+    right:-10px;
+    font-size:9px;
+  }
+  .imageAboutUs{
+    width:300px;
+    height:200px;
+  }
+  .imageWhyStepsEn{
     width:300px;
     height:200px;
   }

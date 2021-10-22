@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\ExtraPackage;
 use App\Http\Controllers\Controller;
 use App\Notification;
-use App\Package;
 use Illuminate\Http\Request;
 use App\Subscripe;
-use App\SubscripeExtraPackage;
-use DB;
 
 class SubscripeController extends Controller
 {
@@ -25,38 +22,23 @@ class SubscripeController extends Controller
 
     public function edit($language , $id){
         $subscripes = Subscripe::find($id);
-        $extraPackages = ExtraPackage::all();
-        $extra = SubscripeExtraPackage::where('subscripe_id' , '=' , $id)->get();
         Notification::where('subscripe_id' , '=' , $id)->update(['viewed' => 1]);
-        return view('admin.subscripes.edit' , ['language' => $language , 'subscripes' => $subscripes , 'extra' => $extra ,  'extraPackages' => $extraPackages]);
+        return view('admin.subscripes.edit' , ['language' => $language , 'subscripes' => $subscripes]);
     }
 
     public function update(Request $request , $id){
-        DB::transaction(function () use ($request , $id) {
-            $request->validate([
-                'name' => 'required|max:255',
-                'email' => 'required|max:255|email',
-                'company_size' => 'required',
-            ]);
+        $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255|email',
+            'company_size' => 'required',
+        ]);
 
-            $subscripes = Subscripe::find($request->id);
-            $subscripes->name = $request->input('name');
-            $subscripes->email = $request->input('email');
-            $subscripes->company_size = $request->input('company_size');
+        $subscripes = Subscripe::find($request->id);
+        $subscripes->name = $request->input('name');
+        $subscripes->email = $request->input('email');
+        $subscripes->company_size = $request->input('company_size');
 
-            $subscripes->save();
-            if($request->has('extra_package_id')){
-
-                SubscripeExtraPackage::where('subscripe_id' , '=' , $request->id)->delete();
-                foreach($request->input('extra_package_id') as $d){
-                    SubscripeExtraPackage::create([
-                        'subscripe_id' => $subscripes->id,
-                        'extra_package_id' => $d
-                    ]);
-                }
-                
-            }
-        });
+        $subscripes->save();
 
         return redirect()->route('subscripes.index' , app()->getLocale());
     }

@@ -25,8 +25,6 @@ class SettingController extends Controller
 
     public function update(Request $request , $id){
         $request->validate([
-            'title_ar' => 'required|max:255',
-            'title_en' => 'required|max:255',
             'breif_ar' => 'required',
             'breif_en' => 'required',
             'about_us_ar' => 'required',
@@ -43,8 +41,6 @@ class SettingController extends Controller
 
         $settings = Setting::find($request->id);
 
-        $settings->title_ar = $request->input('title_ar');
-        $settings->title_en = $request->input('title_en');
         $settings->breif_ar = $request->input('breif_ar');
         $settings->breif_en = $request->input('breif_en');
         $settings->about_us_ar = $request->input('about_us_ar');

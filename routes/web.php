@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+// Route::get('{any}', function () {
+//     return view('welcome');
+// })->where('any','.*')->name('home');
+
 Auth::routes();
 
 Route::redirect('/admin' , '/en/admin');
@@ -83,14 +87,6 @@ Route::group(['prefix' => '{language}/admin'] , function (){
     Route::get('/delete/services/{id}' , 'Admin\ServiceController@delete')->name('services.delete');
 
     Route::get('/getDataAjax/{id}' , 'Admin\PackageController@getDataAjax');
-
-    //Extra Packages
-    Route::get('/extra_packages' , 'Admin\ExtraPackageController@index')->name('extra_packages.index');
-    Route::get('/create/extra_packages' , 'Admin\ExtraPackageController@create')->name('extra_packages.create');
-    Route::post('/store/extra_packages' , 'Admin\ExtraPackageController@store')->name('extra_packages.store');
-    Route::get('/edit/extra_packages/{id}' , 'Admin\ExtraPackageController@edit')->name('extra_packages.edit');
-    Route::post('/update/extra_packages/{id}' , 'Admin\ExtraPackageController@update')->name('extra_packages.update');
-    Route::get('/delete/extra_packages/{id}' , 'Admin\ExtraPackageController@delete')->name('extra_packages.delete');
 
     //Subscribtions
     Route::get('/subscripes' , 'Admin\SubscripeController@index')->name('subscripes.index');

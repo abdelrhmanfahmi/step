@@ -89,74 +89,13 @@
             </div>
         </section>
 
-        <section class="pt-5">
-            <div class="container">
-                <div class="mt-5" id="pricing" style="direction:rtl;" v-if="this.$route.params.lang == 'ar'">
-                    <div class="pricing-table-section text-center text-lg-left">
-                        <div class="row no-gutters">
-                            <div class="col">
-                                <h5 class="mb-4 text-right" style="font-family:abo;color:#6653ff;direction:rtl;">باقات إضافية</h5>
-                            </div>
-                        </div>
-                        <div class="border rounded">
-                            <div class="row no-gutters align-items-center" v-for="extraPackage in extraPackages" :key="extraPackage.id">
-                                <div class="col-12 col-lg-3  py-3 py-md-4">
-                                    <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
-                                        <h6 class="mb-0 ml-lg-4" style="color:#6653ff;font-family:ap;position:relative;right:20px;">{{ extraPackage.name_ar }}</h6>
-                                    </div>
-                                </div>
-                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
-                                    
-                                </div>
-                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
-                                    
-                                </div>
-                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
-                                <span style="font-size:20px;"><span style="color:#6653ff;font-family:ap;font-size:12px;">SAR</span> {{ extraPackage.price }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-5" id="pricing" style="direction:ltr;" v-else>
-                    <div class="pricing-table-section text-center text-lg-left">
-                        <div class="row no-gutters">
-                            <div class="col">
-                                <h5 class="mb-4" style="font-family:abo;color:#6653ff;direction:ltr;">Extra Packages</h5>
-                            </div>
-                        </div>
-                        <div class="border rounded">
-                            <div class="row no-gutters align-items-center" v-for="extraPackage in extraPackages" :key="extraPackage.id">
-                                <div class="col-12 col-lg-3  py-3 py-md-4">
-                                <div class="d-flex align-items-center justify-content-center justify-content-lg-start">
-                                    <h6 class="mb-0 ml-lg-4" style="color:#6653ff;font-family:ap;position:relative;right:20px;">{{ extraPackage.name_en }}</h6>
-                                </div>
-                                </div>
-                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
-                                    
-                                </div>
-                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
-                                    
-                                </div>
-                                <div class="col-4 col-lg-3 d-flex justify-content-center py-3 py-md-4">
-                                <span style="font-size:20px;"><span style="color:#6653ff;font-family:ap;font-size:12px;">SAR</span> {{ extraPackage.price }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section ref="subscribe" id="subscribe" class="pt-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h3 class="display-4 text-center" style="color:#6653ff;font-family:ap;">{{ $t('Pricing.Subscribe Now!') }}</h3>
+                        <h3 class="display-4 text-center" style="color:#6653ff;font-family:abo;font-size:40px;">{{ $t('Pricing.Subscribe Now!') }}</h3>
                     </div>
                 </div>
-
                 <div class="row" v-if="this.$route.params.lang == 'ar'">
                     <div class="col-md-10" data-aos-delay="250">
                         <div class="card card-body subscribesPricing">
@@ -185,17 +124,7 @@
                                         <div class="invalid-feedback" v-if="errors.company_size" style="display:block;">{{ errors.company_size[0] }}</div>
                                     </div>
                                 </div>
-
-                                <div class="form-group text-right">
-                                    <label>{{ $t('Pricing.Extra Packages') }}</label>
-                                    <div class="position-relative">
-                                        <label class="mainAr" v-for="extraPackage in extraPackages" :key="extraPackage.id">
-                                            {{ extraPackage.name_ar }} <input v-model="extra_package_id" name="extra_package_id" :value="extraPackage.id" type="checkbox">
-                                            <span class="geekmarkAr"></span>
-                                        </label>
-                                    </div>
-                                </div>
-
+                                <br>
                                 <button class="btn btn-block btn-loading buttonSubscribe" type="submit">
                                     <span style="color:#fff">{{ $t('Pricing.Subscribe') }}</span>
                                 </button>
@@ -232,24 +161,14 @@
                                         <div class="invalid-feedback" v-if="errors.company_size" style="display:block;">{{ errors.company_size[0] }}</div>
                                     </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="extra-packages">{{ $t('Pricing.Extra Packages') }}</label>
-                                    <div class="position-relative">
-                                        <label class="main" v-for="extraPackage in extraPackages" :key="extraPackage.id">
-                                            <input v-model="extra_package_id" name="extra_package_id" :value="extraPackage.id" type="checkbox"> {{ extraPackage.name_en }}
-                                            <span class="geekmark"></span>
-                                        </label>
-                                    </div>
-                                </div>
+                                <br>
                                 <button class="btn btn-block btn-loading buttonSubscribeLtr" type="submit" data-loading-text="Requesting Demo">
-                                    <span style="color:#fff">{{ $t('Pricing.Subscribe') }}</span>
+                                    <span style="color:#fff;">{{ $t('Pricing.Subscribe') }}</span>
                                 </button>
                             </form>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
         
@@ -265,17 +184,14 @@ export default {
     data: function(){
         return {
             services:[],
-            extraPackages:[],
             name:'',
             email:'',
             company_size:'',
-            extra_package_id:[],
             errors:{},
         }
     },
     mounted(){
         this.getServicesFromPackage();
-        this.getExtraPackages();
     },
     methods:{
         scrollMeTo(refName) {
@@ -292,36 +208,21 @@ export default {
                 console.log(error);
             }
         },
-        getExtraPackages:async function(){
-            try{
-                const response = await price_service.getExtraPackages();
-                this.extraPackages = response.data;
-            }catch(error){
-                console.log(error);
-            }
-        },
         formSubmitAr:async function(){
             let formData = new FormData();
-            if(this.extra_package_id.length === 0){
-                formData.append('name' , this.name);
-                formData.append('email' , this.email);
-                formData.append('company_size' , this.company_size);
-                // formData.append('extra_package_id' , this.extra_package_id);
-            }else{
-                formData.append('name' , this.name);
-                formData.append('email' , this.email);
-                formData.append('company_size' , this.company_size);
-                formData.append('extra_package_id' , this.extra_package_id);
-            }
+            
+            formData.append('name' , this.name);
+            formData.append('email' , this.email);
+            formData.append('company_size' , this.company_size);
+
             try{
                 const response = await price_service.StoreSubscriptions(formData);
                 this.name = "";
                 this.email = "";
                 this.company_size = "";
-                this.extra_package_id = [];
                 this.errors = "";
                 this.flashMessage.success({
-                    message:"لقد تم اشتراكك بنجاح في الباقة الاحترافية",
+                    message:"لقد تم اشتراكك بنجاح",
                     time:5000,
                 });
             }catch(error){
@@ -342,23 +243,16 @@ export default {
         },
         formSubmitEn:async function(){
             let formData = new FormData();
-            if(this.extra_package_id.length === 0){
-                formData.append('name' , this.name);
-                formData.append('email' , this.email);
-                formData.append('company_size' , this.company_size);
-                // formData.append('extra_package_id' , this.extra_package_id);
-            }else{
-                formData.append('name' , this.name);
-                formData.append('email' , this.email);
-                formData.append('company_size' , this.company_size);
-                formData.append('extra_package_id' , this.extra_package_id);
-            }
+
+            formData.append('name' , this.name);
+            formData.append('email' , this.email);
+            formData.append('company_size' , this.company_size);
+            
             try{
                 const response = await price_service.StoreSubscriptions(formData);
                 this.name = "";
                 this.email = "";
                 this.company_size = "";
-                this.extra_package_id = [];
                 this.errors = "";
                 this.flashMessage.success({
                     message:"You Have been subscriped Successfully",
@@ -448,7 +342,7 @@ export default {
 .hrefCss{
     position:relative;
     top:10px;
-    right:0px;
+    right:-40px;
     background-color:#6653ff;
     color:#fff;
     font-family:ap;
@@ -458,7 +352,7 @@ export default {
 .hrefCssAr{
     position:relative;
     top:10px;
-    right:0px;
+    right:40px;
     background-color:#6653ff;
     color:#fff;
     font-family:ap;
@@ -623,6 +517,14 @@ input[type=checkbox] {
 }
 
 @media only screen and (width : 1024px){
+    .hrefCssAr{
+        position:relative;
+        right:40px;
+    }
+    .hrefCss{
+        position:relative;
+        right:-40px;
+    }
     .premCssAr{
         position:relative;
         right:-45px;
@@ -653,6 +555,14 @@ input[type=checkbox] {
 }
 
 @media screen and (min-width:768px) and (max-width:1000px) {
+    .hrefCssAr{
+        position:relative;
+        right:0px;
+    }
+    .hrefCss{
+        position:relative;
+        right:0px;
+    }
     .premCssAr{
         position:relative;
         right:0px;

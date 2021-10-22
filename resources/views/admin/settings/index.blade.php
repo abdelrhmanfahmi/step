@@ -33,7 +33,6 @@
                                             <thead>
                                                 @if( Config::get('app.locale') == 'en' )
                                                 <tr>
-                                                    <th data-priority="1">{{__('messages.Title_en')}}</th>
                                                     <th data-priority="10">{{__('messages.Breif_en')}}</th>
                                                     <th data-priority="10">{{__('messages.About-Us-en')}}</th>
                                                     <th data-priority="1">{{__('messages.E-mail')}}</th>
@@ -43,7 +42,6 @@
                                                 </tr>
                                                 @else
                                                 <tr>
-                                                    <th data-priority="1">{{__('messages.Title_ar')}}</th>
                                                     <th data-priority="10">{{__('messages.Breif_ar')}}</th>
                                                     <th data-priority="10">{{__('messages.About-Us-ar')}}</th>
                                                     <th data-priority="1">{{__('messages.E-mail')}}</th>
@@ -57,8 +55,7 @@
                                                 @foreach($settings as $setting)
                                                     @if( Config::get('app.locale') == 'en' )
                                                         <tr>
-                                                            <td>{{$setting->title_en}}</td>
-                                                            <td>{{ Str::limit($setting->breif_en, 50) }}</td>
+                                                            <td>{!! Str::limit($setting->breif_en, 50) !!}</td>
                                                             <td>{{ Str::limit($setting->about_us_en, 50) }}</td>
                                                             <td>{{$setting->email}}</td>
                                                             <td>{{$setting->phone}}</td>
@@ -67,8 +64,7 @@
                                                         </tr>
                                                     @else
                                                         <tr>
-                                                            <td>{{$setting->title_ar}}</td>
-                                                            <td>{{ Str::limit($setting->breif_ar, 50) }}</td>
+                                                            <td>{!! Str::limit($setting->breif_ar, 50) !!}</td>
                                                             <td>{{ Str::limit($setting->about_us_ar, 50) }}</td>
                                                             <td>{{$setting->email}}</td>
                                                             <td>{{$setting->phone}}</td>
