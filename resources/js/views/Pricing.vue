@@ -96,7 +96,7 @@
                         <h3 class="display-4 text-center" style="color:#6653ff;font-family:abo;font-size:40px;">{{ $t('Pricing.Subscribe Now!') }}</h3>
                     </div>
                 </div>
-                <div class="row" v-if="this.$route.params.lang == 'ar'">
+                <div class="row" data-aos="fade-up" data-aos-delay="250" v-if="this.$route.params.lang == 'ar'">
                     <div class="col-md-10" data-aos-delay="250">
                         <div class="card card-body subscribesPricing">
                             <form class="formSubscribe" @submit.prevent="formSubmitAr">
@@ -133,7 +133,7 @@
                     </div>
                 </div>
                 
-                <div class="row" v-else>
+                <div class="row" data-aos="fade-up" data-aos-delay="250" v-else>
                     <div class="col-md-10" data-aos-delay="250">
                         <div class="card card-body subscribesPricingLtr">
                             <form class="formSubscribeLtr" @submit.prevent="formSubmitEn">

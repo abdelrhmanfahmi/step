@@ -5,6 +5,7 @@
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" 
         integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" 
         crossorigin="anonymous">
+        <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
 
         <section class="bg-primary-3 text-white pb-0 o-hidden">
             <div class="container" v-if="this.$route.params.lang == 'ar'" style="direction:rtl;">
@@ -23,7 +24,7 @@
 
             <div class="container" v-else style="direction:ltr;">
                 <div class="row justify-content-between align-items-center" v-for="setting in settings" :key="setting.id">
-                <div class="col-xl-5 col-lg-6 text-center text-lg mb-4 mb-md-5 mb-lg-0" data-aos="fade-right">
+                <div class="col-xl-5 col-lg-6 text-center text-lg mb-4 mb-md-5 mb-lg-0" data-aos="fade-left">
                     <p class="lead" style="direction:ltr;" v-html="setting.breif_en"></p>
                     <router-link :to="`/${i18n.locale}/pricing`" class="nav-item" exact>
                         <a class="btn btn-lg" style="background-color:#6653ff;border-color:#301b72;color:#fff;height:55px;width:200px;border-radius:26px;"><span style="position:relative;top:3px;">{{ $t('header.Subscribe Now') }}</span></a>
@@ -66,13 +67,13 @@
             <br>
             <br>
             <br>
-            <div class="row" v-if="this.$route.params.lang == 'ar'">
+            <div class="row" data-aos="fade-up" data-aos-delay="250" v-if="this.$route.params.lang == 'ar'">
               <div class="col-md-2 text-center imageSubService" v-for="sub_service in sub_services" :key="sub_service.id">
                 <img :src="'/uploads/'+sub_service.image" width="50px" height="50px" alt="experiement" />
                 <p id="subServiceTitle" style="color:#948f8f;font-family:al;font-size:19px;padding-top:10px;">{{ sub_service.title_ar }}</p>
               </div>
             </div>
-            <div class="row" v-else>
+            <div class="row" data-aos="fade-up" data-aos-delay="250" v-else>
               <div class="col-md-2 text-center imageSubService" v-for="sub_service in sub_services" :key="sub_service.id">
                 <img :src="'/uploads/'+sub_service.image" width="50px" height="50px" alt="experiement" />
                 <p style="color:#948f8f;font-family:al;font-size:18px;padding-top:10px;">{{ sub_service.title_en }}</p>
@@ -88,10 +89,10 @@
           <div class="container">
             <div class="row" v-for="setting in settings" :key="setting.id">
               <div class="col-md-6">
-                <img :src="'/uploads/'+setting.about_us_image" class="imageAboutUs object" width="500px" height="350px" alt="">
+                <img :src="'/uploads/'+setting.about_us_image" data-aos="fade-left" data-aos-delay="250" class="imageAboutUs object" width="500px" height="350px" alt="">
               </div>
               <div class="col-md-6 d-flex align-items-center">
-                <div class="paragraphAboutUsAr">
+                <div class="paragraphAboutUsAr" data-aos="fade-right" data-aos-delay="250">
                   <h4 style="font-family:abo;color:#6653ff;direction:rtl;text-align:start;font-size:30px;">{{ $t('about.What') }}</h4>
                   {{ setting.about_us_ar }}
                 </div>
@@ -105,10 +106,10 @@
           <div class="container">
             <div class="row" v-for="setting in settings" :key="setting.id">
               <div class="col-md-6">
-                <img :src="'/uploads/'+setting.about_us_image" class="imageAboutUs object" width="500px" height="350px" alt="">
+                <img :src="'/uploads/'+setting.about_us_image" data-aos="fade-left" data-aos-delay="250" class="imageAboutUs object" width="500px" height="350px" alt="">
               </div>
               <div class="col-md-6 d-flex align-items-center">
-                <div class="paragraphAboutUsEn">
+                <div class="paragraphAboutUsEn" data-aos="fade-right" data-aos-delay="250">
                   <h4 style="font-family:abo;color:#6653ff;direction:ltr;text-align:start;font-size:30px;">{{ $t('about.What') }}</h4>
                   {{ setting.about_us_en }}
                 </div>
@@ -123,7 +124,7 @@
         <section style="direction:rtl;padding-top:30px;" v-if="this.$route.params.lang == 'ar'">
             <div class="container">
                 <div class="row">
-                  <div class="col-md-8 mb-3 mb-md-0">
+                  <div class="col-md-8 mb-3 mb-md-0" data-aos="fade-left" data-aos-delay="250">
                     <h4 class="whyStepHeading">{{ $t('Why.WhySteps') }}</h4>
                       <ul class="fahmyUl">
                         <li class="d-flex align-items-start" style="margin-bottom:25px;" v-for="(whyStep,index) in whySteps" :key="whyStep.id">
@@ -135,7 +136,7 @@
                       </ul>
                   </div>
                   <div class="col-md-4" v-for="setting in settings" :key="setting.id">
-                    <img :src="'/uploads/'+setting.why_steps_image" class="imageWhySteps object" width="500px" height="350px" alt="">
+                    <img :src="'/uploads/'+setting.why_steps_image" class="imageWhySteps object" data-aos="fade-right" data-aos-delay="250" width="500px" height="350px" alt="">
                   </div>
                 </div>
                 <div id="benefit-steps"></div>
@@ -145,7 +146,7 @@
         <section style="direction:ltr;padding-top:30px;" v-else>
             <div class="container">
                 <div class="row">
-                  <div class="col-md-6 mb-3 mb-md-0">
+                  <div class="col-md-8 mb-3 mb-md-0" data-aos="fade-left" data-aos-delay="250">
                     <h4 class="whyStepHeadingEn">{{ $t('Why.WhySteps') }}</h4>
                       <ul class="fahmyUl">
                         <li class="d-flex align-items-start" style="margin-bottom:25px;" v-for="(whyStep,index) in whySteps" :key="whyStep.id">
@@ -156,8 +157,8 @@
                         </li>
                       </ul>
                   </div>
-                  <div class="col-md-6">
-                    <img :src="'assets/img/5913-Less.png'" class="imageWhyStepsEn object" width="500px" height="350px" alt="">
+                  <div class="col-md-4">
+                    <img :src="'assets/img/5913-Less.png'" class="imageWhyStepsEn object" data-aos="fade-right" data-aos-delay="250" width="500px" height="350px" alt="">
                   </div>
                 </div>
                 <div id="benefit-steps"></div>
@@ -175,7 +176,7 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row" data-aos="fade-up" data-aos-delay="300">
             <div class="col-md-4 mb-3 mb-md-0" v-for="benifit in benifits" :key="benifit.id">
               <div class="card card-body cardBenifit onHoverCard">
                 <img :src="'/uploads/'+benifit.image" alt="Utosia logo" class="icon icon-lg ml-3">
@@ -197,7 +198,7 @@
             </div>
           </div>
 
-          <div class="row">
+          <div class="row" data-aos="fade-up" data-aos-delay="300">
             <div class="col-md-4 mb-3 mb-md-0" v-for="benifit in benifits" :key="benifit.id">
               <div class="card card-body cardBenifit onHoverCard">
                 <img :src="'/uploads/'+benifit.image" alt="Utosia logo" class="icon icon-lg ml-3">
@@ -217,21 +218,21 @@
         <section style="padding-top:0px !important" v-if="this.$route.params.lang == 'ar'">
           <div class="container" v-for="(section,index) in sections" :key="section.id">
             <div class="row" v-if="(index+1)%2 == 0">
-              <div class="col-md-6 sectionsCssAr">
+              <div class="col-md-6 sectionsCssAr" data-aos="fade-left" data-aos-delay="250">
                 <h4 style="text-align:start;font-family:abo;direction:rtl;color:#6653ff;">{{ section.title_ar }}</h4>
                 <br>
                 <p style="font-size:23px;direction:rtl;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_ar }}</p>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6" data-aos="fade-right" data-aos-delay="250">
                 <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
             </div>
 
             <div class="row" v-else>
-              <div class="col-md-6">
+              <div class="col-md-6" data-aos="fade-right" data-aos-delay="250">
                 <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
-              <div class="col-md-6 sectionsCssAr">
+              <div class="col-md-6 sectionsCssAr" data-aos="fade-left" data-aos-delay="250">
                 <h4 style="text-align:start;font-family:abo;direction:rtl;color:#6653ff;">{{ section.title_ar }}</h4>
                 <br>
                 <p style="font-size:23px;direction:rtl;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_ar }}</p>
@@ -248,20 +249,20 @@
         <section style="padding-top:0px !important" v-else>
           <div class="container" v-for="(section,index) in sections" :key="section.id">
             <div class="row" v-if="(index+1)%2 == 0">
-              <div class="col-md-6 sectionsCssAr">
+              <div class="col-md-6 sectionsCssAr" data-aos="fade-left" data-aos-delay="250">
                 <h4 style="text-align:start;font-family:abo;direction:ltr;color:#6653ff;">{{ section.title_en }}</h4>
                 <br>
                 <p style="font-size:23px;direction:ltr;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_en }}</p>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-6" data-aos="fade-right" data-aos-delay="250">
                 <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
             </div>
             <div class="row" v-else>
-              <div class="col-md-6">
+              <div class="col-md-6" data-aos="fade-right" data-aos-delay="250">
                 <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
-              <div class="col-md-6 sectionsCssAr">
+              <div class="col-md-6 sectionsCssAr" data-aos="fade-left" data-aos-delay="250">
                 <h4 style="text-align:start;font-family:abo;direction:ltr;color:#6653ff;">{{ section.title_en }}</h4>
                 <br>
                 <p style="font-size:23px;direction:ltr;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_en }}</p>
@@ -277,7 +278,12 @@
 
     </div>
 </template>
-
+<script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+<script>
+  $(document).ready(function(){
+    AOS.init();
+  });
+</script>
 <script>
 import $ from 'jquery';
 import axios from 'axios';
@@ -293,7 +299,6 @@ export default {
             whySteps:[],
             sub_services:[],
             sections:[]
-            // services:[],
         }
     },
     mounted(){
@@ -301,8 +306,7 @@ export default {
       this.getBenifits();
       this.getWhySteps();
       this.getSubServices();
-      this.getSections();
-      // this.getPackageServices();
+      this.getSections()
     },
     methods: {
       getSettings:async function(){
@@ -425,7 +429,7 @@ transition: box-shadow 0.3s ease-in-out;
 .fahmyLiEn{
   position:relative;
   right:-20px;
-  font-size:13.2px;
+  font-size:14px;
 }
 .sectionsCssAr{
   position:relative;
