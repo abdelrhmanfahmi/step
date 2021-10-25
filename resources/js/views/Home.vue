@@ -67,13 +67,13 @@
             <br>
             <br>
             <br>
-            <div class="row" data-aos="fade-up" data-aos-delay="250" v-if="this.$route.params.lang == 'ar'">
+            <div class="row parent" data-aos="fade-up" data-aos-delay="250" v-if="this.$route.params.lang == 'ar'">
               <div class="col-md-2 text-center imageSubService" v-for="sub_service in sub_services" :key="sub_service.id">
                 <img :src="'/uploads/'+sub_service.image" width="50px" height="50px" alt="experiement" />
                 <p id="subServiceTitle" style="color:#948f8f;font-family:al;font-size:19px;padding-top:10px;">{{ sub_service.title_ar }}</p>
               </div>
             </div>
-            <div class="row" data-aos="fade-up" data-aos-delay="250" v-else>
+            <div class="row parent" data-aos="fade-up" data-aos-delay="250" v-else>
               <div class="col-md-2 text-center imageSubService" v-for="sub_service in sub_services" :key="sub_service.id">
                 <img :src="'/uploads/'+sub_service.image" width="50px" height="50px" alt="experiement" />
                 <p style="color:#948f8f;font-family:al;font-size:18px;padding-top:10px;">{{ sub_service.title_en }}</p>
@@ -89,10 +89,10 @@
           <div class="container">
             <div class="row" v-for="setting in settings" :key="setting.id">
               <div class="col-md-6">
-                <img :src="'/uploads/'+setting.about_us_image" data-aos="fade-left" data-aos-delay="250" class="imageAboutUs object" width="500px" height="350px" alt="">
+                <img :src="'/uploads/'+setting.about_us_image" data-aos="fade-up" data-aos-delay="250" id="scroll-to1" class="imageAboutUs object" width="500px" height="350px" alt="">
               </div>
               <div class="col-md-6 d-flex align-items-center">
-                <div class="paragraphAboutUsAr" data-aos="fade-right" data-aos-delay="250">
+                <div class="paragraphAboutUsAr" data-aos="fade-down" data-aos-delay="250">
                   <h4 style="font-family:abo;color:#6653ff;direction:rtl;text-align:start;font-size:30px;">{{ $t('about.What') }}</h4>
                   {{ setting.about_us_ar }}
                 </div>
@@ -106,10 +106,10 @@
           <div class="container">
             <div class="row" v-for="setting in settings" :key="setting.id">
               <div class="col-md-6">
-                <img :src="'/uploads/'+setting.about_us_image" data-aos="fade-left" data-aos-delay="250" class="imageAboutUs object" width="500px" height="350px" alt="">
+                <img :src="'/uploads/'+setting.about_us_image" data-aos="fade-up" data-aos-delay="250" id="scroll-to1" class="imageAboutUs object" width="500px" height="350px" alt="">
               </div>
               <div class="col-md-6 d-flex align-items-center">
-                <div class="paragraphAboutUsEn" data-aos="fade-right" data-aos-delay="250">
+                <div class="paragraphAboutUsEn" data-aos="fade-down" data-aos-delay="250">
                   <h4 style="font-family:abo;color:#6653ff;direction:ltr;text-align:start;font-size:30px;">{{ $t('about.What') }}</h4>
                   {{ setting.about_us_en }}
                 </div>
@@ -124,7 +124,7 @@
         <section style="direction:rtl;padding-top:30px;" v-if="this.$route.params.lang == 'ar'">
             <div class="container">
                 <div class="row">
-                  <div class="col-md-8 mb-3 mb-md-0" data-aos="fade-left" data-aos-delay="250">
+                  <div class="col-md-8 mb-3 mb-md-0" data-aos="fade-down" data-aos-delay="250">
                     <h4 class="whyStepHeading">{{ $t('Why.WhySteps') }}</h4>
                       <ul class="fahmyUl">
                         <li class="d-flex align-items-start" style="margin-bottom:25px;" v-for="(whyStep,index) in whySteps" :key="whyStep.id">
@@ -136,7 +136,7 @@
                       </ul>
                   </div>
                   <div class="col-md-4" v-for="setting in settings" :key="setting.id">
-                    <img :src="'/uploads/'+setting.why_steps_image" class="imageWhySteps object" data-aos="fade-right" data-aos-delay="250" width="500px" height="350px" alt="">
+                    <img :src="'/uploads/'+setting.why_steps_image" class="imageWhySteps object" id="scroll-to2" data-aos="fade-up" data-aos-delay="250" width="500px" height="350px" alt="">
                   </div>
                 </div>
                 <div id="benefit-steps"></div>
@@ -146,9 +146,9 @@
         <section style="direction:ltr;padding-top:30px;" v-else>
             <div class="container">
                 <div class="row">
-                  <div class="col-md-8 mb-3 mb-md-0" data-aos="fade-left" data-aos-delay="250">
+                  <div class="col-md-8 mb-3 mb-md-0" data-aos="fade-down" data-aos-delay="250">
                     <h4 class="whyStepHeadingEn">{{ $t('Why.WhySteps') }}</h4>
-                      <ul class="fahmyUl">
+                      <ul class="fahmyUlEn">
                         <li class="d-flex align-items-start" style="margin-bottom:25px;" v-for="(whyStep,index) in whySteps" :key="whyStep.id">
                           <div class="borderNumberWhySteps">
                             <span style="color:#fff;font-size:18px;">{{index+1}}</span>
@@ -157,8 +157,8 @@
                         </li>
                       </ul>
                   </div>
-                  <div class="col-md-4">
-                    <img :src="'assets/img/5913-Less.png'" class="imageWhyStepsEn object" data-aos="fade-right" data-aos-delay="250" width="500px" height="350px" alt="">
+                  <div class="col-md-4" v-for="setting in settings" :key="setting.id">
+                    <img :src="'/uploads/'+setting.why_steps_image" class="imageWhyStepsEn object" id="scroll-to2" data-aos="fade-up" data-aos-delay="250" width="500px" height="350px" alt="">
                   </div>
                 </div>
                 <div id="benefit-steps"></div>
@@ -217,25 +217,25 @@
 
         <section style="padding-top:0px !important" v-if="this.$route.params.lang == 'ar'">
           <div class="container" v-for="(section,index) in sections" :key="section.id">
-            <div class="row" v-if="(index+1)%2 == 0">
-              <div class="col-md-6 sectionsCssAr" data-aos="fade-left" data-aos-delay="250">
-                <h4 style="text-align:start;font-family:abo;direction:rtl;color:#6653ff;">{{ section.title_ar }}</h4>
+            <div class="row parent" v-if="(index+1)%2 == 0">
+              <div class="col-md-6 sectionsCssAr" data-aos="fade-up" data-aos-delay="250">
+                <h4 class="HeadingSection">{{ section.title_ar }}</h4>
                 <br>
-                <p style="font-size:23px;direction:rtl;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_ar }}</p>
+                <p class="ParagraphSection">{{ section.desc_ar }}</p>
               </div>
-              <div class="col-md-6" data-aos="fade-right" data-aos-delay="250">
+              <div class="col-md-6" data-aos="fade-down" data-aos-delay="250">
                 <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
             </div>
 
             <div class="row" v-else>
-              <div class="col-md-6" data-aos="fade-right" data-aos-delay="250">
+              <div class="col-md-6" data-aos="fade-down" data-aos-delay="250">
                 <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
-              <div class="col-md-6 sectionsCssAr" data-aos="fade-left" data-aos-delay="250">
-                <h4 style="text-align:start;font-family:abo;direction:rtl;color:#6653ff;">{{ section.title_ar }}</h4>
+              <div class="col-md-6 sectionsCssAr" data-aos="fade-up" data-aos-delay="250">
+                <h4 class="HeadingSection">{{ section.title_ar }}</h4>
                 <br>
-                <p style="font-size:23px;direction:rtl;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_ar }}</p>
+                <p class="ParagraphSection">{{ section.desc_ar }}</p>
               </div>
             </div>
           <br>
@@ -248,24 +248,24 @@
 
         <section style="padding-top:0px !important" v-else>
           <div class="container" v-for="(section,index) in sections" :key="section.id">
-            <div class="row" v-if="(index+1)%2 == 0">
-              <div class="col-md-6 sectionsCssAr" data-aos="fade-left" data-aos-delay="250">
-                <h4 style="text-align:start;font-family:abo;direction:ltr;color:#6653ff;">{{ section.title_en }}</h4>
+            <div class="row parent" v-if="(index+1)%2 == 0">
+              <div class="col-md-6 sectionsCssAr" data-aos="fade-up" data-aos-delay="250">
+                <h4 class="HeadingSectionEn">{{ section.title_en }}</h4>
                 <br>
-                <p style="font-size:23px;direction:ltr;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_en }}</p>
+                <p class="ParagraphSectionEn">{{ section.desc_en }}</p>
               </div>
-              <div class="col-md-6" data-aos="fade-right" data-aos-delay="250">
+              <div class="col-md-6" data-aos="fade-down" data-aos-delay="250">
                 <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
             </div>
             <div class="row" v-else>
-              <div class="col-md-6" data-aos="fade-right" data-aos-delay="250">
+              <div class="col-md-6" data-aos="fade-down" data-aos-delay="250">
                 <img :src="'/uploads/'+section.image" class="newImageOrders" width="500px" height="350px" alt="" style="box-shadow:0px 0px 5px 1px rgb(0 0 0 / 15%);border-radius:1rem;">
               </div>
-              <div class="col-md-6 sectionsCssAr" data-aos="fade-left" data-aos-delay="250">
-                <h4 style="text-align:start;font-family:abo;direction:ltr;color:#6653ff;">{{ section.title_en }}</h4>
+              <div class="col-md-6 sectionsCssAr" data-aos="fade-up" data-aos-delay="250">
+                <h4 class="HeadingSectionEn">{{ section.title_en }}</h4>
                 <br>
-                <p style="font-size:23px;direction:ltr;text-align:justify;color:#948f8f;font-family:al;">{{ section.desc_en }}</p>
+                <p class="ParagraphSectionEn">{{ section.desc_en }}</p>
               </div>
             </div>
           <br>
@@ -351,23 +351,76 @@ export default {
       }
     },
 }
+$(window).scroll(function() {
+  var hT = $('#scroll-to1').offset().top,
+      hH = $('#scroll-to1').outerHeight(),
+      wH = $(window).height(),
+      wS = $(this).scrollTop();
+  if (wS > (hT+hH-wH)){
+      setTimeout(function(){
+        $('#scroll-to1').removeClass('object');
+      } , 5000);
+  }
+
+  var hT2 = $('#scroll-to2').offset().top,
+      hH2 = $('#scroll-to2').outerHeight(),
+      wH2 = $(window).height(),
+      wS2 = $(this).scrollTop();
+  if (wS2 > (hT2+hH2-wH2)){
+      setTimeout(function(){
+        $('#scroll-to2').removeClass('object');
+      } , 5000);
+  }
+
+});
 </script>
 
 <style scoped>
+.ParagraphSection{
+  font-size:23px;
+  direction:rtl;
+  text-align:justify;
+  color:#948f8f;
+  font-family:al;
+}
+.ParagraphSectionEn{
+  font-size:23px;
+  direction:ltr;
+  text-align:justify;
+  color:#948f8f;
+  font-family:al;
+}
+.HeadingSection{
+  text-align:start;
+  font-family:abo;
+  direction:rtl;
+  color:#6653ff;
+}
+.HeadingSectionEn{
+  text-align:start;
+  font-family:abo;
+  direction:ltr;
+  color:#6653ff;
+}
+.imageSubService:hover{
+  position:relative;
+  -webkit-animation:glide 0.7s ease-in-out alternate infinite;
+  transition: box-shadow 0.3s ease-in-out;
+}
 .onHoverCard:hover{
   position:relative;
    -webkit-animation:glide 0.7s ease-in-out alternate infinite;
-   -webkit-box-shadow: 6px 9px 70px -4px rgba(102,83,255,1);
--moz-box-shadow: 6px 9px 70px -4px rgba(102,83,255,1);
-box-shadow: 6px 9px 70px -4px rgba(102,83,255,1);
+   -webkit-box-shadow: 6px 9px 22px -4px rgba(111,110,117,1);
+-moz-box-shadow: 6px 9px 22px -4px rgba(111,110,117,1);
+box-shadow: 6px 9px 22px -4px rgba(111,110,117,1);
 transition: box-shadow 0.3s ease-in-out;
 }
-.imageSubService{
+/* .imageSubService{
   transition: transform .7s ease-in-out;
 }
 .imageSubService:hover{
   transform: rotate(360deg);
-}
+} */
 .object{
     position:relative;
    -webkit-animation:glide 0.7s ease-in-out alternate infinite;
@@ -402,6 +455,7 @@ transition: box-shadow 0.3s ease-in-out;
   text-align:start;
   direction:ltr;
   position:relative;
+  font-size:30px;
   top:70px;
   right:-37px;
 }
@@ -411,6 +465,7 @@ transition: box-shadow 0.3s ease-in-out;
   text-align:start;
   direction:rtl;
   position:relative;
+  font-size:30px;
   top:70px;
   right:37px;
 }
@@ -422,14 +477,24 @@ transition: box-shadow 0.3s ease-in-out;
     column-gap:90px;
     padding-top:110px;
 }
+.fahmyUlEn{
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    list-style:none;
+    column-gap:90px;
+    padding-top:110px;
+}
 .fahmyLi{
   position:relative;
   right:20px;
+  top:5px;
 }
 .fahmyLiEn{
   position:relative;
   right:-20px;
   font-size:14px;
+  top:5px;
 }
 .sectionsCssAr{
   position:relative;
@@ -470,11 +535,12 @@ transition: box-shadow 0.3s ease-in-out;
   border-radius:36px;
 }
 .borderNumberWhySteps{
-  border:1px solid #bd5ade;
+  border:1px solid #AA52FF;
   padding:5px;
   height:32px;
-  background-color:#bd5ade;
-  border-radius:5px;
+  background-color:#AA52FF;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
   width:25px;
   text-align:center;
 }
@@ -513,8 +579,8 @@ transition: box-shadow 0.3s ease-in-out;
     right: -50px;
   }
   .imageWhyStepsEn{
-    width: 400px;
-    height: 300px;
+    width: 300px;
+    height: 250px;
     position: relative;
     top: 90px;
     right: 0px;
@@ -532,6 +598,9 @@ transition: box-shadow 0.3s ease-in-out;
   .fahmyUl{
     column-gap:50px;
   }
+  .fahmyUlEn{
+    column-gap:50px;
+  }
 }
 
 @media screen and (min-width:768px) and (max-width:1000px) {
@@ -543,19 +612,19 @@ transition: box-shadow 0.3s ease-in-out;
     width: 290px;
     height: 250px;
     position: relative;
-    top: 110px;
+    top: 130px;
     right: -27px;
   }
   .imageWhyStepsEn{
-    width: 350px;
-    height: 300px;
+    width: 245px;
+    height: 210px;
     position: relative;
-    top: 110px;
-    right: 0px;
+    top: 200px;
+    right: 30px;
   }
   .newImageOrders{
-    width:350px;
-    height:350px;
+    width:340px;
+    height:340px;
   }
   .fahmyLi{
     position:relative;
@@ -565,7 +634,7 @@ transition: box-shadow 0.3s ease-in-out;
   .fahmyLiEn{
     position:relative;
     right:-15px;
-    font-size:10px;
+    font-size:14px;
   }
   .cardBenifitTitle{
     font-size:16px;
@@ -573,6 +642,31 @@ transition: box-shadow 0.3s ease-in-out;
 }
 
 @media (max-width: 500px){
+  .ParagraphSection{
+    position:relative;
+    right:0px;
+    width:330px;
+  }
+  .HeadingSection{
+    padding-top:20px;
+    position:relative;
+    right:0px;
+    width:330px;
+  }
+  .ParagraphSectionEn{
+    position:relative;
+    right:-15px;
+    width:330px;
+  }
+  .HeadingSectionEn{
+    padding-top:20px;
+    position:relative;
+    right:-15px;
+    width:340px;
+  }
+  .parent{
+    flex-direction: column-reverse;
+  }
   .btnOfReadMore{
     width:250px;
   }
@@ -595,8 +689,10 @@ transition: box-shadow 0.3s ease-in-out;
     height:250px;
   }
   .newImageOrders{
-    width:350px;
+    width:320px;
     height:200px;
+    position:relative;
+    right:-13px;
   }
   .sectionsCssAr{
     position:relative;
@@ -605,27 +701,61 @@ transition: box-shadow 0.3s ease-in-out;
   .fahmyLi{
     position:relative;
     right:0px;
-    font-size:11px;
+    font-size:12px;
   }
   .fahmyLiEn{
     position:relative;
     right:-20px;
-    font-size:11px;
+    font-size:12px;
+  }
+  .whyStepHeading{
+    position:relative;
+    right:0px;
   }
   .fahmyUl{
     column-gap:40px;
+    position:relative;
+    right:-15px;
+  }
+  .fahmyUlEn{
+    column-gap:40px;
+    position:relative;
+    right:30px;
   }
   .whyStepHeadingEn{
     position: relative;
-    right: -37px;
-    width: 130px;
+    right: 0px;
   }
 }
 
 @media only screen and (width: 414px){
+  .ParagraphSection{
+    position:relative;
+    right:-25px;
+    width:330px;
+  }
+  .HeadingSection{
+    padding-top:20px;
+    position:relative;
+    right: -25px;
+    width: 330px;
+  }
+  .ParagraphSectionEn{
+    position:relative;
+    right:-25px;
+    width:330px;
+  }
+  .HeadingSectionEn{
+    padding-top:20px;
+    position:relative;
+    right:-25px;
+    width:340px;
+  }
   .newImageOrders{
-    width:380px;
+    width:340px;
     height:200px;
+    position:relative;
+    right:-23px;
   }
   .fahmyLi{
     position:relative;
@@ -639,27 +769,116 @@ transition: box-shadow 0.3s ease-in-out;
   }
 }
 
-@media only screen and (width: 411px){
+@media only screen and (width: 412px){
+  .ParagraphSection{
+    position:relative;
+    right:-25px;
+    width:330px;
+  }
+  .HeadingSection{
+    padding-top:20px;
+    position:relative;
+    right:-25px;
+    width:330px;
+  }
+  .ParagraphSectionEn{
+    position:relative;
+    right:-25px;
+    width:330px;
+  }
+  .HeadingSectionEn{
+    padding-top:20px;
+    position:relative;
+    right:-25px;
+    width:340px;
+  }
   .newImageOrders{
-    width:380px;
+    width:340px;
     height:200px;
+    position:relative;
+    right:-23px;
   }
   .fahmyLi{
     position:relative;
-    right:0px;
+    right:2px;
     font-size:14px;
   }
   .fahmyLiEn{
     position:relative;
     right:-10px;
-    font-size:12px;
+    font-size:13.5px;
+  }
+}
+
+@media only screen and (width: 411px){
+  .ParagraphSection{
+    position:relative;
+    right:-25px;
+    width:330px;
+  }
+  .HeadingSection{
+    padding-top:20px;
+    position:relative;
+    right:-25px;
+    width:330px;
+  }
+  .ParagraphSectionEn{
+    position:relative;
+    right:-25px;
+    width:330px;
+  }
+  .HeadingSectionEn{
+    padding-top:20px;
+    position:relative;
+    right:-25px;
+    width:340px;
+  }
+  .newImageOrders{
+    width:340px;
+    height:200px;
+    position:relative;
+    right:-23px;
+  }
+  .fahmyLi{
+    position:relative;
+    right:2px;
+    font-size:14px;
+  }
+  .fahmyLiEn{
+    position:relative;
+    right:-10px;
+    font-size:13.5px;
   }
 }
 
 @media only screen and (width: 393px){
+  .ParagraphSection{
+    position:relative;
+    right:-5px;
+    width:330px;
+  }
+  .HeadingSection{
+    padding-top:20px;
+    position:relative;
+    right:-5px;
+    width:330px;
+  }
+  .ParagraphSectionEn{
+    position:relative;
+    right:-25px;
+    width:330px;
+  }
+  .HeadingSectionEn{
+    padding-top:20px;
+    position:relative;
+    right:-25px;
+    width:340px;
+  }
   .newImageOrders{
-    width:365px;
+    width:320px;
     height:200px;
+    position:relative;
+    right:-23px;
   }
   .fahmyLi{
     position:relative;
@@ -668,7 +887,7 @@ transition: box-shadow 0.3s ease-in-out;
   }
   .fahmyLiEn{
     position:relative;
-    right:-2px;
+    right:-10px;
     font-size:12px;
   }
   .imageAboutUs{
@@ -678,8 +897,30 @@ transition: box-shadow 0.3s ease-in-out;
 }
 
 @media only screen and (width: 360px){
+  .ParagraphSection{
+    position:relative;
+    right: -5px;
+    width: 300px;
+  }
+  .HeadingSection{
+    padding-top:20px;
+    position:relative;
+    right:-5px;
+    width:300px;
+  }
+  .ParagraphSectionEn{
+    position:relative;
+    right:-15px;
+    width:300px;
+  }
+  .HeadingSectionEn{
+    padding-top:20px;
+    position:relative;
+    right:-15px;
+    width:300px;
+  }
   .newImageOrders{
-    width:330px;
+    width:300px;
     height:200px;
   }
   .imageAboutUs{
@@ -696,8 +937,30 @@ transition: box-shadow 0.3s ease-in-out;
 }
 
 @media only screen and (width: 320px){
+  .ParagraphSection{
+    position:relative;
+    right:-15px;
+    width:250px;
+  }
+  .HeadingSection{
+    padding-top:20px;
+    position:relative;
+    right:-15px;
+    width:250px;
+  }
+  .ParagraphSectionEn{
+    position:relative;
+    right:-15px;
+    width:250px;
+  }
+  .HeadingSectionEn{
+    padding-top:20px;
+    position:relative;
+    right:-15px;
+    width:260px;
+  }
   .newImageOrders{
-    width:300px;
+    width:260px;
     height:200px;
   }
   .fahmyLi{
