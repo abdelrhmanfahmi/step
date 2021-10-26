@@ -86,15 +86,23 @@ class SettingController extends Controller
     public function storeSubscriptions(Request $request){
         DB::transaction(function () use ($request) {
             $request->validate([
-                'name' => 'required|max:255',
-                'email' => 'required|email|unique:subscriptions',
-                'company_size' => 'required',
+                'store_name' => 'required|max:255',
+                'store_link' => 'required',
+                'company_kind' => 'required',
+                'manager' => 'required|max:255',
+                'phone' => 'required',
+                'email' => 'required|max:255|email|unique:subscriptions',
+                'password' => 'required',
             ]);
 
             $subscripe = new Subscripe();
-            $subscripe->name = $request->input('name');
+            $subscripe->store_name = $request->input('store_name');
+            $subscripe->store_link = 'steps.sa.com/' . $request->input('store_link');
+            $subscripe->company_kind = $request->input('company_kind');
+            $subscripe->manager = $request->input('manager');
+            $subscripe->phone = '+966' . $request->input('phone');
             $subscripe->email = $request->input('email');
-            $subscripe->company_size = $request->input('company_size');
+            $subscripe->password = $request->input('password');
 
             $subscripe->save();
 

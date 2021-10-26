@@ -28,15 +28,23 @@ class SubscripeController extends Controller
 
     public function update(Request $request , $id){
         $request->validate([
-            'name' => 'required|max:255',
+            'store_name' => 'required|max:255',
+            'store_link' => 'required',
+            'company_kind' => 'required',
+            'manager' => 'required|max:255',
+            'phone' => 'required',
             'email' => 'required|max:255|email',
-            'company_size' => 'required',
+            'password' => 'required',
         ]);
 
         $subscripes = Subscripe::find($request->id);
-        $subscripes->name = $request->input('name');
+        $subscripes->store_name = $request->input('store_name');
+        $subscripes->store_link = $request->input('store_link');
+        $subscripes->company_kind = $request->input('company_kind');
+        $subscripes->manager = $request->input('manager');
+        $subscripes->phone = $request->input('phone');
         $subscripes->email = $request->input('email');
-        $subscripes->company_size = $request->input('company_size');
+        $subscripes->password = $request->input('password');
 
         $subscripes->save();
 

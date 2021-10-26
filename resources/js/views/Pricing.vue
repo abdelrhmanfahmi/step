@@ -20,7 +20,7 @@
                             </div>
                             <div class="col text-center">
                                 <a @click="scrollMeTo('subscribe')" class="btn mb-4 hrefCssAr">
-                                    <span style="color:#fff;">{{ $t('Pricing.Go Premium') }}</span>
+                                    <span style="color:#fff;">{{ $t('header.Subscribe Now') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
                             </div>
                             <div class="col text-center">
                                 <a @click="scrollMeTo('subscribe')" class="btn mb-4 hrefCss">
-                                    <span style="color:#fff;">{{ $t('Pricing.Go Premium') }}</span>
+                                    <span style="color:#fff;">{{ $t('header.Subscribe Now') }}</span>
                                 </a>
                             </div>
                         </div>
@@ -100,33 +100,83 @@
                     <div class="col-md-10" data-aos-delay="250">
                         <div class="card card-body subscribesPricing">
                             <form class="formSubscribe" @submit.prevent="formSubmitAr">
-                                <div class="form-group text-right">
-                                    <label>{{ $t('Pricing.Your Name') }}</label>
-                                    <input v-model="name" type="text" class="form-control text-right" placeholder="اكتب هنا">
-                                    <div class="invalid-feedback" v-if="errors.name" style="display:block;">{{ errors.name[0] }}</div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3 text-right">
+                                        <label>{{ $t('Store Name') }}</label>
+                                        <input v-model="store_name" type="text" class="form-control text-right" placeholder="اكتب هنا">
+                                        <div class="invalid-feedback" v-if="errors.store_name" style="display:block;">{{ errors.store_name[0] }}</div>
+                                    </div>
+                                    <div class="col-md-12 mb-3 text-right">
+                                        <label>{{ $t('Store Link') }}</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">steps.sa.com/</span>
+                                            </div>
+                                            <input v-model="store_link" type="text" class="form-control text-right" placeholder="اكتب هنا">
+                                            <small class="form-text text-right text-muted w-100" >{{ $t('It will be the link') }}</small>
+                                            <div class="invalid-feedback" v-if="errors.store_link" style="display:block;">{{ errors.store_link[0] }}</div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="form-group text-right">
-                                    <label>{{ $t('Pricing.Email Address') }}</label>
-                                    <input v-model="email" type="email" class="form-control text-right" placeholder="you@yoursite.com">
-                                    <div class="invalid-feedback" v-if="errors.email" style="display:block;">{{ errors.email[0] }}</div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3 text-right">
+                                        <label>{{ $t('Company') }}</label>
+                                        <div class="position-relative">
+                                            <select v-model="company_kind" class="custom-select" dir="rtl">
+                                                <option selected value="">{{ $t('Pricing.Select an option') }}</option>
+                                                <option value="فرد">فرد</option>
+                                                <option value="مؤسسة">مؤسسة</option>
+                                                <option value="شركة">شركة</option>
+                                                <option value="جمعية خيرية">جمعية خيرية</option>
+                                            </select>
+                                            <div class="invalid-feedback" v-if="errors.company_kind" style="display:block;">{{ errors.company_kind[0] }}</div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="form-group text-right">
-                                    <label>{{ $t('Pricing.Company Size') }}</label>
-                                    <div class="position-relative">
-                                        <select v-model="company_size" class="custom-select" dir="rtl">
-                                            <option selected value="">{{ $t('Pricing.Select an option') }}</option>
-                                            <option value="1-50">1-50</option>
-                                            <option value="50-500">50-500</option>
-                                            <option value="500+">500+</option>
-                                        </select>
-                                        <div class="invalid-feedback" v-if="errors.company_size" style="display:block;">{{ errors.company_size[0] }}</div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 text-right">
+                                        <label>{{ $t('Manager') }}</label>
+                                        <input v-model="manager" type="text" class="form-control text-right" placeholder="اكتب هنا">
+                                        <div class="invalid-feedback" v-if="errors.manager" style="display:block;">{{ errors.manager[0] }}</div>
+                                    </div>
+                                    <div class="col-md-6 mb-3 text-right">
+                                        <label>{{ $t('Phone') }}</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">+966</span>
+                                            </div>
+                                            <input v-model="phone" type="text" class="form-control text-right" placeholder="اكتب هنا">
+                                            <div class="invalid-feedback" v-if="errors.phone" style="display:block;">{{ errors.phone[0] }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3 text-right">
+                                        <label>{{ $t('E-mail') }}</label>
+                                        <input v-model="email" type="email" class="form-control text-right" placeholder="you@yoursite.com">
+                                        <div class="invalid-feedback" v-if="errors.email" style="display:block;">{{ errors.email[0] }}</div>
+                                    </div>
+                                    <div class="col-md-6 mb-3 text-right">
+                                        <label>{{ $t('Password') }}</label>
+                                        <input v-model="password" type="password" class="form-control text-right" placeholder="اكتب هنا">
+                                        <div class="invalid-feedback" v-if="errors.password" style="display:block;">{{ errors.password[0] }}</div>
                                     </div>
                                 </div>
                                 <br>
-                                <button class="btn btn-block btn-loading buttonSubscribe" type="submit">
-                                    <span style="color:#fff">{{ $t('Pricing.Subscribe') }}</span>
+                                <div class="row">
+                                    <div class="col-md-12 text-right">
+                                        <p>بالتسجيل فأنا أوافق على <router-link :to="`/${i18n.locale}/terms`" exact>
+                                            <a>الشروط و الأحكام</a>
+                                        </router-link> 
+                                        و
+                                        <router-link :to="`/${i18n.locale}/policy`" exact>
+                                            <a>سياسة الخصوصية والبيع</a>
+                                        </router-link>
+                                         على منصة ستيبس</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-block btn-loading buttonSubscribeLtr" type="submit" data-loading-text="Requesting Demo">
+                                    <span style="color:#fff;">{{ $t('Pricing.Subscribe') }}</span>
                                 </button>
                             </form>
                         </div>
@@ -137,31 +187,81 @@
                     <div class="col-md-10" data-aos-delay="250">
                         <div class="card card-body subscribesPricingLtr">
                             <form class="formSubscribeLtr" @submit.prevent="formSubmitEn">
-                                <div class="form-group">
-                                    <label>{{ $t('Pricing.Your Name') }}</label>
-                                    <input type="text" v-model="name" class="form-control" placeholder="Type Here">
-                                    <div class="invalid-feedback" v-if="errors.name" style="display:block;">{{ errors.name[0] }}</div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label>{{ $t('Store Name') }}</label>
+                                        <input type="text" v-model="store_name" class="form-control" placeholder="Type Here">
+                                        <div class="invalid-feedback" v-if="errors.store_name" style="display:block;">{{ errors.store_name[0] }}</div>
+                                    </div>
+                                    <div class="col-md-12 mb-3">
+                                        <label>{{ $t('Store Link') }}</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">steps.sa.com/</span>
+                                            </div>
+                                            <input type="text" v-model="store_link" class="form-control" placeholder="Type Here">
+                                            <small class="form-text text-muted w-100" >{{ $t('It will be the link') }}</small>
+                                            <div class="invalid-feedback" v-if="errors.store_link" style="display:block;">{{ errors.store_link[0] }}</div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label>{{ $t('Pricing.Email Address') }}</label>
-                                    <input v-model="email" type="email" class="form-control" placeholder="you@yoursite.com">
-                                    <div class="invalid-feedback" v-if="errors.email" style="display:block;">{{ errors.email[0] }}</div>
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <label>{{ $t('Company') }}</label>
+                                        <div class="position-relative">
+                                            <select class="custom-select" v-model="company_kind">
+                                                <option selected value="">{{ $t('Pricing.Select an option') }}</option>
+                                                <option value="Person">Person</option>
+                                                <option value="Institution">Institution</option>
+                                                <option value="Company">Company</option>
+                                                <option value="Charity">Charity</option>
+                                            </select>
+                                            <div class="invalid-feedback" v-if="errors.company_kind" style="display:block;">{{ errors.company_kind[0] }}</div>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label>{{ $t('Pricing.Company Size') }}</label>
-                                    <div class="position-relative">
-                                        <select class="custom-select" v-model="company_size">
-                                            <option selected value="">{{ $t('Pricing.Select an option') }}</option>
-                                            <option value="1-50">1-50</option>
-                                            <option value="50-500">50-500</option>
-                                            <option value="500+">500+</option>
-                                        </select>
-                                        <div class="invalid-feedback" v-if="errors.company_size" style="display:block;">{{ errors.company_size[0] }}</div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>{{ $t('Manager') }}</label>
+                                        <input type="text" v-model="manager" class="form-control" placeholder="Type Here">
+                                        <div class="invalid-feedback" v-if="errors.manager" style="display:block;">{{ errors.manager[0] }}</div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label>{{ $t('Phone') }}</label>
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">+966</span>
+                                            </div>
+                                            <input type="text" v-model="phone" class="form-control" placeholder="Type Here">
+                                            <div class="invalid-feedback" v-if="errors.phone" style="display:block;">{{ errors.phone[0] }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label>{{ $t('E-mail') }}</label>
+                                        <input v-model="email" type="email" class="form-control" placeholder="you@yoursite.com">
+                                        <div class="invalid-feedback" v-if="errors.email" style="display:block;">{{ errors.email[0] }}</div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label>{{ $t('Password') }}</label>
+                                        <input type="password" v-model="password" class="form-control" placeholder="Type Here">
+                                        <div class="invalid-feedback" v-if="errors.password" style="display:block;">{{ errors.password[0] }}</div>
                                     </div>
                                 </div>
                                 <br>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>By registering, I agree to the <router-link :to="`/${i18n.locale}/terms`" exact>
+                                            <a> terms and conditions </a>
+                                        </router-link> 
+                                        and
+                                        <router-link :to="`/${i18n.locale}/policy`" exact>
+                                            <a> privacy policy and sale </a>
+                                        </router-link>
+                                        on the Steps platform</p>
+                                    </div>
+                                </div>
                                 <button class="btn btn-block btn-loading buttonSubscribeLtr" type="submit" data-loading-text="Requesting Demo">
                                     <span style="color:#fff;">{{ $t('Pricing.Subscribe') }}</span>
                                 </button>
@@ -179,14 +279,20 @@
 import $ from 'jquery';
 import axios from 'axios';
 import * as price_service from "../services/price_service";
+import i18n from "../I18n.js";
 export default {
     name:"Pricing",
     data: function(){
         return {
+            i18n,
             services:[],
-            name:'',
+            store_name:'',
+            store_link:'',
+            company_kind:'',
+            manager:'',
+            phone:'',
             email:'',
-            company_size:'',
+            password:'',
             errors:{},
         }
     },
@@ -211,15 +317,23 @@ export default {
         formSubmitAr:async function(){
             let formData = new FormData();
             
-            formData.append('name' , this.name);
+            formData.append('store_name' , this.store_name);
+            formData.append('store_link' , this.store_link);
+            formData.append('company_kind' , this.company_kind);
+            formData.append('manager' , this.manager);
+            formData.append('phone' , this.phone);
             formData.append('email' , this.email);
-            formData.append('company_size' , this.company_size);
+            formData.append('password' , this.password);
 
             try{
                 const response = await price_service.StoreSubscriptions(formData);
-                this.name = "";
+                this.store_name = "";
+                this.store_link = "";
+                this.company_kind = "";
+                this.manager = "";
+                this.phone = "";
                 this.email = "";
-                this.company_size = "";
+                this.password = "";
                 this.errors = "";
                 this.flashMessage.success({
                     message:"لقد تم اشتراكك بنجاح",
@@ -244,15 +358,23 @@ export default {
         formSubmitEn:async function(){
             let formData = new FormData();
 
-            formData.append('name' , this.name);
+            formData.append('store_name' , this.store_name);
+            formData.append('store_link' , this.store_link);
+            formData.append('company_kind' , this.company_kind);
+            formData.append('manager' , this.manager);
+            formData.append('phone' , this.phone);
             formData.append('email' , this.email);
-            formData.append('company_size' , this.company_size);
+            formData.append('password' , this.password);
             
             try{
                 const response = await price_service.StoreSubscriptions(formData);
-                this.name = "";
+                this.store_name = "";
+                this.store_link = "";
+                this.company_kind = "";
+                this.manager = "";
+                this.phone = "";
                 this.email = "";
-                this.company_size = "";
+                this.password = "";
                 this.errors = "";
                 this.flashMessage.success({
                     message:"You Have been subscriped Successfully",

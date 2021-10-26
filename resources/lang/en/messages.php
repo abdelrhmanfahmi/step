@@ -112,7 +112,11 @@ return [
     "Create Sections" => "Create Sections",
     "Edit Sections" => "Edit Sections",
     "Edit Image About_Us" => "Edit Image About_Us",
-    "Edit Image WhySteps" => "Edit Image WhySteps"
+    "Edit Image WhySteps" => "Edit Image WhySteps",
+    'Store Name' => 'Store Name',
+    'Store Link' => 'Store Link',
+    'Company' => 'Company Specialist',
+    'Manager' => 'Manager',
 ]
 
 ?>

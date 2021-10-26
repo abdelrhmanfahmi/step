@@ -37,9 +37,10 @@
                                         <table id="tech-companies-1" class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th data-priority="2">{{__('messages.Name')}}</th>
+                                                    <th data-priority="2">{{__('messages.Store Name')}}</th>
+                                                    <th data-priority="2">{{__('messages.Store Link')}}</th>
                                                     <th data-priority="2">{{__('messages.E-mail')}}</th>
-                                                    <th data-priority="2">{{__('messages.Company_Size')}}</th>
+                                                    <th data-priority="2">{{__('messages.Company')}}</th>
                                                     <th data-priority="2">{{__('messages.Actions')}}</th>
                                                 </tr>
                                             </thead>
@@ -47,9 +48,10 @@
                                             @if(count($subscripes) > 0)
                                                 @foreach($subscripes as $subscripe)
                                                     <tr>
-                                                        <td>{{$subscripe->name}}</td>
+                                                        <td>{{$subscripe->store_name}}</td>
+                                                        <td>{{$subscripe->store_link}}</td>
                                                         <td>{{$subscripe->email}}</td>
-                                                        <td>{{$subscripe->company_size}}</td>
+                                                        <td>{{$subscripe->company_kind}}</td>
                                                         <td>
                                                             <a href="edit/subscripes/{{$subscripe->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
                                                             <a data-swal-template="#my-template{{$subscripe->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>

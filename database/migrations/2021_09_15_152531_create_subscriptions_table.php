@@ -15,9 +15,13 @@ class CreateSubscriptionsTable extends Migration
     {
         Schema::create('subscriptions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('store_name');
+            $table->string('store_link');
+            $table->string('company_kind');
+            $table->string('manager');
+            $table->string('phone');
             $table->string('email');
-            $table->string('company_size');
+            $table->string('password');
             $table->timestamps();
         });
     }

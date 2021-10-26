@@ -111,7 +111,11 @@ return [
     "Create Sections" => "إضافة أجزاء",
     "Edit Sections" => "تعديل أجزاء",
     "Edit Image About_Us" => "تعديل صورة من نحن",
-    "Edit Image WhySteps" => "تعديل صورة ليش ستيبس"
+    "Edit Image WhySteps" => "تعديل صورة ليش ستيبس",
+    'Store Name' => 'اسم المتجر',
+    'Store Link' => 'رابط المتجر',
+    'Company' => 'نوع الكيان',
+    'Manager' => 'اسم المدير',
 ]
 
 ?>

@@ -7,7 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 class Subscripe extends Model
 {
     protected $table = "subscriptions";
-    protected $fillable = ['name' , 'email' , 'company_size'];
+    protected $fillable = [
+        'store_name' ,
+        'store_link' ,
+        'company_kind',
+        'manager',
+        'phone',
+        'email',
+        'password'
+    ];
 
     public function notifications_subscripe(){
         return $this->hasMany('App\Notification');

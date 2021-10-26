@@ -56,7 +56,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h4 class="display-3 text-center" style="color:#6653ff;font-family:abo;font-size:40px;">{{ $t('Ease, Safe, Fast') }}</h4>
+                <h4 class="display-3 text-center" style="color:#6653ff;font-family:abo;font-size:40px;">{{ $t('Ease. Safe. Fast') }}</h4>
               </div>
             </div>
             <div class="row">
@@ -306,7 +306,8 @@ export default {
       this.getBenifits();
       this.getWhySteps();
       this.getSubServices();
-      this.getSections()
+      this.getSections();
+      this.checkOffsetScroll();
     },
     methods: {
       getSettings:async function(){
@@ -348,31 +349,33 @@ export default {
         }catch(error){
           console.log(error);
         }
+      },
+      checkOffsetScroll(){
+        $(window).scroll(function() {
+          var hT = $('#scroll-to1').offset().top,
+              hH = $('#scroll-to1').outerHeight(),
+              wH = $(window).height(),
+              wS = $(this).scrollTop();
+          if (wS > (hT+hH-wH)){
+              setTimeout(function(){
+                $('#scroll-to1').removeClass('object');
+              } , 5000);
+          }
+
+          var hT2 = $('#scroll-to2').offset().top,
+              hH2 = $('#scroll-to2').outerHeight(),
+              wH2 = $(window).height(),
+              wS2 = $(this).scrollTop();
+          if (wS2 > (hT2+hH2-wH2)){
+              setTimeout(function(){
+                $('#scroll-to2').removeClass('object');
+              } , 5000);
+          }
+
+        });
       }
     },
 }
-$(window).scroll(function() {
-  var hT = $('#scroll-to1').offset().top,
-      hH = $('#scroll-to1').outerHeight(),
-      wH = $(window).height(),
-      wS = $(this).scrollTop();
-  if (wS > (hT+hH-wH)){
-      setTimeout(function(){
-        $('#scroll-to1').removeClass('object');
-      } , 5000);
-  }
-
-  var hT2 = $('#scroll-to2').offset().top,
-      hH2 = $('#scroll-to2').outerHeight(),
-      wH2 = $(window).height(),
-      wS2 = $(this).scrollTop();
-  if (wS2 > (hT2+hH2-wH2)){
-      setTimeout(function(){
-        $('#scroll-to2').removeClass('object');
-      } , 5000);
-  }
-
-});
 </script>
 
 <style scoped>

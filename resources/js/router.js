@@ -5,6 +5,8 @@ import Contact from "./views/Contact.vue";
 import About from "./views/About.vue";
 import Pricing from "./views/Pricing.vue";
 import faq from "./views/faq.vue";
+import Term from "./views/Term.vue";
+import Policy from "./views/Policy.vue";
 import VueScrollTo from 'vue-scrollto';
 import i18n from "./I18n.js";
 
@@ -47,6 +49,16 @@ const routes = [
                 name:"FAQ",
                 path:"faq",
                 component:faq
+            },
+            {
+                name:"Terms",
+                path:"terms",
+                component:Term
+            },
+            {
+                name:"Policy",
+                path:"policy",
+                component:Policy
             },
         ]
     }
