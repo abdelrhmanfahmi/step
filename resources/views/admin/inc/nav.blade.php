@@ -88,12 +88,12 @@
 
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-receipt"></i>
-                        <span key="t-receipt">{{__('messages.Benifits')}}</span>
+                        <i class="bx bx-briefcase"></i>
+                        <span key="t-question">{{__('messages.Services')}}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('benifits.index' , app()->getLocale())}}" key="t-receipt">{{__('messages.Benifits')}}</a></li>
-                        <li><a href="{{route('benifits.create' , app()->getLocale())}}" key="t-receipt">{{__('messages.Add Benifits')}}</a></li>
+                        <li><a href="{{route('sub_services.index' , app()->getLocale())}}" key="t-question">{{__('messages.Services')}}</a></li>
+                        <li><a href="{{route('sub_services.create' , app()->getLocale())}}" key="t-question">{{__('messages.Add Services')}}</a></li>
                     </ul>
                 </li>
 
@@ -105,6 +105,17 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('why.index' , app()->getLocale())}}" key="t-task">{{__('messages.Why Steps')}}</a></li>
                         <li><a href="{{route('why.create' , app()->getLocale())}}" key="t-task">{{__('messages.Add Why Steps')}}</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="waves-effect">
+                        <i class="bx bx-receipt"></i>
+                        <span key="t-receipt">{{__('messages.Benifits')}}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('benifits.index' , app()->getLocale())}}" key="t-receipt">{{__('messages.Benifits')}}</a></li>
+                        <li><a href="{{route('benifits.create' , app()->getLocale())}}" key="t-receipt">{{__('messages.Add Benifits')}}</a></li>
                     </ul>
                 </li>
 
@@ -122,12 +133,26 @@
                 <li>
                     <a href="javascript: void(0);" class="waves-effect">
                         <i class="bx bx-file"></i>
-                        <span key="t-packages">{{__('messages.Services')}}</span>
+                        <span key="t-packages">{{__('messages.Advantages')}}</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('services.index' , app()->getLocale())}}" key="t-packages">{{__('messages.Services')}}</a></li>
-                        <li><a href="{{route('services.create' , app()->getLocale())}}" key="t-packages">{{__('messages.Add Services')}}</a></li>
+                        <li><a href="{{route('services.index' , app()->getLocale())}}" key="t-packages">{{__('messages.Advantages')}}</a></li>
+                        <li><a href="{{route('services.create' , app()->getLocale())}}" key="t-packages">{{__('messages.Add Advantages')}}</a></li>
                     </ul>
+                </li>
+
+                <li>
+                    <a href="{{route('terms.index' , app()->getLocale())}}" class="waves-effect">
+                        <i class="fa fa-gavel"></i>
+                        <span key="t-terms">{{__('messages.Terms')}}</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{{route('policies.index' , app()->getLocale())}}" class="waves-effect">
+                        <i class="fas fa-file-signature"></i>
+                        <span key="t-policies">{{__('messages.Policy')}}</span>
+                    </a>
                 </li>
 
                 <li>
@@ -138,17 +163,6 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('common.index' , app()->getLocale())}}" key="t-question">{{__('messages.Questions')}}</a></li>
                         <li><a href="{{route('common.create' , app()->getLocale())}}" key="t-question">{{__('messages.Add Question')}}</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="javascript: void(0);" class="waves-effect">
-                        <i class="bx bx-briefcase"></i>
-                        <span key="t-question">{{__('messages.Sub Services')}}</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('sub_services.index' , app()->getLocale())}}" key="t-question">{{__('messages.Sub Services')}}</a></li>
-                        <li><a href="{{route('sub_services.create' , app()->getLocale())}}" key="t-question">{{__('messages.Add Sub Services')}}</a></li>
                     </ul>
                 </li>
 

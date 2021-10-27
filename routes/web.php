@@ -34,6 +34,8 @@ Route::group(['prefix' => '{language}/admin'] , function (){
 
     //Admin Editing
     Route::get('/index' , 'Admin\AdminController@getAdmins')->name('admin.getAdmins');
+    Route::get('/create/admins' , 'Admin\AdminController@create')->name('admin.create');
+    Route::post('/store/admins' , 'Admin\AdminController@store')->name('admin.store');
     Route::get('/edit/{id}' , 'Admin\AdminController@edit')->name('admin.edit');
     Route::post('/update/{id}' , 'Admin\AdminController@update')->name('admin.update');
 
@@ -109,4 +111,16 @@ Route::group(['prefix' => '{language}/admin'] , function (){
     Route::get('/edit/sections/{id}' , 'Admin\SectionController@edit')->name('sections.edit');
     Route::post('/update/sections/{id}' , 'Admin\SectionController@update')->name('sections.update');
     Route::get('/delete/sections/{id}' , 'Admin\SectionController@delete')->name('sections.delete');
+
+    //terms
+    Route::get('/terms' , 'Admin\TermController@index')->name('terms.index');
+    Route::get('/edit/terms/{id}' , 'Admin\TermController@edit')->name('terms.edit');
+    Route::post('/update/terms/{id}' , 'Admin\TermController@update')->name('terms.update');
+    Route::get('/delete/terms/{id}' , 'Admin\TermController@delete')->name('terms.delete');
+
+    //policies
+    Route::get('/policies' , 'Admin\PolicyController@index')->name('policies.index');
+    Route::get('/edit/policies/{id}' , 'Admin\PolicyController@edit')->name('policies.edit');
+    Route::post('/update/policies/{id}' , 'Admin\PolicyController@update')->name('policies.update');
+    Route::get('/delete/policies/{id}' , 'Admin\PolicyController@delete')->name('policies.delete');
 });

@@ -32,5 +32,7 @@ Route::get('/extraPackages' , 'SettingController@getExtraPackages');
 Route::post('/storeSubscripes' , 'SettingController@storeSubscriptions');
 Route::get('/sub_services' , 'SettingController@getSubServices');
 Route::get('/sections' , 'SettingController@getSections');
+Route::get('/terms' , 'SettingController@getTerms');
+Route::get('/policies' , 'SettingController@getPolicies');
 
 Route::get('/getServices' , 'SettingController@getPackageWithServices');

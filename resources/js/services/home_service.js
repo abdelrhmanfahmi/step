@@ -20,6 +20,13 @@ export function getSections(){
     return http().get('/sections');
 }
 
+export function getTerms(){
+    return http().get('/terms');
+}
+
+export function getPolicies(){
+    return http().get('/policies');
+}
 // export function getPackageServices(){
 //     return http().get('/getServices');
 // }

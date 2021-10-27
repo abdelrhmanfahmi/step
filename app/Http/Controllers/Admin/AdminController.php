@@ -24,6 +24,28 @@ class AdminController extends Controller
         return view('admin.admins.index' , ['allAdmins' => $allAdmins]);
     }
 
+    public function create(){
+        return view('admin.admins.create');
+    }
+
+    public function store(Request $request){
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email"unique:admins',
+            'password' => 'required|min:8'
+        ]);
+
+        $admins = new Admin();
+        $admins->name = $request->input('name');
+        $admins->email = $request->input('email');
+        $admins->password = Hash::make($request->input('password'));
+
+        $admins->save();
+
+        // return redirect()->route('admin.getAdmins' , app()->getLocale());
+        return response()->json($admins);
+    }
+
     public function edit($language , $id){
         $admins = Admin::find($id);
         return view('admin.admins.edit' , ['admins' => $admins , 'language' => $language]);
@@ -34,7 +56,7 @@ class AdminController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|min:8'
         ]);
 
         $admins = Admin::find($request->id);

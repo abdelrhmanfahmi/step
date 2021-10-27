@@ -112,7 +112,7 @@
                     contentType: false,
                     success:function(data){
                         Swal.fire({
-                            titlr: 'لقد تم تعديل بيانات مدير العمليات بنجاح !',
+                            title: 'لقد تم تعديل بيانات مدير العمليات بنجاح !',
                             confirmButtonText: 'تم',
                             icon: 'success'
                         }).then(function() {

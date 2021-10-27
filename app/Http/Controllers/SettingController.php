@@ -10,9 +10,11 @@ use App\Contact;
 use App\NewsLetter;
 use App\Notification;
 use App\PackagesServices;
+use App\Policy;
 use App\Section;
 use App\Subscripe;
 use App\SubService;
+use App\Term;
 use App\WhySteps;
 use DB;
 
@@ -123,5 +125,15 @@ class SettingController extends Controller
     public function getSections(){
         $sections = Section::all();
         return response()->json($sections);
+    }
+
+    public function getTerms(){
+        $terms = Term::all();
+        return response()->json($terms);
+    }
+
+    public function getPolicies(){
+        $policies = Policy::all();
+        return response()->json($policies);
     }
 }

@@ -359,7 +359,7 @@
                                                     <div class="font-size-12 text-muted">
                                                         <p class="mb-1" key="t-grammer">{{__('messages.This Member Subscriped')}}</p>
                                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                                key="t-min-ago">3 min ago</span></p>
+                                                                key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -375,7 +375,7 @@
                                                     <div class="font-size-12 text-muted">
                                                         <p class="mb-1" key="t-grammer">{{__('messages.This Member Subscriped')}}</p>
                                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                                key="t-min-ago">3 min ago</span></p>
+                                                                key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -396,7 +396,7 @@
                                                     <div class="font-size-12 text-muted">
                                                         <p class="mb-1" key="t-grammer">{{__('messages.This Member Contacted')}}</p>
                                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                                key="t-min-ago">3 min ago</span></p>
+                                                                key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span></p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -412,7 +412,7 @@
                                                     <div class="font-size-12 text-muted">
                                                         <p class="mb-1" key="t-grammer">{{__('messages.This Member Contacted')}}</p>
                                                         <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                                key="t-min-ago">3 min ago</span></p>
+                                                                key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span></p>
                                                     </div>
                                                 </div>
                                             </div>

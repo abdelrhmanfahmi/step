@@ -86,10 +86,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="pt-2" ref="subscribe" id="subscribe"></div>
             </div>
         </section>
 
-        <section ref="subscribe" id="subscribe" class="pt-5">
+        <section class="pt-5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -106,13 +108,13 @@
                                         <input v-model="store_name" type="text" class="form-control text-right" placeholder="اكتب هنا">
                                         <div class="invalid-feedback" v-if="errors.store_name" style="display:block;">{{ errors.store_name[0] }}</div>
                                     </div>
-                                    <div class="col-md-12 mb-3 text-right">
+                                    <div class="col-md-12 mb-3">
                                         <label>{{ $t('Store Link') }}</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">steps.sa.com/</span>
                                             </div>
-                                            <input v-model="store_link" type="text" class="form-control text-right" placeholder="اكتب هنا">
+                                            <input v-model="store_link" type="text" class="form-control" placeholder="اكتب هنا">
                                             <small class="form-text text-right text-muted w-100" >{{ $t('It will be the link') }}</small>
                                             <div class="invalid-feedback" v-if="errors.store_link" style="display:block;">{{ errors.store_link[0] }}</div>
                                         </div>
@@ -124,10 +126,8 @@
                                         <div class="position-relative">
                                             <select v-model="company_kind" class="custom-select" dir="rtl">
                                                 <option selected value="">{{ $t('Pricing.Select an option') }}</option>
-                                                <option value="فرد">فرد</option>
                                                 <option value="مؤسسة">مؤسسة</option>
                                                 <option value="شركة">شركة</option>
-                                                <option value="جمعية خيرية">جمعية خيرية</option>
                                             </select>
                                             <div class="invalid-feedback" v-if="errors.company_kind" style="display:block;">{{ errors.company_kind[0] }}</div>
                                         </div>
@@ -145,7 +145,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">+966</span>
                                             </div>
-                                            <input v-model="phone" type="text" class="form-control text-right" placeholder="اكتب هنا">
+                                            <input v-model="phone" type="number" class="form-control" placeholder="اكتب هنا">
                                             <div class="invalid-feedback" v-if="errors.phone" style="display:block;">{{ errors.phone[0] }}</div>
                                         </div>
                                     </div>
@@ -165,11 +165,11 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-12 text-right">
-                                        <p>بالتسجيل فأنا أوافق على <router-link :to="`/${i18n.locale}/terms`" exact>
+                                        <p>بالتسجيل فأنا أوافق على <router-link :to="`/${i18n.locale}/terms`" target="_blank" exact>
                                             <a>الشروط و الأحكام</a>
                                         </router-link> 
                                         و
-                                        <router-link :to="`/${i18n.locale}/policy`" exact>
+                                        <router-link :to="`/${i18n.locale}/policy`" target="_blank" exact>
                                             <a>سياسة الخصوصية والبيع</a>
                                         </router-link>
                                          على منصة ستيبس</p>
@@ -211,10 +211,8 @@
                                         <div class="position-relative">
                                             <select class="custom-select" v-model="company_kind">
                                                 <option selected value="">{{ $t('Pricing.Select an option') }}</option>
-                                                <option value="Person">Person</option>
                                                 <option value="Institution">Institution</option>
                                                 <option value="Company">Company</option>
-                                                <option value="Charity">Charity</option>
                                             </select>
                                             <div class="invalid-feedback" v-if="errors.company_kind" style="display:block;">{{ errors.company_kind[0] }}</div>
                                         </div>
@@ -232,7 +230,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">+966</span>
                                             </div>
-                                            <input type="text" v-model="phone" class="form-control" placeholder="Type Here">
+                                            <input type="number" v-model="phone" class="form-control" placeholder="Type Here">
                                             <div class="invalid-feedback" v-if="errors.phone" style="display:block;">{{ errors.phone[0] }}</div>
                                         </div>
                                     </div>
@@ -252,11 +250,11 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p>By registering, I agree to the <router-link :to="`/${i18n.locale}/terms`" exact>
+                                        <p>By registering, I agree to the <router-link :to="`/${i18n.locale}/terms`" target="_blank" exact>
                                             <a> terms and conditions </a>
                                         </router-link> 
                                         and
-                                        <router-link :to="`/${i18n.locale}/policy`" exact>
+                                        <router-link :to="`/${i18n.locale}/policy`" target="_blank" exact>
                                             <a> privacy policy and sale </a>
                                         </router-link>
                                         on the Steps platform</p>
@@ -276,6 +274,8 @@
 </template>
 
 <script>
+import swal from 'sweetalert2';
+window.Swal = swal;
 import $ from 'jquery';
 import axios from 'axios';
 import * as price_service from "../services/price_service";
@@ -304,7 +304,8 @@ export default {
             var element = this.$refs[refName];
             var top = element.offsetTop;
 
-            window.scrollTo(0, top);
+            element.scrollIntoView({behavior: 'smooth'});
+            // window.scrollTo(0, top);
         },
         getServicesFromPackage:async function(){
             try{
@@ -335,9 +336,10 @@ export default {
                 this.email = "";
                 this.password = "";
                 this.errors = "";
-                this.flashMessage.success({
-                    message:"لقد تم اشتراكك بنجاح",
-                    time:5000,
+                Swal.fire({
+                    title: 'لقد تم اشتراكك بنجاح !',
+                    confirmButtonText: 'تم',
+                    icon: 'success'
                 });
             }catch(error){
                 console.log(error);
@@ -376,9 +378,10 @@ export default {
                 this.email = "";
                 this.password = "";
                 this.errors = "";
-                this.flashMessage.success({
-                    message:"You Have been subscriped Successfully",
-                    time:5000
+                Swal.fire({
+                    title: 'لقد تم اشتراكك بنجاح !',
+                    confirmButtonText: 'تم',
+                    icon: 'success'
                 });
             }catch(error){
                 // console.log(error);
@@ -401,6 +404,20 @@ export default {
 </script>
 
 <style scoped>
+.swal2-shown {
+    overflow: unset !important;
+    padding-right: 0px !important;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .subscribesPricing{
     position:relative;
     right:-90px;
