@@ -325,11 +325,7 @@
                             id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <i class="bx bx-bell bx-tada"></i>
-                            @if(getNumberOfNotifications() > 0)
-                            <span class="badge bg-danger rounded-pill">{{ getNumberOfNotifications() }}</span>
-                            @else
-
-                            @endif
+                            <span class="badge bg-danger rounded-pill"></span>
                         </button>
                         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
                             aria-labelledby="page-header-notifications-dropdown">
@@ -338,138 +334,10 @@
                                     <div class="col">
                                         <h6 class="m-0" key="t-notifications"> {{__('messages.Notifications')}} </h6>
                                     </div>
-                                    <!-- <div class="col-auto">
-                                        <a href="#!" class="small" key="t-view-all"> {{__('messages.View All')}}</a>
-                                    </div> -->
                                 </div>
                             </div>
-                            <div data-simplebar style="max-height: 230px;">
-                                @foreach(getNotifications() as $notification)
-                                @if($notification->subscripe_id != null)
-                                    <a href="{{route('subscripes.edit' , ['language' => app()->getLocale() , 'id' => $notification->subscriptions->id])}}" class="text-reset notification-item">
-                                        @if($notification->viewed == 0)
-                                            <div class="d-flex" style="background-color:#eee;">
-                                                <div class="avatar-xs me-3">
-                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                        <i class="bx bx-plus"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->subscriptions->email}}</h6>
-                                                    <div class="font-size-12 text-muted">
-                                                        <p class="mb-1" key="t-grammer">{{__('messages.This Member Subscriped')}}</p>
-                                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                                key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @else
-                                            <div class="d-flex" style="background-color:#fff;">
-                                                <div class="avatar-xs me-3">
-                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                        <i class="bx bx-plus"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->subscriptions->email}}</h6>
-                                                    <div class="font-size-12 text-muted">
-                                                        <p class="mb-1" key="t-grammer">{{__('messages.This Member Subscriped')}}</p>
-                                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                                key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-                                    </a>
-                                    
-                                @elseif($notification->contact_id != null)
-                                    <a href="{{route('contacts.edit' , ['language' => app()->getLocale() , 'id' => $notification->contacts->id])}}" class="text-reset notification-item">
-                                        @if($notification->viewed == 0)
-                                            <div class="d-flex" style="background-color:#eee;">
-                                                <div class="avatar-xs me-3">
-                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                        <i class="bx bx-plus"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->contacts->email}}</h6>
-                                                    <div class="font-size-12 text-muted">
-                                                        <p class="mb-1" key="t-grammer">{{__('messages.This Member Contacted')}}</p>
-                                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                                key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @else
-                                            <div class="d-flex" style="background-color:#fff;">
-                                                <div class="avatar-xs me-3">
-                                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
-                                                        <i class="bx bx-plus"></i>
-                                                    </span>
-                                                </div>
-                                                <div class="flex-grow-1">
-                                                    <h6 class="mt-0 mb-1" key="t-your-order">{{$notification->contacts->email}}</h6>
-                                                    <div class="font-size-12 text-muted">
-                                                        <p class="mb-1" key="t-grammer">{{__('messages.This Member Contacted')}}</p>
-                                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                                key="t-min-ago">{{$notification->created_at->diffForHumans()}}</span></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        @endif
-                                    </a>
-                                @else
-
-                                @endif
-                                @endforeach
-                                <!-- <a href="" class="text-reset notification-item">
-                                    <div class="d-flex">
-                                        <img src="/assetsAdmin/images/users/avatar-3.jpg"
-                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                        <div class="flex-grow-1">
-                                            <h6 class="mt-0 mb-1">James Lemire</h6>
-                                            <div class="font-size-12 text-muted">
-                                                <p class="mb-1" key="t-simplified">It will seem like simplified English.
-                                                </p>
-                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                        key="t-hours-ago">1 hours ago</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="" class="text-reset notification-item">
-                                    <div class="d-flex">
-                                        <div class="avatar-xs me-3">
-                                            <span class="avatar-title bg-success rounded-circle font-size-16">
-                                                <i class="bx bx-badge-check"></i>
-                                            </span>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <h6 class="mt-0 mb-1" key="t-shipped">Your item is shipped</h6>
-                                            <div class="font-size-12 text-muted">
-                                                <p class="mb-1" key="t-grammer">If several languages coalesce the
-                                                    grammar</p>
-                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                        key="t-min-ago">3 min ago</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <a href="" class="text-reset notification-item">
-                                    <div class="d-flex">
-                                        <img src="/assetsAdmin/images/users/avatar-4.jpg"
-                                            class="me-3 rounded-circle avatar-xs" alt="user-pic">
-                                        <div class="flex-grow-1">
-                                            <h6 class="mt-0 mb-1">Salena Layfield</h6>
-                                            <div class="font-size-12 text-muted">
-                                                <p class="mb-1" key="t-occidental">As a skeptical Cambridge friend of
-                                                    mine occidental.</p>
-                                                <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span
-                                                        key="t-hours-ago">1 hours ago</span></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a> -->
+                            <div data-simplebar class="notificationsHere" style="max-height: 230px;">
+                                
                             </div>
                         </div>
                     </div>

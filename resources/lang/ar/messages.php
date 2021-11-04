@@ -127,7 +127,12 @@ return [
     'Policy_en' => 'سياسة البيع والخصوصية(English)',
     'Policy_ar' => 'سياسة البيع والخصوصية(Arabic)',
     'Edit Policy' => 'تعديل سياسة البيع والخصوصية',
-    'Edit Terms' => 'تعديل الشروط والأحكام'
+    'Edit Terms' => 'تعديل الشروط والأحكام',
+    'Show Subscriptions' => 'عرض الاشتراك',
+    'Order Percenatge' => 'نسبة الطلب',
+    'Accept' => 'قبول',
+    'Show' => 'عرض',
+    'Verified' => 'مقبول'
 ]
 
 ?>

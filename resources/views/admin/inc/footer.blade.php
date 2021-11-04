@@ -13,6 +13,7 @@
         </div>
     </footer>
 </div>
+    <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 
     <script src="/assetsAdmin/libs/jquery/jquery.min.js"></script>
     <script src="/assetsAdmin/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -24,6 +25,76 @@
     <!-- App js -->
     <script src="/assetsAdmin/js/app.js"></script>
     <!-- <script src="assetsAdmin/js/ajax.js"></script> -->
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url:'/app()->getLocale()/admin/notificationsCount',
+                method:'GET',
+                success:function(data){
+                    if(data == 0){
+                        $('.noti-icon .badge').empty();
+                        $('.noti-icon .badge').text('');
+                    }else{
+                        $('.noti-icon .badge').empty();
+                        $('.noti-icon .badge').html(data);
+                    }
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+
+            $.ajax({
+                url:'/app()->getLocale()/admin/notifications',
+                method:'GET',
+                success:function(data){
+                    $('.notificationsHere .simplebar-content').empty();
+                    $('.notificationsHere .simplebar-content').html(data);
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+        });
+        // Pusher.logToConsole = true;
+
+        var pusher = new Pusher('a6d2c7d89b93ffd80d88', {
+            cluster: 'eu'
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function(data) {
+            $.ajax({
+                url:'/app()->getLocale()/admin/notificationsCount',
+                method:'GET',
+                success:function(data){
+                    if(data != null){
+                        $('.noti-icon .badge').empty();
+                        $('.noti-icon .badge').html(data);
+                    }else{
+                        $('.noti-icon .badge').empty();
+                    }
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+
+            $.ajax({
+                url:'/app()->getLocale()/admin/notifications',
+                method:'GET',
+                success:function(data){
+                    $('.notificationsHere .simplebar-content').empty();
+                    $('.notificationsHere .simplebar-content').html(data);
+                },
+                error:function(error){
+                    console.log(error);
+                }
+            });
+
+            console.log(data);
+        });
+    </script>
 </body>
 
 </html>

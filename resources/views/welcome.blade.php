@@ -3,13 +3,15 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="We provide you with a system for receiving internal and external orders for your store with steps change your orders online and increase your customers">
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+        <link href="assets/img/logos/stepIcon.png" rel="shortcut icon">
 
-        <title>Electronic Steps System</title>
+        <title>Steps</title>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
         <link href="assets/css/loaders/loader-pulse.css" rel="stylesheet" type="text/css" media="all" />
         <!-- End loading animation -->
         <link href="assets/css/theme.css" rel="stylesheet" type="text/css" media="all" />
-        <link href="assets/img/logos/stepIcon.png" rel="icon">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
     </head>
     <body style="overflow:auto;font-family:ap;">

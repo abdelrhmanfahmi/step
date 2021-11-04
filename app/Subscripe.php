@@ -14,7 +14,9 @@ class Subscripe extends Model
         'manager',
         'phone',
         'email',
-        'password'
+        'password',
+        'status',
+        'order_percentage'
     ];
 
     public function notifications_subscripe(){

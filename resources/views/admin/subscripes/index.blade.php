@@ -5,6 +5,45 @@
         overflow: unset !important;
         padding-right: 0px !important;
     }
+    .dropbtn {
+  background-color: #495057;
+  color: white;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2A3042;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 80px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
 </style>
     <div class="main-content" id="result">
         <div class="page-content">
@@ -53,8 +92,18 @@
                                                         <td>{{$subscripe->email}}</td>
                                                         <td>{{$subscripe->company_kind}}</td>
                                                         <td>
-                                                            <a href="edit/subscripes/{{$subscripe->id}}" class="btn btn-success">{{__('messages.Edit')}}</a>
-                                                            <a data-swal-template="#my-template{{$subscripe->id}}" class="btn btn-danger">{{__('messages.Delete')}}</a>
+                                                        <div class="dropdown">
+                                                            <button data-id="{{$subscripe->id}}" class="dropbtn"><i class="fas fa-ellipsis-v"></i></button>
+                                                            <div id="myDropdown{{$subscripe->id}}" class="dropdown-content">
+                                                                @if($subscripe->status == 0)
+                                                                    <a href="show/subscripes/{{$subscripe->id}}" class="btn btn-primary dropdown-item">{{__('messages.Show')}}</a>
+                                                                @else
+                                                                    <a href="show/subscripes/{{$subscripe->id}}" class="btn btn-primary dropdown-item disabled" style="background-color:#fff;border-color:#cecaca;color:#000;">{{__('messages.Verified')}}</a>
+                                                                @endif
+                                                                <a href="edit/subscripes/{{$subscripe->id}}" class="btn btn-success dropdown-item">{{__('messages.Edit')}}</a>
+                                                                <a data-swal-template="#my-template{{$subscripe->id}}" class="btn btn-danger dropdown-item">{{__('messages.Delete')}}</a>
+                                                            </div>
+                                                        </div>
                                                         </td>
                                                     </tr>
                                                     <template id="my-template{{$subscripe->id}}">
@@ -89,6 +138,26 @@
         </div>
     </div>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('.dropbtn').on('click' , function(e){
+            console.log(e.target.getAttribute('data-id'));
+            var id = e.target.getAttribute('data-id');
+            document.getElementById("myDropdown"+id).classList.toggle("show");
+        });
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
     <script>
         Swal.bindClickHandler()
     

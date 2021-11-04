@@ -98,6 +98,13 @@
                                         </div>
                                     </div>
 
+                                    <div class="mb-3 row">
+                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Order Percenatge')}}</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" name="order_percentage" id="order_percentage" placeholder="Enter Order Percenatge" value="{{$subscripes->order_percentage}}" type="text">
+                                        </div>
+                                    </div>
+
                                     
 
                                     <div class="mb-3 row">
@@ -137,6 +144,7 @@
                 var phone = $('#phone').val();
                 var email = $('#email').val();
                 var password = $('#password').val();
+                var order_percentage = $('#order_percentage').val();
                 
 
                 var formData = new FormData();
@@ -147,6 +155,7 @@
                 formData.append('phone' , phone);
                 formData.append('email' , email);
                 formData.append('password' , password);
+                formData.append('order_percentage' , order_percentage);
 
                 $.ajax({
                     url:"{{route('subscripes.update' , ['language' => app()->getLocale() , 'id' => request()->id])}}",

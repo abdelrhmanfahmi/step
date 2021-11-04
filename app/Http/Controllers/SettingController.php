@@ -7,6 +7,7 @@ use App\Setting;
 use App\Benifit;
 use App\Common;
 use App\Contact;
+use App\Events\MyEvent;
 use App\NewsLetter;
 use App\Notification;
 use App\PackagesServices;
@@ -63,6 +64,7 @@ class SettingController extends Controller
             $notifications->viewed = 0;
 
             $notifications->save();
+            event(new MyEvent($notifications));
 
         return response()->json($contact);
         });
@@ -114,6 +116,7 @@ class SettingController extends Controller
             $notifications->viewed = 0;
             
             $notifications->save();
+            event(new MyEvent($notifications));
         });
     }
 

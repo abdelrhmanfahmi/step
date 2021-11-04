@@ -108,7 +108,7 @@
                                         <input v-model="store_name" type="text" class="form-control text-right" placeholder="اكتب هنا">
                                         <div class="invalid-feedback" v-if="errors.store_name" style="display:block;">{{ errors.store_name[0] }}</div>
                                     </div>
-                                    <div class="col-md-12 mb-3">
+                                    <div class="col-md-12 mb-3 text-right">
                                         <label>{{ $t('Store Link') }}</label>
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
@@ -165,12 +165,12 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-12 text-right">
-                                        <p>بالتسجيل فأنا أوافق على <router-link :to="`/${i18n.locale}/terms`" target="_blank" exact>
-                                            <a>الشروط و الأحكام</a>
+                                        <p>بالتسجيل فإني قرأت وأوافق على <router-link :to="`/${i18n.locale}/terms`" target="_blank" exact>
+                                            <a>اتفاقية الاستخدام</a>
                                         </router-link> 
                                         و
                                         <router-link :to="`/${i18n.locale}/policy`" target="_blank" exact>
-                                            <a>سياسة الخصوصية والبيع</a>
+                                            <a>سياسة الخصوصية</a>
                                         </router-link>
                                          على منصة ستيبس</p>
                                     </div>
@@ -250,12 +250,12 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <p>By registering, I agree to the <router-link :to="`/${i18n.locale}/terms`" target="_blank" exact>
-                                            <a> terms and conditions </a>
+                                        <p>By registering, I have read and agree to<router-link :to="`/${i18n.locale}/terms`" target="_blank" exact>
+                                            <a> Usage Agreement </a>
                                         </router-link> 
                                         and
                                         <router-link :to="`/${i18n.locale}/policy`" target="_blank" exact>
-                                            <a> privacy policy and sale </a>
+                                            <a> privacy policy </a>
                                         </router-link>
                                         on the Steps platform</p>
                                     </div>

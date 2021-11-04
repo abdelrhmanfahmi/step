@@ -51,12 +51,12 @@
                                                 @foreach($policies as $policy)
                                                     @if( Config::get('app.locale') == 'en' )
                                                         <tr>
-                                                            <td>{!! Str::limit($policy->policy_en, 100) !!}</td>
+                                                            <td>{!! Str::limit(strip_tags($policy->policy_en) , 100) !!}</td>
                                                             <td><a href="edit/policies/{{$policy->id}}" class="btn btn-success">{{__('messages.Edit')}}</a></td>
                                                         </tr>
                                                     @else
                                                         <tr>
-                                                            <td>{!! Str::limit($policy->policy_ar, 100) !!}</td>
+                                                            <td>{!! Str::limit(strip_tags($policy->policy_ar) , 100) !!}</td>
                                                             <td><a href="edit/policies/{{$policy->id}}" class="btn btn-success">{{__('messages.Edit')}}</a></td>
                                                         </tr>
                                                     @endif

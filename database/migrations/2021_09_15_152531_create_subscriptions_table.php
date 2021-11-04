@@ -22,6 +22,8 @@ class CreateSubscriptionsTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('password');
+            $table->integer('status')->nullable();
+            $table->integer('order_percentage')->nullable();
             $table->timestamps();
         });
     }

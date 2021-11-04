@@ -51,12 +51,12 @@
                                                 @foreach($terms as $term)
                                                     @if( Config::get('app.locale') == 'en' )
                                                         <tr>
-                                                            <td>{!! Str::limit($term->term_en, 100) !!}</td>
+                                                            <td>{!! Str::limit(strip_tags($term->term_en) , 100) !!}</td>
                                                             <td><a href="edit/terms/{{$term->id}}" class="btn btn-success">{{__('messages.Edit')}}</a></td>
                                                         </tr>
                                                     @else
                                                         <tr>
-                                                            <td>{!! Str::limit($term->term_ar, 100) !!}</td>
+                                                            <td>{!! Str::limit(strip_tags($term->term_ar) , 100) !!}</td>
                                                             <td><a href="edit/terms/{{$term->id}}" class="btn btn-success">{{__('messages.Edit')}}</a></td>
                                                         </tr>
                                                     @endif

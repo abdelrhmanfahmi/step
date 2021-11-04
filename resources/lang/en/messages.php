@@ -128,7 +128,12 @@ return [
     'Policy_en' => 'Policy(English)',
     'Policy_ar' => 'Policy(Arabic)',
     'Edit Policy' => 'Edit Policy',
-    'Edit Terms' => 'Edit Terms'
+    'Edit Terms' => 'Edit Terms',
+    'Show Subscriptions' => 'Show Subscriptions',
+    'Order Percenatge' => 'Order Percenatge',
+    'Accept' => 'Accept',
+    'Show' => 'Show',
+    'Verified' => 'Verified'
 ]
 
 ?>

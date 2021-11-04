@@ -21,6 +21,7 @@ Route::get('/', function () {
 //     return view('welcome');
 // })->where('any','.*')->name('home');
 
+
 Auth::routes();
 
 Route::redirect('/admin' , '/en/admin');
@@ -92,10 +93,16 @@ Route::group(['prefix' => '{language}/admin'] , function (){
 
     //Subscribtions
     Route::get('/subscripes' , 'Admin\SubscripeController@index')->name('subscripes.index');
+    Route::get('/show/subscripes/{id}' , 'Admin\SubscripeController@show')->name('subscripes.show');
+    Route::get('/accept/subscripes/{id}' , 'Admin\SubscripeController@accept')->name('subscripes.accept');
     Route::get('/edit/subscripes/{id}' , 'Admin\SubscripeController@edit')->name('subscripes.edit');
     Route::post('/update/subscripes/{id}' , 'Admin\SubscripeController@update')->name('subscripes.update');
     Route::get('/delete/subscripes/{id}' , 'Admin\SubscripeController@delete')->name('subscripes.delete');
 
+    //notifications ajax
+    Route::get('/notifications' , 'Admin\SubscripeController@getNotifications')->name('subscripes.notificatons');
+    Route::get('/notificationsCount' , 'Admin\SubscripeController@getNumberNotification')->name('subscripes.numberNotification');
+    
     //Sub_Services
     Route::get('/sub_services' , 'Admin\SubServicController@index')->name('sub_services.index');
     Route::get('/create/sub_services' , 'Admin\SubServicController@create')->name('sub_services.create');
