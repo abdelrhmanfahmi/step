@@ -30,6 +30,13 @@
                 </li>
 
                 <li>
+                    <a href="{{route('sales.index' , app()->getLocale())}}" class="waves-effect">
+                        <i class="fas fa-comment-dollar"></i>
+                        <span key="t-newsletter">{{__('messages.Sales')}}</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="{{route('contacts.index' , app()->getLocale())}}" class="waves-effect">
                         <i class="bx bxs-user-detail"></i>
                         <span key="t-contacts">{{__('messages.Contacts')}}</span>

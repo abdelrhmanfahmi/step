@@ -132,7 +132,21 @@ return [
     'Order Percenatge' => 'نسبة الطلب',
     'Accept' => 'قبول',
     'Show' => 'عرض',
-    'Verified' => 'مقبول'
+    'Verified' => 'مقبول',
+    'Sales' => 'المبيعات',
+    'Logo' => 'اللوجو',
+    'Orders' => 'عدد الطلبات',
+    'Total' => 'السعر الكلي للطلبات',
+    'Steps Percentage' => 'نسبة ستيبس',
+    'Price After Percentage' => 'السعر بعد نسبة ستيبس',
+    'Filtering' => 'تصفية',
+    'Show Sales' => 'عرض تفاصيل المبيعات',
+    'Bank Name' => 'اسم البنك',
+    'Account Number' => 'رقم الحساب',
+    'IPAN' => 'الآيبان',
+    'Filtering Date' => 'تاريخ التصفية',
+    'Bank Information' => 'معلومات البنك',
+    'History' => 'التصفيات القديمة'
 ]
 
 ?>

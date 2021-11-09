@@ -133,7 +133,22 @@ return [
     'Order Percenatge' => 'Order Percenatge',
     'Accept' => 'Accept',
     'Show' => 'Show',
-    'Verified' => 'Verified'
+    'Verified' => 'Verified',
+    'Sales' => 'Sales',
+    'Logo' => 'Logo',
+    'Orders' => 'Orders',
+    'Total' => 'Total',
+    'Steps Percentage' => 'Steps Percentage',
+    'Price After Percentage' => 'Price After Percentage',
+    'Filtering' => 'Filtering',
+    'Show Sales' => 'Show Sales',
+    'Bank Name' => 'Bank Name',
+    'Account Number' => 'Account Number',
+    'IPAN' => 'IPAN',
+    'Filtering Date' => 'Filtering Date',
+    'Bank Information' => 'Bank Information',
+    'History' => 'History'
+
 ]
 
 ?>

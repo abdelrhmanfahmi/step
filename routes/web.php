@@ -99,6 +99,10 @@ Route::group(['prefix' => '{language}/admin'] , function (){
     Route::post('/update/subscripes/{id}' , 'Admin\SubscripeController@update')->name('subscripes.update');
     Route::get('/delete/subscripes/{id}' , 'Admin\SubscripeController@delete')->name('subscripes.delete');
 
+    //dummy data for sales pages
+    Route::get('/sales' , 'Admin\SubscripeController@sales')->name('sales.index');
+    Route::get('/show/sales/{id}' , 'Admin\SubscripeController@showSales')->name('sales.show');
+
     //notifications ajax
     Route::get('/notifications' , 'Admin\SubscripeController@getNotifications')->name('subscripes.notificatons');
     Route::get('/notificationsCount' , 'Admin\SubscripeController@getNumberNotification')->name('subscripes.numberNotification');

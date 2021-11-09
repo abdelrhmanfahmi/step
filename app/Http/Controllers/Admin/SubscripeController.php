@@ -79,4 +79,12 @@ class SubscripeController extends Controller
         $count = Notification::where("viewed" , "=" , 0)->count();
         return response()->json($count);
     }
+
+    public function sales(){
+        return view('admin.sales');
+    }
+
+    public function showSales($language , $id){
+        return view('admin.showSales' , ['language' => $language]);
+    }
 }
