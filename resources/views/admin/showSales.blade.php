@@ -159,6 +159,12 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
+                                    <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Account Number')}}</label>
+                                    <div class="col-md-10">
+                                        <input class="form-control" name="store_link" id="store_link7" placeholder="Enter Store Link" value="xxxxxxxxxxxx2367" type="text" disabled style="background-color:#fff;">
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
                                     <div class="col-md-10">
                                         <button class="btn btn-success" id="filiterButton">{{__('messages.Filtering')}}</button>
                                     </div>
