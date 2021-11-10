@@ -138,15 +138,21 @@ return [
     'Orders' => 'عدد الطلبات',
     'Total' => 'السعر الكلي للطلبات',
     'Steps Percentage' => 'نسبة ستيبس',
-    'Price After Percentage' => 'السعر بعد نسبة ستيبس',
+    'App Total' => 'السعر بعد نسبة ستيبس',
     'Filtering' => 'تصفية',
     'Show Sales' => 'عرض تفاصيل المبيعات',
     'Bank Name' => 'اسم البنك',
     'Account Number' => 'رقم الحساب',
-    'IPAN' => 'الآيبان',
+    'IBAN' => 'الآيبان',
+    'Bank Logo' => 'اللوجو',
     'Filtering Date' => 'تاريخ التصفية',
     'Bank Information' => 'معلومات البنك',
-    'History' => 'التصفيات القديمة'
+    'History' => 'التصفيات القديمة',
+    'Vendor' => 'المالك',
+    'Domain' => 'رابط الموقع',
+    'From Date' => 'من تاريخ',
+    'To Date' => 'إلي تاريخ',
+    'Filtering Last Date' => 'تاريخ آخر تصفية'
 ]
 
 ?>

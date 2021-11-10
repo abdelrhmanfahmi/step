@@ -38,34 +38,28 @@
                                             <thead>
                                                 <tr>
                                                     <th data-priority="2">{{__('messages.Logo')}}</th>
-                                                    <th data-priority="2">{{__('messages.Orders')}}</th>
-                                                    <th data-priority="2">{{__('messages.Total')}}</th>
-                                                    <th data-priority="2">{{__('messages.Steps Percentage')}}</th>
-                                                    <th data-priority="2">{{__('messages.Price After Percentage')}}</th>
+                                                    <th data-priority="2">{{__('messages.Vendor')}}</th>
+                                                    <th data-priority="2">{{__('messages.Domain')}}</th>
                                                     <th data-priority="2">{{__('messages.Actions')}}</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <img src="/assetsAdmin/images/logo.svg" width="50px" height="50px" alt="Logo">
+                                                        <img src="/assets/img/logos/stepsWhiteCopy.png" width="50px" height="50px" alt="">
                                                     </td>
-                                                    <td>1000</td>
-                                                    <td>100000</td>
-                                                    <td>10%</td>
-                                                    <td>90000</td>
+                                                    <td>Hardees</td>
+                                                    <td>https://steps.sa.com/hardees</td>
                                                     <td>
                                                     <a href="show/sales/1" class="btn btn-primary">{{__('messages.Show')}}</a>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>
-                                                        <img src="/assets/img/logos/stepsWhiteCopy.png" width="50px" height="50px" alt="Logo">
+                                                        <img src="/assetsAdmin/images/logo.svg" width="50px" height="50px" alt="">
                                                     </td>
-                                                    <td>500</td>
-                                                    <td>50000</td>
-                                                    <td>10%</td>
-                                                    <td>45000</td>
+                                                    <td>Macdonlads</td>
+                                                    <td>https://steps.sa.com/macdonlads</td>
                                                     <td>
                                                     <a href="show/sales/1" class="btn btn-primary">{{__('messages.Show')}}</a>
                                                     </td>

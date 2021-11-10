@@ -139,15 +139,21 @@ return [
     'Orders' => 'Orders',
     'Total' => 'Total',
     'Steps Percentage' => 'Steps Percentage',
-    'Price After Percentage' => 'Price After Percentage',
+    'App Total' => 'App Total',
     'Filtering' => 'Filtering',
     'Show Sales' => 'Show Sales',
     'Bank Name' => 'Bank Name',
     'Account Number' => 'Account Number',
-    'IPAN' => 'IPAN',
+    'IBAN' => 'IBAN',
+    'Bank Logo' => 'Bank Logo',
     'Filtering Date' => 'Filtering Date',
     'Bank Information' => 'Bank Information',
-    'History' => 'History'
+    'History' => 'History',
+    'Vendor' => 'Vendor',
+    'Domain' => 'Domain',
+    'From Date' => 'From Date',
+    'To Date' => 'To Date',
+    'Filtering Last Date' => 'Filtering Last Date'
 
 ]
 

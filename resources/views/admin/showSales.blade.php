@@ -32,31 +32,62 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-md-4 card text-center" style="width: 20rem;margin-left:15px;">
-                                <div class="card-header">Featured 1</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <div class="col-md-4">
+                                <div class="card mini-stats-wid">
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <div class="flex-grow-1">
+                                                <p class="text-muted fw-medium">{{__('messages.App Total')}}</p>
+                                                <h4 class="mb-0">SAR 10000</h4>
+                                            </div>
+
+                                            <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
+                                                <span class="avatar-title">
+                                                    <i class="fas fa-money-bill-wave font-size-24"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-footer text-muted"></div>
                             </div>
-                            <div class="col-md-4 card text-center" style="width: 20rem;margin-left:15px;">
-                                <div class="card-header">Featured 2</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <div class="col-md-4">
+                                <div class="card mini-stats-wid">
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <div class="flex-grow-1">
+                                                <p class="text-muted fw-medium">{{__('messages.Orders')}}</p>
+                                                <h4 class="mb-0">1000</h4>
+                                            </div>
+
+                                            <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
+                                                <span class="avatar-title rounded-circle bg-primary">
+                                                    <i class="bx bx-archive-in font-size-24"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-footer text-muted"></div>
                             </div>
-                            <div class="col-md-4 card text-center" style="width: 20rem;margin-left:15px;">
-                                <div class="card-header">Featured 3</div>
-                                <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <div class="col-md-4">
+                                <div class="card mini-stats-wid">
+                                    <div class="card-body">
+                                        <div class="d-flex">
+                                            <div class="flex-grow-1">
+                                                <p class="text-muted fw-medium">{{__('messages.Filtering Last Date')}}</p>
+                                                <h4 class="mb-0">2021-11-02</h4>
+                                            </div>
+
+                                            <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
+                                                <span class="avatar-title rounded-circle bg-primary">
+                                                    <i class="bx bx-calendar font-size-24"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-footer text-muted"></div>
                             </div>
                         </div>
+
                     </div>
                 </div>
                 
@@ -65,42 +96,47 @@
                         <div class="card">
                             <div class="card-body">
                                 <form>
-                                    <!-- <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Logo')}}</label>
-                                        <div class="col-md-10">
-                                            <img src="/assets/img/logos/stepsWhiteCopy.png" width="100px" height="100px" alt="">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                        <label for="example-text-input" style="font-size:15px;" class="col-md-4 col-form-label">{{__('messages.Vendor')}}</label>
+                                            <div class="col-md-10">
+                                                <h4>Hardees</h4>
+                                            </div>
                                         </div>
-                                    </div> -->
-
-                                    <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Orders')}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="store_link" id="store_link" placeholder="Enter Store Link" value="1000" type="text" disabled style="background-color:#fff;">
+                                        <div class="col-md-4 mb-3">
+                                        <label for="example-text-input" style="font-size:15px;" class="col-md-4 col-form-label">{{__('messages.Domain')}}</label>
+                                            <div class="col-md-10">
+                                                <h4>https://steps.sa.com/hardees</h4>
+                                            </div>
                                         </div>
-                                    </div>
-
-
-                                    <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Total')}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="manager" id="manager" placeholder="Enter Manager" value="100000" type="text" disabled style="background-color:#fff;">
-                                        </div>
-                                    </div>
-
-                                    <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Steps Percentage')}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="phone" id="phone" placeholder="Enter Phone" value="10%" type="text" disabled style="background-color:#fff;">
+                                        <div class="col-md-4 mb-3">
+                                        <label for="example-text-input" style="font-size:15px;" class="col-md-4 col-form-label">{{__('messages.Orders')}}</label>
+                                            <div class="col-md-10">
+                                                <h4>1000</h4>
+                                            </div>
                                         </div>
                                     </div>
 
-                                    <div class="mb-3 row">
-                                        <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Price After Percentage')}}</label>
-                                        <div class="col-md-10">
-                                            <input class="form-control" name="email" id="email" placeholder="Enter E-mail" value="90000" type="text" disabled style="background-color:#fff;">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-3">
+                                        <label for="example-text-input" style="font-size:15px;" class="col-md-4 col-form-label">{{__('messages.Total')}}</label>
+                                            <div class="col-md-10">
+                                                <h4>100000</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <label for="example-text-input" style="font-size:15px;" class="col-md-4 col-form-label">{{__('messages.Steps Percentage')}}</label>
+                                            <div class="col-md-10">
+                                                <h4>10%</h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mb-3">
+                                        <label for="example-text-input" style="font-size:15px;" class="col-md-4 col-form-label">{{__('messages.App Total')}}</label>
+                                            <div class="col-md-10">
+                                                <h4>10000</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                   
                                 </form>
                             </div>
                         </div>
@@ -112,24 +148,28 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <div class="mb-3 row">
+                                <div class="mb-3 d-flex bd-highlight row">
                                     <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Bank Name')}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" name="store_link" id="store_link1" placeholder="Enter Store Link" value="Emarates Bank" type="text" disabled style="background-color:#fff;">
+                                    <div class="col-md-6 p-2 flex-grow-1 bd-highlight">
+                                        <input class="form-control" name="store_link" id="store_link1" placeholder="Enter Store Link" value="البنك الأهلي التجاري" type="text" disabled style="background-color:#fff;">
+                                    </div>
+                                    <div class="col-md-1 bd-highlight">
+                                        <img src="/assetsAdmin/images/banks/Bank-01.png" height="70px" alt="">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
                                     <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Account Number')}}</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" name="store_link" id="store_link2" placeholder="Enter Store Link" value="1213354464632367" type="text" disabled style="background-color:#fff;">
+                                        <input class="form-control" name="store_link" id="store_link2" placeholder="Enter Store Link" value="xxxxxxxxxxxx2367" type="text" disabled style="background-color:#fff;">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.IPAN')}}</label>
+                                    <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.IBAN')}}</label>
                                     <div class="col-md-10">
                                         <input class="form-control" name="store_link" id="store_link3" placeholder="Enter Store Link" value="12343434" type="text" disabled style="background-color:#fff;">
                                     </div>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>
@@ -141,32 +181,46 @@
                         <div class="card">
                             <div class="card-body">
                                 <div class="mb-3 row">
-                                    <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Filtering Date')}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" name="store_link" id="store_link4" placeholder="Enter Store Link" value="2021-11-02" type="text" disabled style="background-color:#fff;">
+                                    <div class="col-md-6">
+                                        <label>{{__('messages.From Date')}}</label>
+                                        <input type="date" name="fromDate" id="fromDate" class="form-control">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>{{__('messages.To Date')}}</label>
+                                        <input type="date" name="toDate" id="toDate" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="table-rep-plugin">
+                                    <div class="table-responsive mb-0" data-pattern="priority-columns">
+                                        <table id="tech-companies-1" class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th data-priority="2">{{__('messages.Filtering Last Date')}}</th>
+                                                    <th data-priority="2">{{__('messages.Orders')}}</th>
+                                                    <th data-priority="2">{{__('messages.App Total')}}</th>
+                                                    <th data-priority="2">{{__('messages.Account Number')}}</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>2021-11-02</td>
+                                                    <td>1000</td>
+                                                    <td>10000</td>
+                                                    <td>xxxxxxxxxxxx2367</td>
+                                                </tr>
+                                                <tr>
+                                                <td>2021-11-03</td>
+                                                    <td>500</td>
+                                                    <td>50000</td>
+                                                    <td>xxxxxxxxxxxx1732</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Orders')}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" name="store_link" id="store_link5" placeholder="Enter Store Link" value="1000" type="text" disabled style="background-color:#fff;">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Price After Percentage')}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" name="store_link" id="store_link6" placeholder="Enter Store Link" value="90000" type="text" disabled style="background-color:#fff;">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Account Number')}}</label>
-                                    <div class="col-md-10">
-                                        <input class="form-control" name="store_link" id="store_link7" placeholder="Enter Store Link" value="xxxxxxxxxxxx2367" type="text" disabled style="background-color:#fff;">
-                                    </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <div class="col-md-10">
-                                        <button class="btn btn-success" id="filiterButton">{{__('messages.Filtering')}}</button>
+                                    <div class="col-md-12 text-center">
+                                        <button class="btn btn-success w-50 btn-lg" id="filiterButton">{{__('messages.Filtering')}}</button>
                                     </div>
                                 </div>
                             </div>
