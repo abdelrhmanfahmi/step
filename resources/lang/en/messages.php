@@ -139,7 +139,7 @@ return [
     'Orders' => 'Orders',
     'Total' => 'Total',
     'Steps Percentage' => 'Steps Percentage',
-    'App Total' => 'App Total',
+    'Steps fee' => 'Steps fee',
     'Filtering' => 'Filtering',
     'Show Sales' => 'Show Sales',
     'Bank Name' => 'Bank Name',
@@ -153,7 +153,8 @@ return [
     'Domain' => 'Domain',
     'From Date' => 'From Date',
     'To Date' => 'To Date',
-    'Filtering Last Date' => 'Filtering Last Date'
+    'Last Payment' => 'Last Payment',
+    'Amount' => 'Amount'
 
 ]
 

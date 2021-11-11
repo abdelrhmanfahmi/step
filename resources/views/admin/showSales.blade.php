@@ -37,7 +37,7 @@
                                     <div class="card-body">
                                         <div class="d-flex">
                                             <div class="flex-grow-1">
-                                                <p class="text-muted fw-medium">{{__('messages.App Total')}}</p>
+                                                <p class="text-muted fw-medium">{{__('messages.Steps fee')}}</p>
                                                 <h4 class="mb-0">SAR 10000</h4>
                                             </div>
 
@@ -73,7 +73,7 @@
                                     <div class="card-body">
                                         <div class="d-flex">
                                             <div class="flex-grow-1">
-                                                <p class="text-muted fw-medium">{{__('messages.Filtering Last Date')}}</p>
+                                                <p class="text-muted fw-medium">{{__('messages.Last Payment')}}</p>
                                                 <h4 class="mb-0">2021-11-02</h4>
                                             </div>
 
@@ -131,7 +131,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 mb-3">
-                                        <label for="example-text-input" style="font-size:15px;" class="col-md-4 col-form-label">{{__('messages.App Total')}}</label>
+                                        <label for="example-text-input" style="font-size:15px;" class="col-md-4 col-form-label">{{__('messages.Steps fee')}}</label>
                                             <div class="col-md-10">
                                                 <h4>10000</h4>
                                             </div>
@@ -154,7 +154,7 @@
                                         <input class="form-control" name="store_link" id="store_link1" placeholder="Enter Store Link" value="البنك الأهلي التجاري" type="text" disabled style="background-color:#fff;">
                                     </div>
                                     <div class="col-md-1 bd-highlight">
-                                        <img src="/assetsAdmin/images/banks/Bank-01.png" height="70px" alt="">
+                                        <img src="/assetsAdmin/images/banks/Al-ahly Bank.png" height="45px" alt="">
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
@@ -166,7 +166,7 @@
                                 <div class="mb-3 row">
                                     <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.IBAN')}}</label>
                                     <div class="col-md-10">
-                                        <input class="form-control" name="store_link" id="store_link3" placeholder="Enter Store Link" value="12343434" type="text" disabled style="background-color:#fff;">
+                                        <input class="form-control" name="store_link" id="store_link3" placeholder="Enter Store Link" value="1234343454564454646" type="text" disabled style="background-color:#fff;">
                                     </div>
                                 </div>
                                 
@@ -195,9 +195,9 @@
                                         <table id="tech-companies-1" class="table table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th data-priority="2">{{__('messages.Filtering Last Date')}}</th>
+                                                    <th data-priority="2">{{__('messages.Last Payment')}}</th>
                                                     <th data-priority="2">{{__('messages.Orders')}}</th>
-                                                    <th data-priority="2">{{__('messages.App Total')}}</th>
+                                                    <th data-priority="2">{{__('messages.Amount')}}</th>
                                                     <th data-priority="2">{{__('messages.Account Number')}}</th>
                                                 </tr>
                                             </thead>
@@ -205,8 +205,26 @@
                                                 <tr>
                                                     <td>2021-11-02</td>
                                                     <td>1000</td>
-                                                    <td>10000</td>
+                                                    <td>90000</td>
                                                     <td>xxxxxxxxxxxx2367</td>
+                                                </tr>
+                                                <tr>
+                                                <td>2021-11-03</td>
+                                                    <td>500</td>
+                                                    <td>50000</td>
+                                                    <td>xxxxxxxxxxxx1732</td>
+                                                </tr>
+                                                <tr>
+                                                <td>2021-11-03</td>
+                                                    <td>500</td>
+                                                    <td>50000</td>
+                                                    <td>xxxxxxxxxxxx1732</td>
+                                                </tr>
+                                                <tr>
+                                                <td>2021-11-03</td>
+                                                    <td>500</td>
+                                                    <td>50000</td>
+                                                    <td>xxxxxxxxxxxx1732</td>
                                                 </tr>
                                                 <tr>
                                                 <td>2021-11-03</td>
@@ -219,7 +237,7 @@
                                     </div>
                                 </div>
                                 <div class="mb-3 row">
-                                    <div class="col-md-12 text-center">
+                                    <div class="col-md-12 pt-4 text-center">
                                         <button class="btn btn-success w-50 btn-lg" id="filiterButton">{{__('messages.Filtering')}}</button>
                                     </div>
                                 </div>

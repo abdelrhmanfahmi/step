@@ -138,7 +138,7 @@ return [
     'Orders' => 'عدد الطلبات',
     'Total' => 'السعر الكلي للطلبات',
     'Steps Percentage' => 'نسبة ستيبس',
-    'App Total' => 'السعر بعد نسبة ستيبس',
+    'Steps fee' => 'السعر بعد نسبة ستيبس',
     'Filtering' => 'تصفية',
     'Show Sales' => 'عرض تفاصيل المبيعات',
     'Bank Name' => 'اسم البنك',
@@ -152,7 +152,8 @@ return [
     'Domain' => 'رابط الموقع',
     'From Date' => 'من تاريخ',
     'To Date' => 'إلي تاريخ',
-    'Filtering Last Date' => 'تاريخ آخر تصفية'
+    'Last Payment' => 'تاريخ آخر تصفية',
+    'Amount' => 'نسبة المطعم'
 ]
 
 ?>
