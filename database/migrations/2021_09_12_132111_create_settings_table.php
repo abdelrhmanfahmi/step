@@ -21,6 +21,8 @@ class CreateSettingsTable extends Migration
             $table->text('breif_en')->nullable(false);
             $table->text('about_us_ar')->nullable(false);
             $table->text('about_us_en')->nullable(false);
+            $table->text('about_us_image')->nullable(false);
+            $table->text('why_steps_image')->nullable(false);
             $table->string('email')->nullable(false);
             $table->string('phone')->nullable(false);
             $table->string('address')->nullable(false);
