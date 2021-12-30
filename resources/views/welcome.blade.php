@@ -29,7 +29,7 @@
         </script>
         <script src="{{asset('js/app.js')}}"></script>
         <a href="#top" style="background-color:#6653ff;" class="btn rounded-circle btn-back-to-top" data-smooth-scroll data-aos="fade-up" data-aos-offset="2000" data-aos-mirror="true" data-aos-once="false">
-      <img src="assets/img/icons/interface/icon-arrow-up.svg" alt="Icon" class="icon bg-white" data-inject-svg>
+      {{-- <img src="assets/img/icons/interface/icon-arrow-up.svg" alt="Icon" class="icon bg-white" data-inject-svg> --}}
     </a>
     
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>

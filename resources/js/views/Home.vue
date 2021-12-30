@@ -36,13 +36,14 @@
                 </div>
             </div>
 
-
+<!--
             <div class="w-50 h-50 bottom left position-absolute" v-if="this.$route.params.lang == 'ar'" data-jarallax-element="50" style="position:relative;left:-290px">
                 <div class="blob blob-2 bg-gradient w-100 h-100" style="background:linear-gradient(to right, #301b72, #6653ff) !important;"></div>
             </div>
             <div class="w-50 h-50 bottom right position-absolute" v-else data-jarallax-element="50">
                 <div class="blob blob-2 bg-gradient w-100 h-100" style="background:linear-gradient(to right, #301b72, #6653ff) !important;"></div>
             </div>
+            -->
             <!-- <div class="w-50 h-50 bottom right position-absolute" data-jarallax-element="75">
                 <div class="blob blob-4 bg-white opacity-10 w-100 h-100"></div>
             </div> -->

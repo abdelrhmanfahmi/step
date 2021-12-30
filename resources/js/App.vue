@@ -9,7 +9,7 @@
                 <div class="container">
                     <router-link :to="`/${i18n.locale}`">
                         <a class="navbar-brand navbar-brand-dynamic-color">
-                            <img alt="Steps" class="stepsLogo" width="127px" height="36px" :src="'assets/img/logos/stepsWhiteCopy.png'">
+                            
                         </a>
                     </router-link>
                     
