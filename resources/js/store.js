@@ -6,8 +6,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state:{
-        apiURL:"https://stepos.herokuapp.com//api",
-        serverPath:"https://stepos.herokuapp.com//"
+        apiURL:"https://stepos.herokuapp.com/api",
+        serverPath:"https://stepos.herokuapp.com/"
     },
     mutations:{},
     actions:{}
