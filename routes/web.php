@@ -42,6 +42,8 @@ Route::group(['prefix' => '{language}/admin'] , function (){
 
     //settings
     Route::get('/settings' , 'Admin\SettingController@index')->name('settings.index');
+    Route::get('/create/settings' , 'Admin\SettingController@create')->name('settings.create')->middleware('verifiySetting');
+    Route::post('/store/settings' , 'Admin\SettingController@store')->name('settings.store');
     Route::get('/edit/settings/{id}' , 'Admin\SettingController@edit')->name('settings.edit');
     Route::post('/update/settings/{id}' , 'Admin\SettingController@update')->name('settings.update');
 

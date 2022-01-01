@@ -44,6 +44,20 @@
                                 <form id="submitForm" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3 row">
+                                        <label for="example-email-input" class="col-md-2 col-form-label">{{__('messages.Title_ar')}}</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" type="text" id="title_ar" name="title_ar" value="{{$settings->title_ar}}" placeholder="Enter Title_ar">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
+                                        <label for="example-email-input" class="col-md-2 col-form-label">{{__('messages.Title_en')}}</label>
+                                        <div class="col-md-10">
+                                            <input class="form-control" type="text" id="title_en" name="title_en" value="{{$settings->title_en}}" placeholder="Enter Title_en">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3 row">
                                         <label for="example-text-input" class="col-md-2 col-form-label">{{__('messages.Breif_ar')}}</label>
                                         <div class="col-md-10">
                                             <textarea name="breif_ar" id="breif_ar" dir="rtl" class="form-control" cols="30" rows="10" style="resize: none;">{!! $settings->breif_ar !!}</textarea>

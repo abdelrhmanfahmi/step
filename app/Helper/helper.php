@@ -1,7 +1,13 @@
 <?php
 
 use App\Notification;
+use App\Setting;
 use App\Subscripe;
+
+function checkSettings(){
+    $count = Setting::count();
+    return $count;
+}
 
 function getNumberOfSubscripes(){
     $count = Subscripe::count();

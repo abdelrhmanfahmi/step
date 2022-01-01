@@ -18,6 +18,62 @@ class SettingController extends Controller
         return view('admin.settings.index' , ['settings' => $settings]);
     }
 
+    public function create(){
+        return view ('admin.settings.create');
+    }
+
+    public function store(Request $request){
+        $request->validate([
+            'title_ar' => 'required',
+            'title_en' => 'required',
+            'breif_ar' => 'required',
+            'breif_en' => 'required',
+            'about_us_ar' => 'required',
+            'about_us_en' => 'required',
+            'about_us_image' => 'image|mimes:png,jpg,jpeg,svg',
+            'why_steps_image' => 'image|mimes:png,jpg,jpeg,svg',
+            'email' => 'required|email|max:255',
+            'phone' => 'required',
+            'address' => 'required|max:255',
+            'twitter' => 'required|max:255',
+            'facebook' => 'required|max:255',
+            'instagram' => 'required|max:255'
+        ]);
+
+        $settings = new Setting();
+
+        $settings->title_ar = $request->input('title_ar');
+        $settings->title_en = $request->input('title_en');
+        $settings->breif_ar = $request->input('breif_ar');
+        $settings->breif_en = $request->input('breif_en');
+        $settings->about_us_ar = $request->input('about_us_ar');
+        $settings->about_us_en = $request->input('about_us_en');
+
+        $file = $request->file('about_us_image');
+        $destinationPath = public_path(). '/uploads/';
+        $filename = uniqid() . '.' .  $file->extension();
+        $file->move($destinationPath, $filename);
+        $settings->about_us_image = $filename;
+
+        $file = $request->file('why_steps_image');
+        $destinationPath = public_path(). '/uploads/';
+        $filename = uniqid() . '.' .  $file->extension();
+        $file->move($destinationPath, $filename);
+        $settings->why_steps_image = $filename;
+
+        $settings->email = $request->input('email');
+        $settings->phone = $request->input('phone');
+        $settings->address = $request->input('address');
+        $settings->twitter = $request->input('twitter');
+        $settings->facebook = $request->input('facebook');
+        $settings->instagram = $request->input('instagram');
+
+        $settings->save();
+
+        // return redirect()->route('settings.index' , app()->getLocale());
+        return response()->json($settings);
+    }
+
     public function edit($language , $id){
         $settings = Setting::find($id);
         return view('admin.settings.edit' , ['language' => $language , 'settings' => $settings]);
@@ -25,6 +81,8 @@ class SettingController extends Controller
 
     public function update(Request $request , $id){
         $request->validate([
+            'title_ar' => 'required',
+            'title_en' => 'required',
             'breif_ar' => 'required',
             'breif_en' => 'required',
             'about_us_ar' => 'required',
@@ -41,6 +99,8 @@ class SettingController extends Controller
 
         $settings = Setting::find($request->id);
 
+        $settings->title_ar = $request->input('title_ar');
+        $settings->title_en = $request->input('title_en');
         $settings->breif_ar = $request->input('breif_ar');
         $settings->breif_en = $request->input('breif_en');
         $settings->about_us_ar = $request->input('about_us_ar');

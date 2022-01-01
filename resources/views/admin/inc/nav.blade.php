@@ -9,7 +9,7 @@
                 <li class="menu-title" key="t-menu">{{__('messages.Basic')}}</li>
 
                 <li>
-                    <a href="https://demo.steps.eightyythree.com" class="waves-effect">
+                    <a href="http://127.0.0.1:8000/" class="waves-effect">
                         <i class="fa fa-eye"></i>
                         <span key="t-dashboards">{{__('messages.Visit')}}</span>
                     </a>
@@ -48,6 +48,21 @@
                         <i class="bx bx-cog"></i>
                         <span key="t-cog">{{__('messages.Settings')}}</span>
                     </a>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="waves-effect">
+                        <i class="bx bx-briefcase"></i>
+                        <span key="t-settings">{{__('messages.Settings')}}</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('settings.index' , app()->getLocale())}}" key="t-settings">{{__('messages.Settings')}}</a></li>
+                        @if(checkSettings() > 0)
+                            
+                        @else
+                            <li><a href="{{route('settings.create' , app()->getLocale())}}" key="t-settings">{{__('messages.Add Settings')}}</a></li>
+                        @endif
+                    </ul>
                 </li>
 
                 <!-- <li>
